@@ -1,2 +1,2 @@
-# Slimesmash.github.io
+# SlimeSmash
 SlimeSmash game
