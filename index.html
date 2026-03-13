@@ -1,475 +1,521 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <title>SlimeSmash – Privacy Policy</title>
+  <title>SlimeSmash - Pop Slimes, Climb Leaderboards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Pop slimes, unlock pets, and climb the global leaderboards in SlimeSmash. Download free on Google Play!">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #020617;
-      --card: rgba(15, 23, 42, 0.6);
-      --border: rgba(56, 189, 248, 0.2);
-      --primary: #38bdf8;
-      --secondary: #818cf8;
-      --text: #f1f5f9;
-      --text-dim: #94a3b8;
+    /* ── THEME TOKENS ── */
+    [data-theme="dark"] {
+      --bg-base:  #0f1117;
+      --bg:       radial-gradient(circle at 50% -20%, rgba(62,207,110,0.15), #0f1117 60%);
+      --card:     #1a2030;
+      --border:   #2a3347;
+      --text:     #e8f0fe;
+      --text-dim: #8b9bbf;
+      --text-muted: #5a6a8a;
+      --green:    #3ecf6e;
+      --green-bg: rgba(62,207,110,0.1);
+      --btn-text: #0f1117;
+      --nav-bg:   rgba(15,17,23,0.85);
+      --shadow:   0 8px 32px rgba(0,0,0,0.4);
+    }
+    [data-theme="light"] {
+      --bg-base:  #f4f7f2;
+      --bg:       radial-gradient(circle at 50% -20%, rgba(42,154,80,0.12), #f4f7f2 60%);
+      --card:     #ffffff;
+      --border:   #dde8d8;
+      --text:     #1a2410;
+      --text-dim: #4a6040;
+      --text-muted: #7a9070;
+      --green:    #2a9a50;
+      --green-bg: rgba(42,154,80,0.08);
+      --btn-text: #ffffff;
+      --nav-bg:   rgba(244,247,242,0.85);
+      --shadow:   0 8px 32px rgba(0,0,0,0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background-color: var(--bg-base); }
 
     body {
-      font-family: 'Outfit', sans-serif;
-      background-color: var(--bg);
-      background-image: 
-        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      background-attachment: fixed;
       color: var(--text);
-      line-height: 1.6;
-      display: flex;
+      transition: color 0.3s;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.5rem; color: var(--green);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: transform 0.2s;
+    }
+    .nav-logo:hover { transform: scale(1.05); }
+    
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.8rem; }
+    .nav-links a {
+      color: var(--text-dim); text-decoration: none;
+      font-weight: 600; font-size: 0.95rem; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* theme toggle */
+    .theme-btn {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px;
+      cursor: pointer; font-size: 1.1rem; line-height: 1;
+      transition: all 0.2s ease;
+      color: var(--text);
+    }
+    .theme-btn:hover { border-color: var(--green); transform: translateY(-2px); }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh; padding: 8rem 2rem 3rem;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
       justify-content: center;
     }
 
-    .container {
-      max-width: 850px;
-      width: 90%;
-      padding: 5rem 0;
-      animation: fadeIn 0.8s ease-out;
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green-bg); border: 1px solid var(--green);
+      color: var(--green); font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -1px;
-      background: linear-gradient(to right, #fff, var(--primary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-
-    .last-updated {
-      color: var(--secondary);
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-    }
-
-    .section {
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 2.5rem;
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .section:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
+    /* Custom Game Logo CSS */
+    .hero-title-container {
       display: flex;
       align-items: center;
-      color: var(--primary);
+      justify-content: center;
+      font-family: 'Fredoka One', cursive;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+      -webkit-text-stroke: 2px #000; /* Adds black outline to letters */
+      text-shadow: 3px 3px 0px rgba(0,0,0,0.4);
+      letter-spacing: 2px;
+    }
+    .letter-s {
+      font-size: clamp(6rem, 18vw, 12rem);
+      color: #ffffff;
+      line-height: 0.8;
+      padding-right: 4px;
+    }
+    .stacked-letters {
+      display: flex;
+      flex-direction: column;
+      font-size: clamp(2.5rem, 8vw, 5.2rem);
+      line-height: 0.95;
+      text-align: left;
     }
 
-    h2::before {
-      content: '';
-      width: 4px;
-      height: 20px;
-      background: var(--primary);
-      margin-right: 12px;
-      border-radius: 4px;
-      box-shadow: 0 0 10px var(--primary);
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-dim); max-width: 500px;
+      margin: 1rem auto 2.5rem; font-weight: 500; line-height: 1.65;
+      animation: fadeUp 0.6s 0.2s ease both;
     }
 
-    h3 {
-      font-size: 1.2rem;
-      margin: 1.5rem 0 1rem;
-      color: var(--secondary);
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.6s 0.3s ease both; margin-bottom: 5rem;
     }
 
-    p, li {
-      color: var(--text-dim);
-      font-size: 1.05rem;
-      margin-bottom: 1rem;
+    .btn-dl, .btn-ghost {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px; border-radius: 12px;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.05rem;
+      text-decoration: none; transition: all 0.2s ease;
+    }
+    .btn-dl {
+      background: var(--green); color: var(--btn-text);
+      border: 2px solid var(--green);
+      box-shadow: 0 4px 15px rgba(62, 207, 110, 0.3);
+    }
+    .btn-dl:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 6px 20px rgba(62, 207, 110, 0.4); }
+
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border: 2px solid var(--border);
+    }
+    .btn-ghost:hover { transform: translateY(-3px); border-color: var(--green); color: var(--green); }
+    .play-icon { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+    /* ── FEATURES ── */
+    #features {
+      max-width: 1000px; margin: 6rem auto; padding: 0 2rem;
+    }
+    .section-label {
+      text-align: center; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 0.8rem;
+    }
+    .section-title {
+      text-align: center; font-family: 'Fredoka One', cursive;
+      font-size: clamp(2rem, 5vw, 2.8rem); color: var(--text);
+      margin-bottom: 3.5rem;
     }
 
-    strong { color: var(--text); }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+    .feature-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .feature-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
+    .feature-card h3 {
+      font-family: 'Fredoka One', cursive; font-size: 1.3rem;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+    .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
 
-    ul { list-style: none; }
-    li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; }
-    li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--secondary);
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px; max-width: 700px; margin: 5rem auto;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+    /* ── PRIVACY ── */
+    #privacy { max-width: 760px; margin: 0 auto; padding: 0 2rem 6rem; }
 
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.2s;
+    .privacy-header { text-align: center; margin-bottom: 3.5rem; }
+    .privacy-header h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(2.2rem, 6vw, 3.2rem); color: var(--text); margin-bottom: 0.5rem;
     }
+    .privacy-header p { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; }
 
-    a:hover {
-      color: var(--text);
-      text-shadow: 0 0 8px var(--primary);
+    .pcard {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.2rem; margin-bottom: 1.5rem;
+      box-shadow: var(--shadow); transition: border-color 0.3s;
     }
+    .pcard:hover { border-color: var(--green); }
+    .pcard h3 {
+      font-family: 'Fredoka One', cursive; font-size: 1.3rem;
+      color: var(--green); margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .pcard h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dim); margin: 1.5rem 0 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .pcard p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 0.8rem; }
+    .pcard ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .pcard li {
+      color: var(--text-muted); font-size: 0.98rem; padding-left: 1.5rem;
+      position: relative; line-height: 1.6;
+    }
+    .pcard li::before { content: '→'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .pcard li strong { color: var(--text); }
+    .pcard a { color: var(--green); font-weight: 600; text-decoration: none; border-bottom: 1px dashed var(--green); transition: opacity 0.2s; }
+    .pcard a:hover { opacity: 0.8; }
 
-    .contact-card {
-      text-align: center;
-      background: linear-gradient(145deg, rgba(56, 189, 248, 0.1), transparent);
+    .info-box {
+      background: var(--green-bg); border: 1px solid var(--green);
+      padding: 1.2rem 1.5rem; border-radius: 12px; margin: 1.5rem 0;
+      font-size: 0.95rem; color: var(--text-dim); line-height: 1.6;
     }
+    .info-box strong { color: var(--text); }
+
+    /* contact */
+    .contact-card { text-align: center; }
+    .contact-card h3 { justify-content: center; }
 
     .email-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 12px 30px;
-      background: var(--primary);
-      color: var(--bg);
-      border-radius: 50px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px;
+  margin-top: 1.5rem; 
+  padding: 14px 32px;
+  background: var(--green); 
+  color: #ffffff !important;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif; 
+  font-weight: 700; 
+  font-size: 1.05rem;
+  text-decoration: none; 
+  transition: transform 0.2s, filter 0.2s;
+  border: 2px solid var(--green);
+}
 
-    .email-btn:hover {
-      transform: scale(1.05);
-      background: #fff;
-      box-shadow: 0 0 20px var(--primary);
-    }
+.email-btn:hover { 
+  transform: translateY(-3px); 
+  filter: brightness(1.1); 
+  box-shadow: 0 4px 15px rgba(62, 207, 110, 0.3); 
+  color: #ffffff !important;
+}
 
-    .highlight-box {
-      background: rgba(56, 189, 248, 0.08);
-      border-left: 3px solid var(--primary);
-      padding: 1rem 1.5rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-    }
-
+    /* ── FOOTER ── */
     footer {
-      margin-top: 4rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-dim);
+      text-align: center; padding: 2.5rem; border-top: 1px solid var(--border);
+      color: var(--text-muted); font-size: 0.9rem; font-weight: 500; background: var(--nav-bg);
     }
 
-    @media (max-width: 600px) {
-      .section { padding: 1.5rem; }
-      .container { padding: 2rem 0; }
+    /* ── ANIM ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; } /* Clean up mobile nav */
+      .pcard { padding: 1.5rem; }
+      #privacy { padding: 0 1rem 4rem; }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <h1>SlimeSmash</h1>
-    <p class="last-updated">Privacy Policy • Effective January 27, 2026</p>
-  </header>
-
-  <div class="section">
-    <h2>Introduction</h2>
-    <p>
-      SlimeSmash Studios ("we," "us," or "our") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, share, and protect information when you use our mobile game SlimeSmash (the "Game").
-    </p>
-    <p>
-      <strong>Data Controller:</strong> SlimeSmash Studios<br>
-      <strong>Contact:</strong> SlimeSmash.Dev@gmail.com
-    </p>
-    <p>
-      By using the Game, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use the Game.
-    </p>
+<nav>
+  <a href="#home" class="nav-logo">🟢 SlimeSmash</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+    </div>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
   </div>
+</nav>
 
-  <div class="section">
-    <h2>1. Information We Collect</h2>
-    
-    <h3>1.1 Information Collected Automatically</h3>
-    <p>We collect the following data automatically when you use the Game:</p>
-    <ul>
-      <li><strong>Device Identifiers:</strong> Advertising ID, device model, operating system version, and app version for authentication and analytics</li>
-      <li><strong>Gameplay Data:</strong> Progress, levels completed, coins earned, achievements unlocked, and in-game statistics</li>
-      <li><strong>Technical Data:</strong> IP address (anonymized), crash reports, error logs, performance metrics, and diagnostic information</li>
-      <li><strong>Usage Data:</strong> Session duration, features used, and interaction patterns to improve game balance</li>
-    </ul>
-
-    <h3>1.2 Information You Provide</h3>
-    <ul>
-      <li><strong>Account Information:</strong> If you sign in via Google Play Games or similar services, we receive your service ID and public profile information (such as username/gamertag)</li>
-      <li><strong>Support Requests:</strong> Information you provide when contacting customer support</li>
-    </ul>
-
-    <h3>1.3 Information We Do NOT Collect</h3>
-    <p>We do <strong>not</strong> collect:</p>
-    <ul>
-      <li>Real names, physical addresses, or phone numbers</li>
-      <li>Precise geolocation data</li>
-      <li>Financial or payment information (any purchases are handled directly by app stores)</li>
-      <li>Sensitive personal data (health, biometric, racial/ethnic origin, political opinions, religious beliefs, etc.)</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>2. How We Use Your Information</h2>
-    <p>We use collected information for the following purposes:</p>
-    <ul>
-      <li><strong>Game Functionality:</strong> Enable cloud saves, cross-device progress synchronization, and account authentication</li>
-      <li><strong>Leaderboards & Social Features:</strong> Display rankings, achievements, and enable competitive features</li>
-      <li><strong>Game Improvement:</strong> Analyze gameplay patterns to improve balance, difficulty, and user experience</li>
-      <li><strong>Technical Operations:</strong> Monitor performance, fix bugs, prevent crashes, and maintain security</li>
-      <li><strong>Fraud Prevention:</strong> Detect and prevent cheating, unauthorized access, or other violations of our Terms of Service</li>
-      <li><strong>Remote Configuration:</strong> Update game settings, events, and features without requiring app updates</li>
-      <li><strong>Legal Compliance:</strong> Comply with legal obligations and enforce our policies</li>
-    </ul>
-    
-    <p><strong>Legal Basis for Processing (GDPR):</strong></p>
-    <ul>
-      <li>Performance of contract (providing game services)</li>
-      <li>Legitimate interests (improving our services, fraud prevention, analytics)</li>
-      <li>Consent (where required by law)</li>
-      <li>Legal obligation (compliance with laws)</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>3. Third-Party Services & Data Sharing</h2>
-    <p>We use third-party service providers to help operate the Game. These services may collect and process data on our behalf:</p>
-    
-    <h3>3.1 Service Providers</h3>
-    <ul>
-      <li>
-        <strong><a href="https://policies.google.com/privacy" target="_blank">Google Play Services</a></strong>
-        – Authentication, achievements, leaderboards, and cloud save<br>
-        <em>Data shared: Device identifiers, gameplay data, account ID</em>
-      </li>
-      <li>
-        <strong><a href="https://unity.com/legal/privacy-policy" target="_blank">Unity Gaming Services</a></strong>
-        – Cloud save, authentication, analytics, and remote configuration<br>
-        <em>Data shared: Device identifiers, technical data, usage statistics</em>
-      </li>
-    </ul>
-
-    <h3>3.2 Data Sharing Practices</h3>
-    <p>We <strong>do not sell or rent</strong> your personal information to third parties. We may share data only in the following circumstances:</p>
-    <ul>
-      <li><strong>Service Providers:</strong> With third parties listed above who process data on our behalf under strict contractual obligations</li>
-      <li><strong>Legal Requirements:</strong> When required by law, court order, or government request</li>
-      <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets (you will be notified)</li>
-      <li><strong>Protection of Rights:</strong> To protect our rights, property, safety, or that of our users</li>
-    </ul>
-
-    <h3>3.3 International Data Transfers</h3>
-    <p>Your data may be transferred to and processed in countries outside your residence, including the United States. We ensure adequate safeguards are in place, such as:</p>
-    <ul>
-      <li>Standard Contractual Clauses approved by the European Commission</li>
-      <li>Privacy Shield Framework (where applicable)</li>
-      <li>Service providers certified under recognized data protection programs</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>4. Your Privacy Rights</h2>
-    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
-
-    <h3>4.1 Rights for All Users</h3>
-    <ul>
-      <li><strong>Access:</strong> Request a copy of the personal data we hold about you</li>
-      <li><strong>Deletion:</strong> Request deletion of your personal data (see Section 5 below)</li>
-      <li><strong>Correction:</strong> Request correction of inaccurate data</li>
-      <li><strong>Withdrawal of Consent:</strong> Withdraw consent where processing is based on consent</li>
-    </ul>
-
-    <h3>4.2 Additional Rights (GDPR - EU/EEA Users)</h3>
-    <ul>
-      <li><strong>Data Portability:</strong> Receive your data in a structured, machine-readable format</li>
-      <li><strong>Restriction:</strong> Request restriction of processing in certain circumstances</li>
-      <li><strong>Objection:</strong> Object to processing based on legitimate interests</li>
-      <li><strong>Automated Decision-Making:</strong> Not be subject to decisions based solely on automated processing (we do not engage in such processing)</li>
-      <li><strong>Lodge a Complaint:</strong> File a complaint with your local data protection authority</li>
-    </ul>
-
-    <h3>4.3 California Privacy Rights (CCPA/CPRA)</h3>
-    <p>California residents have additional rights:</p>
-    <ul>
-      <li>Know what personal information is collected, used, shared, or sold</li>
-      <li>Request deletion of personal information</li>
-      <li>Opt-out of the sale of personal information (note: we do not sell personal information)</li>
-      <li>Non-discrimination for exercising these rights</li>
-    </ul>
-
-    <div class="highlight-box">
-      <strong>To Exercise Your Rights:</strong> Contact us at SlimeSmash.Dev@gmail.com or use the in-app deletion feature (Settings → Delete Account). We will respond within 30 days for GDPR requests and 45 days for CCPA requests.
+<section id="home">
+  <div class="hero-badge">🎮 Free on Google Play</div>
+  
+  <div class="hero-title-container">
+    <div class="letter-s">S</div>
+    <div class="stacked-letters">
+      <div>
+        <span style="color:#00FF00">L</span><span style="color:#FF0000">I</span><span style="color:#FFFF00">M</span><span style="color:#0000FF">E</span>
+      </div>
+      <div>
+        <span style="color:#00FF00">M</span><span style="color:#FF0000">A</span><span style="color:#FFFF00">S</span><span style="color:#0000FF">H</span>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h2>5. Data Deletion</h2>
-    <p>You have full control over your data and may delete it permanently at any time:</p>
-    
-    <h3>5.1 In-App Deletion</h3>
-    <p>Navigate to <strong>Settings → Delete Account</strong> within the Game. This will immediately and permanently delete:</p>
-    <ul>
-      <li>All cloud-saved game progress</li>
-      <li>Leaderboard entries and achievements</li>
-      <li>Account identifiers and associated data</li>
-    </ul>
+  <p class="hero-sub">Pop slimes, unlock pets, climb the leaderboards. Fast, fun, and totally addictive arcade action.</p>
 
-    <h3>5.2 Email Request</h3>
-    <p>Send a deletion request to <strong>SlimeSmash.Dev@gmail.com</strong> with the subject "Data Deletion Request" and include your user ID or account identifier. We will process your request within <strong>7 business days</strong>.</p>
+<div class="hero-btns">
 
-    <h3>5.3 Important Notes</h3>
-    <ul>
-      <li><strong>Deletion is permanent and irreversible</strong> – all game progress will be lost</li>
-      <li>Local data stored on your device must be deleted by uninstalling the app</li>
-      <li>Some anonymized analytics data may be retained for legal or operational purposes</li>
-      <li>We may retain certain data if required by law or for legitimate legal purposes</li>
-    </ul>
-  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash&hl=en" target="_blank">
+    <img 
+      src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+      alt="Get it on Google Play"
+      style="height:80px"
+    >
+  </a>
 
-  <div class="section">
-    <h2>6. Data Security & Retention</h2>
-    
-    <h3>6.1 Security Measures</h3>
-    <p>We implement industry-standard security measures to protect your data:</p>
-    <ul>
-      <li><strong>Encryption:</strong> All data transmissions use HTTPS/TLS encryption</li>
-      <li><strong>Access Controls:</strong> Strict internal access controls and authentication</li>
-      <li><strong>Secure Storage:</strong> Data stored on secure servers with regular security audits</li>
-      <li><strong>Monitoring:</strong> Continuous monitoring for security threats and vulnerabilities</li>
-    </ul>
-    <p>However, no method of transmission or storage is 100% secure. We cannot guarantee absolute security.</p>
+  <a href="#privacy" class="btn-ghost">Privacy Policy ↓</a>
 
-    <h3>6.2 Data Retention</h3>
-    <p>We retain personal data only as long as necessary for the purposes outlined in this policy:</p>
-    <ul>
-      <li><strong>Active accounts:</strong> Retained while you use the Game and for up to 12 months after last activity</li>
-      <li><strong>Deleted accounts:</strong> Permanently deleted within 7 days of deletion request</li>
-      <li><strong>Analytics data:</strong> Aggregated and anonymized data may be retained indefinitely for statistical purposes</li>
-      <li><strong>Legal obligations:</strong> Data required for legal compliance may be retained as required by law</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>7. Children's Privacy</h2>
-    <p>
-      SlimeSmash does not knowingly collect personal information from children under the age of 13 (or the applicable age of digital consent in your jurisdiction). The Game is intended for general audiences and does not target children.
-    </p>
-    <p>
-      If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <strong>SlimeSmash.Dev@gmail.com</strong>. We will promptly investigate and delete such information.
-    </p>
-    <p>
-      Parents can learn more about protecting children's privacy online at the <a href="https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children%27s-privacy" target="_blank">FTC's COPPA guidance</a>.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>8. Cookies & Tracking Technologies</h2>
-    <p>
-      SlimeSmash does not use browser cookies as it is a mobile application. However, our third-party service providers (Google Play Services, Unity) may use similar tracking technologies such as:
-    </p>
-    <ul>
-      <li><strong>SDK Identifiers:</strong> To track sessions and usage patterns</li>
-      <li><strong>Analytics Tools:</strong> To collect performance and behavioral data</li>
-      <li><strong>Advertising IDs:</strong> Device advertising identifiers for analytics (not for targeted advertising)</li>
-    </ul>
-    <p>
-      You can reset your advertising identifier in your device settings:
-    </p>
-    <ul>
-      <li><strong>Android:</strong> Settings → Google → Ads → Reset advertising ID</li>
-      <li><strong>iOS:</strong> Settings → Privacy → Tracking (or Apple Advertising)</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>9. Advertising</h2>
-    <p>
-      SlimeSmash currently <strong>does not</strong> display third-party advertisements. If we introduce advertising in the future, we will:
-    </p>
-    <ul>
-      <li>Update this Privacy Policy with details about ad partners and data collection</li>
-      <li>Provide opt-out mechanisms where required by law</li>
-      <li>Comply with all applicable advertising and privacy regulations</li>
-      <li>Never serve personalized ads to children</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>10. Changes to This Policy</h2>
-    <p>
-      We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or for other operational reasons. When we make changes:
-    </p>
-    <ul>
-      <li>The "Effective Date" at the top will be updated</li>
-      <li>Material changes will be communicated via in-app notification or email (if available)</li>
-      <li>Continued use of the Game after changes constitutes acceptance of the updated policy</li>
-    </ul>
-    <p>
-      We encourage you to review this policy periodically. The most current version will always be available at this URL and in the Game.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>11. Additional Regional Information</h2>
-    
-    <h3>11.1 European Economic Area (EEA) & UK</h3>
-    <p>For users in the EEA and UK, our legal basis for processing is as described in Section 2. You have the right to lodge a complaint with your supervisory authority:</p>
-    <ul>
-      <li><strong>EU:</strong> <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank">List of EU Data Protection Authorities</a></li>
-      <li><strong>UK:</strong> <a href="https://ico.org.uk/" target="_blank">Information Commissioner's Office (ICO)</a></li>
-    </ul>
-
-    <h3>11.2 California</h3>
-    <p>Under the California Consumer Privacy Act (CCPA), we do not:</p>
-    <ul>
-      <li>Sell personal information</li>
-      <li>Share personal information for cross-context behavioral advertising</li>
-      <li>Process sensitive personal information for purposes other than those permitted by law</li>
-    </ul>
-
-    <h3>11.3 Brazil</h3>
-    <p>For users in Brazil, this policy complies with the Lei Geral de Proteção de Dados (LGPD). You may exercise your rights by contacting us as described in Section 4.</p>
-  </div>
-
-  <div class="section contact-card">
-    <h2>Contact Us</h2>
-    <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal data:</p>
-    <p><strong>Email:</strong> SlimeSmash.Dev@gmail.com</p>
-    <p><strong>Response Time:</strong> We aim to respond within 48 hours for general inquiries and within the legally required timeframes for data rights requests.</p>
-    <a href="mailto:SlimeSmash.Dev@gmail.com" class="email-btn">Send Email</a>
-  </div>
-
-  <footer>
-    <p>&copy; 2026 SlimeSmash Studios. All rights reserved.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-      This Privacy Policy was last updated on January 27, 2026.
-    </p>
-  </footer>
 </div>
+</section>
+
+<section id="features">
+  <p class="section-label">What's in the game</p>
+  <h2 class="section-title">Everything you need to smash</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🐾</div>
+      <h3>Pets & Companions</h3>
+      <p>Unlock passive and active pets. Each one changes how you play.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🗺️</div>
+      <h3>Adventure Mode</h3>
+      <p>50+ levels with increasing difficulty, special slimes, and danger bars.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">♾️</div>
+      <h3>Casual Mode</h3>
+      <p>Endless waves, hearts, and unique slime effects. Just vibe and score.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <h3>Global Leaderboards</h3>
+      <p>Compete worldwide via Google Play. See how high you can climb.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎁</div>
+      <h3>Daily Rewards</h3>
+      <p>Streak-based daily coin rewards to keep things interesting.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>Upgrades & Store</h3>
+      <p>Spend coins to upgrade pets, unlock companions, and boost your power.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="privacy">
+  <div class="privacy-header">
+    <h2>Privacy Policy</h2>
+  </div>
+
+  <div class="pcard">
+    <h3>👋 Hey, real quick</h3>
+    <p>SlimeSmash is a solo indie game. I'm not a big company — just a developer who made a slime-popping game and wants to be upfront about how it works.</p>
+    <p>This page explains what data the game uses and why. No hidden stuff, no sketchy tracking. Just the basics needed to make the game run.</p>
+  </div>
+
+  <div class="pcard">
+    <h3>📦 What the game collects</h3>
+    <h4>Automatically collected</h4>
+    <ul>
+      <li><strong>Device info</strong> — phone model and Android version, so the game knows what it's running on</li>
+      <li><strong>Game progress</strong> — levels, coins, achievements</li>
+      <li><strong>Crash reports</strong> — if something breaks, error info is sent so I can fix it</li>
+      <li><strong>Play patterns</strong> — session length and which features you use, to help improve the game</li>
+    </ul>
+    <h4>If you sign in with Google Play</h4>
+    <ul>
+      <li>I get your Google Play username and ID — that's it. Nothing from your actual Google account.</li>
+    </ul>
+    <h4>What I do NOT collect</h4>
+    <ul>
+      <li>Your real name, address, or phone number</li>
+      <li>Your location</li>
+      <li>Payment info (the app store handles that, not me)</li>
+      <li>Photos, contacts, or anything else on your phone</li>
+    </ul>
+  </div>
+
+  <div class="pcard">
+    <h3>🔧 Why it's collected</h3>
+    <ul>
+      <li>To save your progress and sync it across devices</li>
+      <li>To make leaderboards and achievements work</li>
+      <li>To fix bugs when the game crashes</li>
+      <li>To understand what's fun so I can improve the game</li>
+      <li>To push game updates without you needing to re-download</li>
+    </ul>
+  </div>
+<div class="pcard">
+  <h3>🔌 Services the game uses</h3>
+
+  <p>SlimeSmash uses a few well-known services to make things like ads, leaderboards, saves, and notifications work.</p>
+
+  <p>These services may collect basic technical info required for their features. Each service follows its own privacy policy.</p>
+
+  <ul>
+    <li><strong>Google Play Games Services</strong> — leaderboards and achievements</li>
+    <li><strong>Google AdMob</strong> — in-game advertising</li>
+    <li><strong>Google User Messaging Platform (UMP)</strong> — consent management for ads</li>
+    <li><strong>Google In-App Review</strong> — allows rating the game inside the app</li>
+    <li><strong>Firebase Analytics</strong> — anonymous gameplay analytics</li>
+    <li><strong>Firebase Cloud Messaging</strong> — optional notifications</li>
+    <li><strong>Unity Remote Config</strong> — balancing gameplay remotely</li>
+    <li><strong>Unity Cloud Save</strong> — saving player progress</li>
+    <li><strong>Unity Authentication</strong> — player identification</li>
+    <li><strong>Unity Leaderboards</strong> — global score rankings</li>
+  </ul>
+<p>
+    You can read their privacy policies here:
+  </p>
+
+  <ul>
+    <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+    <li><a href="https://unity.com/legal/privacy-policy" target="_blank">Unity Privacy Policy</a></li>
+    <li><a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy & Security</a></li>
+  </ul>
+</div>
+<div class="pcard">
+  <h3>📢 Advertising</h3>
+  <p>
+    SlimeSmash may display advertisements through Google AdMob to help support development of the game.
+  </p>
+
+  <ul>
+    <li>Ads may use a device Advertising ID.</li>
+    <li>Where required by law, you will be asked for consent before personalized ads are shown.</li>
+    <li>You can reset or disable the Advertising ID in your device settings.</li>
+  </ul>
+</div>
+  <div class="pcard">
+    <h3>🔔 Notifications</h3>
+    <p>The game can send push notifications like daily reward reminders. You can turn these off anytime in your phone's notification settings.</p>
+  </div>
+<div class="pcard">
+  <h3>🔐 Data security</h3>
+  <p>
+    Reasonable security measures are used to protect player data. However,
+    no online service can guarantee absolute security.
+  </p>
+</div>
+  <div class="pcard">
+    <h3>🗑️ Want your data deleted?</h3>
+    <p>Easy — use <strong>Settings → Delete Account</strong> in the game, or send me an email. I'll delete everything within 7 days.</p>
+    <p>Just know it's permanent — progress, coins, and achievements can't come back after that.</p>
+    <div class="info-box">
+      <strong>How to delete:</strong> Settings → Delete Account in-game, or email <strong>SlimeSmash.Dev@gmail.com</strong> with "Data Deletion Request" in the subject line.
+    </div>
+  </div>
+
+  <div class="pcard">
+    <h3>👶 Kids</h3>
+    <p>SlimeSmash is for everyone. The game collects the same basic data from all players — I have no way of knowing a user's age. I don't intentionally target children and I don't collect anything beyond what's listed above. If you're a parent and something seems off, just email me and I'll sort it out straight away.</p>
+  </div>
+  <div class="pcard contact-card">
+    <h3>💬 Got questions?</h3>
+    <p>Have a question or a concern? Feel free to reach out — I'll get back to you as soon as I can.</p>
+    <p><strong>SlimeSmash.Dev@gmail.com</strong></p>
+<a href="mailto:slimesmashstudio@gmail.com?subject=SlimeSmash%20Support&body=Hi%20SlimeSmash%20Developer,%0A%0AI%20have%20a%20question%20about%20the%20game." class="email-btn">
+✉️ Send Email
+</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp; Last updated March 13, 2026.</p>
+</footer>
+
+<script>
+  // Theme Toggle Logic with LocalStorage Persistence
+  const btn = document.getElementById('themeBtn');
+  const html = document.documentElement;
+  
+  // Check local storage for saved theme, default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+  btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  btn.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Update button icon based on the new theme
+    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  });
+</script>
 
 </body>
 </html>
