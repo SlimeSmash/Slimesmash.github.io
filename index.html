@@ -5,6 +5,12 @@
   <title>SlimeSmash - Pop Slimes, Climb Leaderboards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Pop slimes, unlock pets, and climb the global leaderboards in SlimeSmash. Download free on Google Play!">
+  <meta name="keywords" content="slime game, arcade game, mobile game, android game, casual game, slime smash">
+  <meta name="author" content="SlimeSmash Developer">
+  <meta property="og:title" content="SlimeSmash - Pop Slimes & Climb Leaderboards">
+  <meta property="og:description" content="Fast-paced arcade slime game. Free on Google Play.">
+  <meta property="og:image" content="https://yourdomain.com/preview.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ── THEME TOKENS ── */
@@ -101,8 +107,6 @@
       margin-bottom: 1.5rem;
       animation: fadeUp 0.6s ease both;
     }
-
-    /* Custom Game Logo CSS */
     .hero-title-container {
       display: flex;
       align-items: center;
@@ -110,12 +114,12 @@
       font-family: 'Fredoka One', cursive;
       margin-bottom: 1.5rem;
       animation: fadeUp 0.6s 0.1s ease both;
-      -webkit-text-stroke: 2px #000; /* Adds black outline to letters */
+      -webkit-text-stroke: 2px #000;
       text-shadow: 3px 3px 0px rgba(0,0,0,0.4);
       letter-spacing: 2px;
     }
     .letter-s {
-      font-size: clamp(6rem, 18vw, 12rem);
+      font-size: clamp(4.5rem, 18vw, 12rem);
       color: #ffffff;
       line-height: 0.8;
       padding-right: 4px;
@@ -135,9 +139,12 @@
       animation: fadeUp 0.6s 0.2s ease both;
     }
 
-    .hero-btns {
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-      animation: fadeUp 0.6s 0.3s ease both; margin-bottom: 5rem;
+    .hero-btns a img {
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .hero-btns a img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
     }
 
     .btn-dl, .btn-ghost {
@@ -184,7 +191,7 @@
       transition: all 0.3s ease;
       box-shadow: var(--shadow);
     }
-    .feature-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .feature-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);transform: translateY(-6px) scale(1.02);}
     .feature-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
     .feature-card h3 {
       font-family: 'Fredoka One', cursive; font-size: 1.3rem;
@@ -316,9 +323,7 @@
       </div>
     </div>
   </div>
-
-  <p class="hero-sub">Pop slimes, unlock pets, climb the leaderboards. Fast, fun, and totally addictive arcade action.</p>
-
+  <p class="hero-sub">Smash slimes, unlock pets, and compete globally.<br><strong>Can you reach #1? 🏆</strong></p>
 <div class="hero-btns">
 
   <a href="https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash&hl=en" target="_blank">
@@ -390,7 +395,7 @@
     <ul>
       <li><strong>Device info</strong> — phone model and Android version, so the game knows what it's running on</li>
       <li><strong>Game progress</strong> — levels, coins, achievements</li>
-      <li><strong>Crash reports</strong> — if something breaks, error info is sent so I can fix it</li>
+      <li><strong>Crash logs & Diagnostics</strong> — technical data about app crashes and performance (via Firebase Crashlytics) so I can fix bugs</li>
       <li><strong>Play patterns</strong> — session length and which features you use, to help improve the game</li>
     </ul>
     <h4>If you sign in with Google Play</h4>
@@ -422,19 +427,19 @@
   <p>SlimeSmash uses a few well-known services to make things like ads, leaderboards, saves, and notifications work.</p>
 
   <p>These services may collect basic technical info required for their features. Each service follows its own privacy policy.</p>
-
-  <ul>
-    <li><strong>Google Play Games Services</strong> — leaderboards and achievements</li>
-    <li><strong>Google AdMob</strong> — in-game advertising</li>
-    <li><strong>Google User Messaging Platform (UMP)</strong> — consent management for ads</li>
-    <li><strong>Google In-App Review</strong> — allows rating the game inside the app</li>
-    <li><strong>Firebase Analytics</strong> — anonymous gameplay analytics</li>
-    <li><strong>Firebase Cloud Messaging</strong> — optional notifications</li>
-    <li><strong>Unity Remote Config</strong> — balancing gameplay remotely</li>
-    <li><strong>Unity Cloud Save</strong> — saving player progress</li>
-    <li><strong>Unity Authentication</strong> — player identification</li>
-    <li><strong>Unity Leaderboards</strong> — global score rankings</li>
-  </ul>
+ <ul>
+  <li><strong>Google Play Games Services</strong> — leaderboards and achievements</li>
+  <li><strong>Google AdMob</strong> — in-game advertising</li>
+  <li><strong>Google User Messaging Platform (UMP)</strong> — consent management for ads</li>
+  <li><strong>Google In-App Review</strong> — allows rating the game inside the app</li>
+  <li><strong>Firebase Analytics</strong> — anonymous gameplay analytics</li>
+  <li><strong>Firebase Cloud Messaging</strong> — optional notifications</li>
+  <li><strong>Firebase Crashlytics</strong> — stability monitoring and crash reporting</li>
+  <li><strong>Unity Remote Config</strong> — balancing gameplay remotely</li>
+  <li><strong>Unity Cloud Save</strong> — saving player progress</li>
+  <li><strong>Unity Authentication</strong> — player identification</li>
+  <li><strong>Unity Leaderboards</strong> — global score rankings</li>
+ </ul>
 <p>
     You can read their privacy policies here:
   </p>
@@ -452,7 +457,7 @@
   </p>
 
   <ul>
-    <li>Ads may use a device Advertising ID.</li>
+    <li>Ads may use and <strong>share</strong> a device Advertising ID with third-party providers to show relevant advertisements.</li>
     <li>Where required by law, you will be asked for consent before personalized ads are shown.</li>
     <li>You can reset or disable the Advertising ID in your device settings.</li>
   </ul>
@@ -469,9 +474,8 @@
   </p>
 </div>
   <div class="pcard">
-    <h3>🗑️ Want your data deleted?</h3>
-    <p>Easy — use <strong>Settings → Delete Account</strong> in the game, or send me an email. I'll delete everything within 7 days.</p>
-    <p>Just know it's permanent — progress, coins, and achievements can't come back after that.</p>
+    <h3 id="deletion-request">🗑️ Want your data deleted?</h3>
+    <p>Easy — use <strong>Settings → Delete Account</strong> in the game, or <a href="#deletion-request">request deletion here</a> by sending me an email. I'll delete everything within 7 days.</p>    <p>Just know it's permanent — progress, coins, and achievements can't come back after that.</p>
     <div class="info-box">
       <strong>How to delete:</strong> Settings → Delete Account in-game, or email <strong>SlimeSmash.Dev@gmail.com</strong> with "Data Deletion Request" in the subject line.
     </div>
@@ -479,7 +483,7 @@
 
   <div class="pcard">
     <h3>👶 Kids</h3>
-    <p>SlimeSmash is for everyone. The game collects the same basic data from all players — I have no way of knowing a user's age. I don't intentionally target children and I don't collect anything beyond what's listed above. If you're a parent and something seems off, just email me and I'll sort it out straight away.</p>
+    <p>SlimeSmash is designed for a general audience. We do not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and believe your child has provided us with personal data, please contact us immediately and we will delete such information from our servers.</p>
   </div>
   <div class="pcard contact-card">
     <h3>💬 Got questions?</h3>
@@ -492,7 +496,7 @@
 </section>
 
 <footer>
-  <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp; Last updated March 13, 2026.</p>
+  <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp; Last updated March 28, 2026.</p>
 </footer>
 
 <script>
