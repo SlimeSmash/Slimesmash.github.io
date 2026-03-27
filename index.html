@@ -138,15 +138,25 @@
       margin: 1rem auto 2.5rem; font-weight: 500; line-height: 1.65;
       animation: fadeUp 0.6s 0.2s ease both;
     }
-
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-btns a {
+      display: flex;
+      align-items: center;
+      height: 60px;
+    }
+    
     .hero-btns a img {
-      transition: transform 0.2s ease, filter 0.2s ease;
+      height: 100%;
+      width: auto;
+      display: block;
     }
-    .hero-btns a img:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
-    }
-
     .btn-dl, .btn-ghost {
       display: inline-flex; align-items: center; gap: 10px;
       padding: 14px 32px; border-radius: 12px;
@@ -457,7 +467,7 @@
   </p>
 
   <ul>
-    <li>Ads may use and <strong>share</strong> a device Advertising ID with third-party providers to show relevant advertisements.</li>
+    <li>Ads may use and share a device Advertising ID with third-party providers to show relevant advertisements.</li>
     <li>Where required by law, you will be asked for consent before personalized ads are shown.</li>
     <li>You can reset or disable the Advertising ID in your device settings.</li>
   </ul>
