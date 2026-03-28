@@ -520,17 +520,16 @@
   <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;transition:border-color 0.3s;" onmouseenter="this.style.borderColor='var(--green)'" onmouseleave="this.style.borderColor='var(--border)'">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.7rem;flex-wrap:wrap;">
-        <span style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--green);background:var(--green-bg);border:1px solid var(--green);padding:3px 14px;border-radius:20px;">v1.1.5</span>
+        <span style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--green);background:var(--green-bg);border:1px solid var(--green);padding:3px 14px;border-radius:20px;">v1.1.6</span>
         <span style="font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--green);color:#0f1117;">Latest</span>
       </div>
-      <p style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;">The Quality Update 🎮</p>
-      <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;max-width:400px;">New win/fail panels, mission tracking, pauseable Casual waves, Explosion Slime rebalance, new SFX &amp; more.</p>
+      <p style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;">Polish & Performance Patch 🚀</p>
+      <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;max-width:400px;">Improved Game HUD, fixed notification rewards, enhanced analytics stability, and optimized performance for smoother gameplay.</p>
     </div>
-    <a href="changelog.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:12px;background:var(--green);color:#0f1117;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;white-space:nowrap;" onmouseenter="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.filter='';this.style.transform=''">Full Changelog →</a>
+    <a href="Changelog.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:12px;background:var(--green);color:#0f1117;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;white-space:nowrap;" onmouseenter="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.filter='';this.style.transform=''">Full Changelog →</a>
   </div>
-
 </section>
-
+    
 <div class="divider"></div>
 
 <section id="privacy">
@@ -627,10 +626,10 @@
     <p>Easy — use <strong>Settings → Delete Account</strong> in the game, or send me an email to request deletion. I'll delete everything within 7 days.</p>
     <p>Just know it's permanent — progress, coins, and achievements can't come back after that.</p>
     <div class="info-box">
-      <strong>How to delete:</strong> Settings → Delete Account in-game, or email <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="efbc8386828abc828e9c87c1ab8a99af88828e8683c18c8082">[email&#160;protected]</a></strong> with "Data Deletion Request" in the subject line.
+      <strong>How to delete:</strong> Settings → Delete Account in-game, or email <strong><a href="mailto:SlimeSmash.Dev@gmail.com">SlimeSmash.Dev@gmail.com</a></strong> with "Data Deletion Request" in the subject line.
     </div>
   </div>
-
+    
   <div class="pcard">
     <h3>👶 Kids</h3>
     <p>SlimeSmash is designed for a general audience. We do not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and believe your child has provided us with personal data, please contact us immediately and we will delete such information from our servers.</p>
@@ -639,8 +638,8 @@
   <div class="pcard contact-card">
     <h3>💬 Got questions?</h3>
     <p>Have a question or a concern? Feel free to reach out — I'll get back to you as soon as I can.</p>
-    <p><strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82d1eeebefe7d1efe3f1eaacc6e7f4c2e5efe3ebeeace1edef">[email&#160;protected]</a></strong></p>
-    <a href="/cdn-cgi/l/email-protection#76251a1f1b13251b17051e5812130036111b171f1a5815191b490503141c1315024b251a1f1b13251b17051e53444625030606190402501419120f4b3e1f534446251a1f1b13251b17051e534446321300131a190613045a5346375346373f5344461e1700135344461753444607031305021f19185344461714190302534446021e1353444611171b1358" class="email-btn">
+    <p><strong><a href="mailto:SlimeSmash.Dev@gmail.com" style="border:none; color:var(--text-dim)">SlimeSmash.Dev@gmail.com</a></strong></p>
+    <a href="mailto:SlimeSmash.Dev@gmail.com" class="email-btn">
       ✉️ Send Email
     </a>
   </div>
@@ -649,12 +648,22 @@
 <footer>
   <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp; Last updated March 28, 2026.</p>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const btn = document.getElementById('themeBtn');
   const html = document.documentElement;
   const themeMeta = document.getElementById('themeColorMeta');
   const themeColors = { dark: '#0f1117', light: '#f4f7f2' };
+
   const savedTheme = localStorage.getItem('theme') || 'dark';
   html.setAttribute('data-theme', savedTheme);
-  btn.textContent = sav
+  btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  btn.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    themeMeta.setAttribute('content', themeColors[newTheme]);
+  });
+</script>
