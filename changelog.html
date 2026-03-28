@@ -256,13 +256,19 @@
       color: var(--text-muted); font-size: 1rem; font-weight: 600;
       display: none;
     }
-    
     #loadMoreBtn {
       padding: 10px 18px;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--card);
+      text-align: center;
+      margin-top: 1.5rem;
+      color: var(--text-dim);
+      font-weight: 700;
+      font-size: 0.95rem;
       transition: all 0.2s;
+      cursor: pointer;
+      width: 33.5%;
     }
     #loadMoreBtn:hover {
       border-color: var(--green);
@@ -538,7 +544,8 @@ const entries = document.querySelectorAll('.tl-entry');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
 const noResults = document.getElementById('noResults');
 const filterBtns = document.querySelectorAll('.filter-btn');
-
+const themeColor = isDark ? "#f4f7f2" : "#0f1117";
+document.getElementById('themeColorMeta').setAttribute('content', themeColor);
 let activeFilter = 'all';
 const themeBtn = document.getElementById('themeBtn');
 themeBtn.addEventListener('click', () => {
@@ -636,7 +643,6 @@ filterBtns.forEach(btn => {
 });
 updateVisibleEntries();
 updateCounter();
-
 </script>
 </body>
 </html>
