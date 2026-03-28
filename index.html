@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV2NR7Y33N"></script>
   <script>
   window.dataLayer = window.dataLayer || [];
@@ -17,11 +17,11 @@
   <meta name="author" content="SlimeSmash Developer">
   <meta property="og:title" content="SlimeSmash - Pop Slimes & Climb Leaderboards">
   <meta property="og:description" content="Fast-paced arcade slime game. Free on Google Play.">
-  <meta property="og:image" content="https://yourdomain.com/preview.png">
+  <meta property="og:image" content="https://SlimeSmash.github.io/preview.png">
+  <meta name="theme-color" id="themeColorMeta" content="#0f1117">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ── THEME TOKENS ── */
     [data-theme="dark"] {
       --bg-base:  #0f1117;
       --bg:       radial-gradient(circle at 50% -20%, rgba(62,207,110,0.15), #0f1117 60%);
@@ -61,8 +61,6 @@
       color: var(--text);
       transition: color 0.3s;
     }
-
-    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -88,7 +86,6 @@
     }
     .nav-links a:hover { color: var(--green); }
 
-    /* theme toggle */
     .theme-btn {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 8px; padding: 8px 12px;
@@ -98,7 +95,6 @@
     }
     .theme-btn:hover { border-color: var(--green); transform: translateY(-2px); }
 
-    /* ── HERO ── */
     #home {
       min-height: 100vh; padding: 8rem 2rem 3rem;
       display: flex; flex-direction: column;
@@ -185,7 +181,6 @@
     .btn-ghost:hover { transform: translateY(-3px); border-color: var(--green); color: var(--green); }
     .play-icon { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
 
-    /* ── FEATURES ── */
     #features {
       max-width: 1000px; margin: 6rem auto; padding: 0 2rem;
     }
@@ -217,13 +212,138 @@
     }
     .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
 
-    /* ── DIVIDER ── */
     .divider {
       height: 1px; max-width: 700px; margin: 5rem auto;
       background: linear-gradient(90deg, transparent, var(--border), transparent);
     }
 
-    /* ── PRIVACY ── */
+    #changelog {
+      max-width: 760px; margin: 0 auto; padding: 0 2rem 2rem;
+    }
+
+    .changelog-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .changelog-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green), transparent);
+      border-radius: 2px;
+    }
+
+    .changelog-entry {
+      position: relative;
+      margin-bottom: 1.8rem;
+    }
+
+    .changelog-entry::before {
+      content: '';
+      position: absolute;
+      left: -2.45rem;
+      top: 1.4rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid var(--bg-base);
+      box-shadow: 0 0 0 3px var(--green-bg);
+      transition: transform 0.2s;
+    }
+
+    .changelog-entry:hover::before {
+      transform: scale(1.4);
+    }
+
+    .changelog-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.6rem 2rem;
+      box-shadow: var(--shadow);
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .changelog-card:hover {
+      border-color: var(--green);
+      transform: translateX(4px);
+    }
+
+    .changelog-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .version-badge {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      color: var(--green);
+      background: var(--green-bg);
+      border: 1px solid var(--green);
+      padding: 3px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .version-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .version-name {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-left: auto;
+    }
+
+    .changelog-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .cl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .cl-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .cl-tag.new     { background: rgba(62,207,110,0.15); color: #3ecf6e; border: 1px solid rgba(62,207,110,0.3); }
+    .cl-tag.fix     { background: rgba(255,160,70,0.12); color: #ffab44; border: 1px solid rgba(255,160,70,0.3); }
+    .cl-tag.balance { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
+    .cl-tag.change  { background: rgba(200,100,255,0.12); color: #d070ff; border: 1px solid rgba(200,100,255,0.3); }
+
+    [data-theme="light"] .cl-tag.new     { background: rgba(42,154,80,0.1);  color: #1e8040; }
+    [data-theme="light"] .cl-tag.fix     { background: rgba(200,100,0,0.1);  color: #b05000; }
+    [data-theme="light"] .cl-tag.balance { background: rgba(40,80,200,0.1);  color: #2040b0; }
+    [data-theme="light"] .cl-tag.change  { background: rgba(130,40,180,0.1); color: #7020a0; }
+
     #privacy { max-width: 760px; margin: 0 auto; padding: 0 2rem 6rem; }
 
     .privacy-header { text-align: center; margin-bottom: 3.5rem; }
@@ -263,53 +383,52 @@
     }
     .info-box strong { color: var(--text); }
 
-    /* contact */
     .contact-card { text-align: center; }
     .contact-card h3 { justify-content: center; }
 
     .email-btn {
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: center; 
-  gap: 10px;
-  margin-top: 1.5rem; 
-  padding: 14px 32px;
-  background: var(--green); 
-  color: #ffffff !important;
-  border-radius: 12px;
-  font-family: 'DM Sans', sans-serif; 
-  font-weight: 700; 
-  font-size: 1.05rem;
-  text-decoration: none; 
-  transition: transform 0.2s, filter 0.2s;
-  border: 2px solid var(--green);
-}
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 10px;
+      margin-top: 1.5rem; 
+      padding: 14px 32px;
+      background: var(--green); 
+      color: #ffffff !important;
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif; 
+      font-weight: 700; 
+      font-size: 1.05rem;
+      text-decoration: none; 
+      transition: transform 0.2s, filter 0.2s;
+      border: 2px solid var(--green);
+    }
 
-.email-btn:hover { 
-  transform: translateY(-3px); 
-  filter: brightness(1.1); 
-  box-shadow: 0 4px 15px rgba(62, 207, 110, 0.3); 
-  color: #ffffff !important;
-}
+    .email-btn:hover { 
+      transform: translateY(-3px); 
+      filter: brightness(1.1); 
+      box-shadow: 0 4px 15px rgba(62, 207, 110, 0.3); 
+      color: #ffffff !important;
+    }
 
-    /* ── FOOTER ── */
     footer {
       text-align: center; padding: 2.5rem; border-top: 1px solid var(--border);
       color: var(--text-muted); font-size: 0.9rem; font-weight: 500; background: var(--nav-bg);
     }
 
-    /* ── ANIM ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; } /* Clean up mobile nav */
+      .nav-links { display: none; }
       .pcard { padding: 1.5rem; }
       #privacy { padding: 0 1rem 4rem; }
+      #changelog { padding: 0 1rem 2rem; }
+      .changelog-card { padding: 1.2rem 1.4rem; }
+      .version-name { margin-left: 0; width: 100%; }
     }
   </style>
 </head>
@@ -321,6 +440,7 @@
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#features">Features</a>
+      <a href="changelog.html">Changelog</a>
       <a href="#privacy">Privacy</a>
     </div>
     <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
@@ -342,19 +462,16 @@
     </div>
   </div>
   <p class="hero-sub">Smash slimes, unlock pets, and compete globally.<br><strong>Can you reach #1? 🏆</strong></p>
-<div class="hero-btns">
-
-  <a href="https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash&hl=en" target="_blank">
-    <img 
-      src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-      alt="Get it on Google Play"
-      style="height:80px"
-    >
-  </a>
-
-  <a href="#privacy" class="btn-ghost">Privacy Policy ↓</a>
-
-</div>
+  <div class="hero-btns">
+    <a href="https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash&hl=en" target="_blank">
+      <img 
+        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+        alt="Get it on Google Play"
+        style="height:80px"
+      >
+    </a>
+    <a href="#privacy" class="btn-ghost">Privacy Policy ↓</a>
+  </div>
 </section>
 
 <section id="features">
@@ -392,6 +509,26 @@
       <p>Spend coins to upgrade pets, unlock companions, and boost your power.</p>
     </div>
   </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="changelog" style="max-width:760px;margin:0 auto;padding:0 2rem 2rem;">
+  <p class="section-label">What's new</p>
+  <h2 class="section-title">Latest Update</h2>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;transition:border-color 0.3s;" onmouseenter="this.style.borderColor='var(--green)'" onmouseleave="this.style.borderColor='var(--border)'">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.7rem;flex-wrap:wrap;">
+        <span style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--green);background:var(--green-bg);border:1px solid var(--green);padding:3px 14px;border-radius:20px;">v1.1.5</span>
+        <span style="font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--green);color:#0f1117;">Latest</span>
+      </div>
+      <p style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;">The Quality Update 🎮</p>
+      <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;max-width:400px;">New win/fail panels, mission tracking, pauseable Casual waves, Explosion Slime rebalance, new SFX &amp; more.</p>
+    </div>
+    <a href="changelog.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:12px;background:var(--green);color:#0f1117;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;white-space:nowrap;" onmouseenter="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.filter='';this.style.transform=''">Full Changelog →</a>
+  </div>
+
 </section>
 
 <div class="divider"></div>
@@ -439,63 +576,58 @@
       <li>To push game updates without you needing to re-download</li>
     </ul>
   </div>
-<div class="pcard">
-  <h3>🔌 Services the game uses</h3>
 
-  <p>SlimeSmash uses a few well-known services to make things like ads, leaderboards, saves, and notifications work.</p>
+  <div class="pcard">
+    <h3>🔌 Services the game uses</h3>
+    <p>SlimeSmash uses a few well-known services to make things like ads, leaderboards, saves, and notifications work.</p>
+    <p>These services may collect basic technical info required for their features. Each service follows its own privacy policy.</p>
+    <ul>
+      <li><strong>Google Play Games Services</strong> — leaderboards and achievements</li>
+      <li><strong>Google AdMob</strong> — in-game advertising</li>
+      <li><strong>Google User Messaging Platform (UMP)</strong> — consent management for ads</li>
+      <li><strong>Google In-App Review</strong> — allows rating the game inside the app</li>
+      <li><strong>Firebase Analytics</strong> — anonymous gameplay analytics</li>
+      <li><strong>Firebase Cloud Messaging</strong> — optional notifications</li>
+      <li><strong>Firebase Crashlytics</strong> — stability monitoring and crash reporting</li>
+      <li><strong>Unity Remote Config</strong> — balancing gameplay remotely</li>
+      <li><strong>Unity Cloud Save</strong> — saving player progress</li>
+      <li><strong>Unity Authentication</strong> — player identification</li>
+      <li><strong>Unity Leaderboards</strong> — global score rankings</li>
+    </ul>
+    <p>You can read their privacy policies here:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+      <li><a href="https://unity.com/legal/privacy-policy" target="_blank">Unity Privacy Policy</a></li>
+      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy & Security</a></li>
+    </ul>
+  </div>
 
-  <p>These services may collect basic technical info required for their features. Each service follows its own privacy policy.</p>
- <ul>
-  <li><strong>Google Play Games Services</strong> — leaderboards and achievements</li>
-  <li><strong>Google AdMob</strong> — in-game advertising</li>
-  <li><strong>Google User Messaging Platform (UMP)</strong> — consent management for ads</li>
-  <li><strong>Google In-App Review</strong> — allows rating the game inside the app</li>
-  <li><strong>Firebase Analytics</strong> — anonymous gameplay analytics</li>
-  <li><strong>Firebase Cloud Messaging</strong> — optional notifications</li>
-  <li><strong>Firebase Crashlytics</strong> — stability monitoring and crash reporting</li>
-  <li><strong>Unity Remote Config</strong> — balancing gameplay remotely</li>
-  <li><strong>Unity Cloud Save</strong> — saving player progress</li>
-  <li><strong>Unity Authentication</strong> — player identification</li>
-  <li><strong>Unity Leaderboards</strong> — global score rankings</li>
- </ul>
-<p>
-    You can read their privacy policies here:
-  </p>
+  <div class="pcard">
+    <h3>📢 Advertising</h3>
+    <p>SlimeSmash may display advertisements through Google AdMob to help support development of the game.</p>
+    <ul>
+      <li>Ads may use and share a device Advertising ID with third-party providers to show relevant advertisements.</li>
+      <li>Where required by law, you will be asked for consent before personalized ads are shown.</li>
+      <li>You can reset or disable the Advertising ID in your device settings.</li>
+    </ul>
+  </div>
 
-  <ul>
-    <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
-    <li><a href="https://unity.com/legal/privacy-policy" target="_blank">Unity Privacy Policy</a></li>
-    <li><a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy & Security</a></li>
-  </ul>
-</div>
-<div class="pcard">
-  <h3>📢 Advertising</h3>
-  <p>
-    SlimeSmash may display advertisements through Google AdMob to help support development of the game.
-  </p>
-
-  <ul>
-    <li>Ads may use and share a device Advertising ID with third-party providers to show relevant advertisements.</li>
-    <li>Where required by law, you will be asked for consent before personalized ads are shown.</li>
-    <li>You can reset or disable the Advertising ID in your device settings.</li>
-  </ul>
-</div>
   <div class="pcard">
     <h3>🔔 Notifications</h3>
     <p>The game can send push notifications like daily reward reminders. You can turn these off anytime in your phone's notification settings.</p>
   </div>
-<div class="pcard">
-  <h3>🔐 Data security</h3>
-  <p>
-    Reasonable security measures are used to protect player data. However,
-    no online service can guarantee absolute security.
-  </p>
-</div>
+
+  <div class="pcard">
+    <h3>🔐 Data security</h3>
+    <p>Reasonable security measures are used to protect player data. However, no online service can guarantee absolute security.</p>
+  </div>
+
   <div class="pcard">
     <h3 id="deletion-request">🗑️ Want your data deleted?</h3>
-    <p>Easy — use <strong>Settings → Delete Account</strong> in the game, or <a href="#deletion-request">request deletion here</a> by sending me an email. I'll delete everything within 7 days.</p>    <p>Just know it's permanent — progress, coins, and achievements can't come back after that.</p>
+    <p>Easy — use <strong>Settings → Delete Account</strong> in the game, or send me an email to request deletion. I'll delete everything within 7 days.</p>
+    <p>Just know it's permanent — progress, coins, and achievements can't come back after that.</p>
     <div class="info-box">
-      <strong>How to delete:</strong> Settings → Delete Account in-game, or email <strong>SlimeSmash.Dev@gmail.com</strong> with "Data Deletion Request" in the subject line.
+      <strong>How to delete:</strong> Settings → Delete Account in-game, or email <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="efbc8386828abc828e9c87c1ab8a99af88828e8683c18c8082">[email&#160;protected]</a></strong> with "Data Deletion Request" in the subject line.
     </div>
   </div>
 
@@ -503,13 +635,14 @@
     <h3>👶 Kids</h3>
     <p>SlimeSmash is designed for a general audience. We do not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and believe your child has provided us with personal data, please contact us immediately and we will delete such information from our servers.</p>
   </div>
+
   <div class="pcard contact-card">
     <h3>💬 Got questions?</h3>
     <p>Have a question or a concern? Feel free to reach out — I'll get back to you as soon as I can.</p>
-    <p><strong>SlimeSmash.Dev@gmail.com</strong></p>
-<a href="mailto:SlimeSmash.dev@gmail.com?subject=SlimeSmash%20Support&body=Hi%20SlimeSmash%20Developer,%0A%0AI%20have%20a%20question%20about%20the%20game." class="email-btn">
-✉️ Send Email
-</a>
+    <p><strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82d1eeebefe7d1efe3f1eaacc6e7f4c2e5efe3ebeeace1edef">[email&#160;protected]</a></strong></p>
+    <a href="/cdn-cgi/l/email-protection#76251a1f1b13251b17051e5812130036111b171f1a5815191b490503141c1315024b251a1f1b13251b17051e53444625030606190402501419120f4b3e1f534446251a1f1b13251b17051e534446321300131a190613045a5346375346373f5344461e1700135344461753444607031305021f19185344461714190302534446021e1353444611171b1358" class="email-btn">
+      ✉️ Send Email
+    </a>
   </div>
 </section>
 
@@ -517,27 +650,11 @@
   <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp; Last updated March 28, 2026.</p>
 </footer>
 
-<script>
-  // Theme Toggle Logic with LocalStorage Persistence
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const btn = document.getElementById('themeBtn');
   const html = document.documentElement;
-  
-  // Check local storage for saved theme, default to dark
+  const themeMeta = document.getElementById('themeColorMeta');
+  const themeColors = { dark: '#0f1117', light: '#f4f7f2' };
   const savedTheme = localStorage.getItem('theme') || 'dark';
   html.setAttribute('data-theme', savedTheme);
-  btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-  btn.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-
-    // Update button icon based on the new theme
-    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-  });
-</script>
-
-</body>
-</html>
+  btn.textContent = sav
