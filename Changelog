@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>SlimeSmash Changelog – Updates & Patch Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full update history for SlimeSmash — every patch, balance change, and new feature.">
+  <meta name="keywords" content="SlimeSmash update, changelog, patch notes, mobile game updates">
+  <meta name="theme-color" id="themeColorMeta" content="#0f1117">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    [data-theme="dark"] {
+      --bg-base:    #0f1117;
+      --bg:         radial-gradient(circle at 50% -20%, rgba(62,207,110,0.12), #0f1117 55%);
+      --card:       #1a2030;
+      --border:     #2a3347;
+      --text:       #e8f0fe;
+      --text-dim:   #8b9bbf;
+      --text-muted: #5a6a8a;
+      --green:      #3ecf6e;
+      --green-bg:   rgba(62,207,110,0.1);
+      --nav-bg:     rgba(15,17,23,0.88);
+      --shadow:     0 8px 32px rgba(0,0,0,0.4);
+      --line:       rgba(62,207,110,0.4);
+    }
+    [data-theme="light"] {
+      --bg-base:    #f4f7f2;
+      --bg:         radial-gradient(circle at 50% -20%, rgba(42,154,80,0.1), #f4f7f2 55%);
+      --card:       #ffffff;
+      --border:     #dde8d8;
+      --text:       #1a2410;
+      --text-dim:   #4a6040;
+      --text-muted: #7a9070;
+      --green:      #2a9a50;
+      --green-bg:   rgba(42,154,80,0.08);
+      --nav-bg:     rgba(244,247,242,0.88);
+      --shadow:     0 8px 32px rgba(0,0,0,0.07);
+      --line:       rgba(42,154,80,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background-color: var(--bg-base); }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg); background-attachment: fixed;
+      color: var(--text); min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Fredoka One', cursive; font-size: 1.5rem;
+      color: var(--green); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; transition: transform 0.2s;
+    }
+    .nav-logo:hover { transform: scale(1.05); }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.8rem; }
+    .nav-links a {
+      color: var(--text-dim); text-decoration: none;
+      font-weight: 600; font-size: 0.95rem; transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--green); }
+    .theme-btn {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px;
+      cursor: pointer; font-size: 1.1rem; line-height: 1;
+      transition: all 0.2s; color: var(--text);
+    }
+    .theme-btn:hover { border-color: var(--green); transform: translateY(-2px); }
+    #updateCount {
+      margin-top: 0.5rem;
+    }
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 8rem 2rem 3rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 0.8rem;
+    }
+    .page-header h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      color: var(--text); margin-bottom: 0.8rem;
+    }
+    .page-header p {
+      color: var(--text-dim); font-size: 1rem;
+      font-weight: 500; line-height: 1.6;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; flex-wrap: wrap;
+      max-width: 700px; margin: 0 auto 3rem;
+      padding: 0 2rem;
+      margin-top: 2.5rem;
+    }
+    .filter-label {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-right: 4px;
+    }
+    .filter-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 16px; border-radius: 20px; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; font-weight: 700;
+      font-size: 0.8rem; letter-spacing: 0.5px; text-transform: uppercase;
+      border: 1.5px solid var(--border);
+      background: var(--card); color: var(--text-dim);
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--green); color: var(--text); }
+    .filter-btn.active { color: var(--text); }
+
+    .filter-btn[data-filter="all"].active    { border-color: var(--green); background: var(--green-bg); color: var(--green); }
+    .filter-btn[data-filter="new"].active    { border-color: #3ecf6e; background: rgba(62,207,110,0.12); color: #3ecf6e; }
+    .filter-btn[data-filter="fix"].active    { border-color: #ffab44; background: rgba(255,160,70,0.1); color: #ffab44; }
+    .filter-btn[data-filter="balance"].active { border-color: #7eb8ff; background: rgba(100,160,255,0.1); color: #7eb8ff; }
+    .filter-btn[data-filter="change"].active { border-color: #d070ff; background: rgba(200,100,255,0.1); color: #d070ff; }
+    .filter-btn[data-filter="polish"].active { border-color: #ff9eb0; background: rgba(255,100,140,0.1); color: #ff9eb0; }
+
+    [data-theme="light"] .filter-btn[data-filter="new"].active    { color: #1e8040; border-color: #1e8040; background: rgba(42,154,80,0.08); }
+    [data-theme="light"] .filter-btn[data-filter="fix"].active    { color: #b05000; border-color: #b05000; background: rgba(200,100,0,0.07); }
+    [data-theme="light"] .filter-btn[data-filter="balance"].active { color: #2040b0; border-color: #2040b0; background: rgba(40,80,200,0.07); }
+    [data-theme="light"] .filter-btn[data-filter="change"].active { color: #7020a0; border-color: #7020a0; background: rgba(130,40,180,0.07); }
+    [data-theme="light"] .filter-btn[data-filter="polish"].active { color: #a02060; border-color: #a02060; background: rgba(180,40,100,0.07); }
+
+    /* ── TIMELINE ── */
+    .timeline-wrap {
+      max-width: 760px; margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2.2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 10px; bottom: 10px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green) 0%, transparent 100%);
+      border-radius: 2px;
+    }
+
+    .tl-entry {
+      position: relative;
+      margin-bottom: 2rem;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .tl-entry.hidden { display: none; }
+
+    /* timeline dot */
+    .tl-entry::before {
+      content: '';
+      position: absolute; left: -2.6rem; top: 1.5rem;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid var(--bg-base);
+      box-shadow: 0 0 0 3px var(--green-bg);
+      transition: transform 0.25s;
+      z-index: 1;
+    }
+    .tl-entry:hover::before { transform: scale(1.5); }
+
+    .tl-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.8rem 2rem;
+      box-shadow: var(--shadow);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .tl-card:hover { border-color: var(--green); transform: translateX(5px); }
+
+    /* card header */
+    .tl-header {
+      display: flex; align-items: center; gap: 12px;
+      flex-wrap: wrap; margin-bottom: 1.3rem;
+    }
+    .version-badge {
+      font-family: 'Fredoka One', cursive; font-size: 1.1rem;
+      color: var(--green); background: var(--green-bg);
+      border: 1px solid var(--green);
+      padding: 3px 14px; border-radius: 20px;
+    }
+    .latest-pill {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+      background: var(--green); color: #0f1117;
+    }
+    .version-date {
+      font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+    }
+    .version-name {
+      font-family: 'Fredoka One', cursive; font-size: 1rem;
+      color: var(--text-dim); margin-left: auto;
+    }
+    .build-badges {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 1.1rem;
+    }
+    .build-pill {
+      font-size: 0.72rem; font-weight: 600; padding: 2px 10px;
+      border-radius: 12px; border: 1px solid var(--border);
+      color: var(--text-muted); background: transparent;
+    }
+
+    /* items */
+    .tl-items { display: flex; flex-direction: column; gap: 0.6rem; }
+    .cl-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;
+      transition: opacity 0.15s;
+    }
+    .cl-item.faded { opacity: 0.18; }
+    
+    .cl-item.highlight {
+      opacity: 1 !important;
+      color: var(--text);
+    }
+
+    .cl-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 6px;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .cl-tag.new     { background: rgba(62,207,110,0.15);  color: #3ecf6e; border: 1px solid rgba(62,207,110,0.3); }
+    .cl-tag.fix     { background: rgba(255,160,70,0.12);  color: #ffab44; border: 1px solid rgba(255,160,70,0.3); }
+    .cl-tag.balance { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
+    .cl-tag.change  { background: rgba(200,100,255,0.12); color: #d070ff; border: 1px solid rgba(200,100,255,0.3); }
+    .cl-tag.polish  { background: rgba(255,100,140,0.12); color: #ff9eb0; border: 1px solid rgba(255,100,140,0.3); }
+
+    [data-theme="light"] .cl-tag.new     { background: rgba(42,154,80,0.1);   color: #1e8040; border-color: rgba(42,154,80,0.25); }
+    [data-theme="light"] .cl-tag.fix     { background: rgba(200,100,0,0.08);  color: #b05000; border-color: rgba(200,100,0,0.2); }
+    [data-theme="light"] .cl-tag.balance { background: rgba(40,80,200,0.08); color: #2040b0; border-color: rgba(40,80,200,0.2); }
+    [data-theme="light"] .cl-tag.change  { background: rgba(130,40,180,0.08);color: #7020a0; border-color: rgba(130,40,180,0.2); }
+    [data-theme="light"] .cl-tag.polish  { background: rgba(180,40,100,0.08);color: #a02060; border-color: rgba(180,40,100,0.2); }
+    /* no-results message */
+    #noResults {
+      text-align: center; padding: 3rem 1rem;
+      color: var(--text-muted); font-size: 1rem; font-weight: 600;
+      display: none;
+    }
+    
+    #loadMoreBtn {
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: all 0.2s;
+    }
+    #loadMoreBtn:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 2.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+      background: var(--nav-bg);
+    }
+
+    /* ── RESPONSIVE ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-header, .filter-bar { animation: fadeUp 0.5s ease both; }
+    .timeline-wrap { animation: fadeUp 0.5s 0.1s ease both; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .tl-card { padding: 1.3rem 1.4rem; }
+      .timeline-wrap { padding: 0 1rem 4rem; }
+      .version-name { margin-left: 0; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">🟢 SlimeSmash</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="changelog.html" class="active">Changelog</a>
+      <a href="index.html#privacy">Privacy</a>
+    </div>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
+  </div>
+</nav>
+
+<!-- ── HEADER ── -->
+<header class="page-header">
+  <p class="section-label">Every update, every patch</p>
+  <h1>Changelog 📋</h1>
+  <p>Full release history for SlimeSmash — from launch day to right now.</p>
+</header>
+<div style="text-align:center;">
+  <a href="https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash"
+     style="display:inline-block;margin-top:1.5rem;padding:12px 22px;
+     background:var(--green);color:#0f1117;font-weight:700;
+     border-radius:10px;text-decoration:none;">
+     ⬇️ Get Latest Version
+  </a>
+</div>
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="new">✨ New</button>
+  <button class="filter-btn" data-filter="fix">🐛 Fix</button>
+  <button class="filter-btn" data-filter="balance">⚖️ Balance</button>
+  <button class="filter-btn" data-filter="change">🔄 Change</button>
+  <button class="filter-btn" data-filter="polish">🎨 Polish</button>
+</div>
+  <p id="updateCount" style="text-align:center;color:var(--text-muted);margin-bottom:2rem;"></p>
+<!-- ── TIMELINE ── -->
+<div class="timeline-wrap">
+  <div class="timeline" id="timeline">
+    <!-- ═══════════════════════════════ v1.1.6 ═══════════════════════════════ -->
+  <div class="tl-entry" data-tags="fix polish change balance">
+    <div class="tl-card">
+      <div class="tl-header">
+        <span class="version-badge">v1.1.6</span>
+        <span class="latest-pill">Latest</span>
+        <span class="version-date">28 Mar 2026</span>
+        <span class="version-name">Polish & Performance Patch 🚀</span>
+      </div>
+      <div class="build-badges">
+        <span class="build-pill">Production</span>
+      </div>
+      <div class="tl-items">
+        <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>Improved Game HUD for Adventure and Casual modes for a sleeker experience</div>
+        <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Notification system fixed to reliably deliver rewards updates</div>
+        <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Enhanced analytics and internal systems stability</div>
+        <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>Performance optimisations for smoother gameplay</div>
+      </div>
+    </div>
+  </div>
+    
+    <!-- ═══════════════════════════════ v1.1.5 ═══════════════════════════════ -->
+    <div class="tl-entry" data-tags="new fix balance polish change">
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="version-badge">v1.1.5</span>
+          <span class="version-date">27 Mar 2026</span>
+          <span class="version-name">The Quality Update 🚀</span>
+        </div>
+        <div class="build-badges">
+          <span class="build-pill">Build 22 · Production</span>
+          <span class="build-pill">Builds 18–21 · Internal testing</span>
+        </div>
+        <div class="tl-items">
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Redesigned Win &amp; Fail panels</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Report system for Adventure levels</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Mission progress is now shown after every run</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Casual waves can now be paused mid-run</div>
+          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Explosion Slimes now worth 3 points</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Shield Slime behaviour corrected</div>
+          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Enhanced account protection &amp; cloud syncing</div>
+          <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>New SFX added throughout the game</div>
+          <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>UI/UX improvements across multiple screens</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Surf Mode stability tweaks</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ v1.1.1 ═══════════════════════════════ -->
+    <div class="tl-entry" data-tags="new fix balance change">
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="version-badge">v1.1.1</span>
+          <span class="version-date">26 Mar 2026</span>
+          <span class="version-name">The Big Update ⚔️</span>
+        </div>
+        <div class="build-badges">
+          <span class="build-pill">Build 18 · Closed testing (Alpha)</span>
+          <span class="build-pill">Builds 13–16 · Internal snapshots</span>
+          <span class="build-pill">v1.1 · Production</span>
+        </div>
+        <div class="tl-items">
+          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Companions &amp; Pets abilities fully reworked</div>
+          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Massive UI &amp; font overhaul across all menus</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>New VFX &amp; enhanced in-game visuals</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>10 new achievements via Google Play Games</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Daily reward push notifications</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>In-app rating prompt added</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Privacy Policy &amp; personalised ads consent shown in-app</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Companions &amp; Pets remote configuration support</div>
+          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Adventure Mode levels rebalanced for better pacing</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Devourer spawning bug fixed</div>
+          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>New AES encryption — ⚠️ progress was reset as part of this upgrade</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ v1.0.11 ═══════════════════════════════ -->
+    <div class="tl-entry" data-tags="new fix balance">
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="version-badge">v1.0.11</span>
+          <span class="version-date">8 Feb 2026</span>
+          <span class="version-name">Safety &amp; Polish 🛡️</span>
+        </div>
+        <div class="build-badges">
+          <span class="build-pill">Build 12 · Production &amp; Alpha</span>
+        </div>
+        <div class="tl-items">
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Bad word filtering for player display names</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>In-game version check panel — notifies players when an update is required</div>
+          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Casual Mode tweaked for smoother gameplay flow</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Minor fixes and general stability improvements</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ v1.0.10 ═══════════════════════════════ -->
+    <div class="tl-entry" data-tags="fix change">
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="version-badge">v1.0.10</span>
+          <span class="version-date">7 Feb 2026</span>
+          <span class="version-name">Save System Fix 💾</span>
+        </div>
+        <div class="build-badges">
+          <span class="build-pill">Build 11 · Closed testing (Alpha)</span>
+        </div>
+        <div class="tl-items">
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Fixed progress resetting after force-closing the app</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Save system stability and startup loading improved</div>
+          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Improved UI clarity and responsiveness across menus</div>
+          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Daily reward screen layout and feedback improved</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>General performance and reliability improvements</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ v1.0.2 ═══════════════════════════════ -->
+    <div class="tl-entry" data-tags="new fix balance">
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="version-badge">v1.0.2</span>
+          <span class="version-date">4 Feb 2026</span>
+          <span class="version-name">Balance Patch ⚖️</span>
+        </div>
+        <div class="build-badges">
+          <span class="build-pill">Build 3 · Closed testing (Alpha)</span>
+        </div>
+        <div class="tl-items">
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Fixed an issue causing player progress loss</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Google Play Games connection stability improved</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>New UI elements and smooth animations on the Leaderboard screen</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>New countdown popup animation</div>
+          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Significant balance adjustments to Casual Mode</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>General UI improvements and bug fixes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ v1.0.1 ═══════════════════════════════ -->
+    <div class="tl-entry" data-tags="new fix change">
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="version-badge">v1.0.1</span>
+          <span class="version-date">28 Jan 2026</span>
+          <span class="version-name">Foundation Patch 🔧</span>
+        </div>
+        <div class="build-badges">
+          <span class="build-pill">Build 2 · Closed testing (Alpha)</span>
+        </div>
+        <div class="tl-items">
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>ARM7 support added for wider device compatibility</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Google Play Services &amp; UGS Remote Config integrated</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Force Update notifications so players stay on the latest version</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Data Deletion option added inside Settings</div>
+          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Profile UI streamlined; loading sequences updated</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Daily Missions now reset correctly</div>
+          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Wave Mode stability improved</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ v1.0.0 ═══════════════════════════════ -->
+    <div class="tl-entry" data-tags="new">
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="version-badge">v1.0.0</span>
+          <span class="version-date">23 Jan 2026</span>
+          <span class="version-name">Launch Day 🟢</span>
+        </div>
+        <div class="build-badges">
+          <span class="build-pill">SlimeSmash_1.0V · Initial release</span>
+        </div>
+        <div class="tl-items">
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>SlimeSmash is live on Google Play! 🎉</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Adventure Mode — pop slimes, collect coins, unlock companions</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Casual Mode — endless waves, play at your own pace</div>
+          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Starter slime roster to discover and collect</div>
+        </div>
+      </div>
+    </div>
+
+  </div> <div id="noResults">No updates found for this category. 🟢</div>
+  <div style="text-align:center; margin-top:2rem;">
+    <button id="loadMoreBtn" class="expand-btn">Show more updates ↓</button>
+  </div>
+</div>
+<footer>
+  <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp;
+    <a href="index.html" style="color:var(--green);text-decoration:none;font-weight:600;">← Back to main site</a>
+  </p>
+</footer>
+
+<script>
+let visibleLimit = 4;
+const loadStep = 3;
+
+const entries = document.querySelectorAll('.tl-entry');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const noResults = document.getElementById('noResults');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+let activeFilter = 'all';
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
+  const htmlDoc = document.documentElement;
+  const isDark = htmlDoc.getAttribute('data-theme') === 'dark';
+  
+  htmlDoc.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  themeBtn.textContent = isDark ? '🌙' : '☀️';
+});
+function updateCounter() {
+  const visible = [...entries].filter(e =>
+    !e.classList.contains('hidden') && getComputedStyle(e).display !== 'none'
+  ).length;
+
+  document.getElementById("updateCount").textContent =
+    visible + " Updates shown 🚀";
+}
+function updateVisibleEntries() {
+  const visibleEntries = [...entries].filter(e =>
+    !e.classList.contains('hidden')
+  );
+
+  let shown = 0;
+
+  visibleEntries.forEach(entry => {
+    if (shown < visibleLimit) {
+      entry.style.display = '';
+      entry.style.opacity = 1;
+      entry.style.transform = "translateY(0)";
+      shown++;
+    } else {
+      entry.style.display = 'none';
+      entry.style.opacity = 0;
+      entry.style.transform = "translateY(10px)";
+    }
+  });
+
+  const remaining = visibleEntries.length - visibleLimit;
+
+  if (remaining > 0) {
+    loadMoreBtn.style.display = 'inline-block';
+    loadMoreBtn.textContent = `Show more (${remaining} left) ↓`;
+  } else {
+    loadMoreBtn.style.display = 'none';
+  }
+}
+loadMoreBtn.addEventListener('click', () => {
+  visibleLimit += loadStep;
+  updateVisibleEntries();
+  updateCounter();
+});
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    activeFilter = btn.dataset.filter;
+    visibleLimit = 4;
+
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    let visibleCount = 0;
+
+    entries.forEach(entry => {
+      const items = entry.querySelectorAll('.cl-item');
+
+      if (activeFilter === 'all') {
+        entry.classList.remove('hidden');
+        items.forEach(i => i.classList.remove('faded'));
+        visibleCount++;
+      } else {
+        let hasMatch = false;
+
+        items.forEach(item => {
+          if (item.dataset.tag === activeFilter) {
+            item.classList.remove('faded');
+            hasMatch = true;
+          } else {
+            item.classList.add('faded');
+          }
+        });
+
+        if (hasMatch) {
+          entry.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          entry.classList.add('hidden');
+        }
+      }
+    });
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    updateVisibleEntries();
+    updateCounter();
+  });
+});
+updateVisibleEntries();
+updateCounter();
+
+</script>
+</body>
+</html>
