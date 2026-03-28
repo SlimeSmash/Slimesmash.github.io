@@ -257,7 +257,6 @@
       display: none;
     }
     #loadMoreBtn {
-      padding: 10px 18px;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--card);
@@ -268,7 +267,8 @@
       font-size: 0.95rem;
       transition: all 0.2s;
       cursor: pointer;
-      width: 33.5%;
+      min-width: 200px;
+      padding: 12px 24px;
     }
     #loadMoreBtn:hover {
       border-color: var(--green);
@@ -539,23 +539,22 @@
 <script>
 let visibleLimit = 4;
 const loadStep = 3;
-
 const entries = document.querySelectorAll('.tl-entry');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
 const noResults = document.getElementById('noResults');
 const filterBtns = document.querySelectorAll('.filter-btn');
-const themeColor = isDark ? "#f4f7f2" : "#0f1117";
-document.getElementById('themeColorMeta').setAttribute('content', themeColor);
 let activeFilter = 'all';
 const themeBtn = document.getElementById('themeBtn');
 themeBtn.addEventListener('click', () => {
   const htmlDoc = document.documentElement;
-  const isDark = htmlDoc.getAttribute('data-theme') === 'dark';
-  
-  htmlDoc.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  themeBtn.textContent = isDark ? '🌙' : '☀️';
+  const currentTheme = htmlDoc.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  htmlDoc.setAttribute('data-theme', newTheme);
+  themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  const metaColor = newTheme === 'dark' ? "#0f1117" : "#f4f7f2";
+  document.getElementById('themeColorMeta').setAttribute('content', metaColor);
 });
-function updateCounter() {
+  function updateCounter() {
   const visible = [...entries].filter(e =>
     !e.classList.contains('hidden') && getComputedStyle(e).display !== 'none'
   ).length;
