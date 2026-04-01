@@ -338,11 +338,13 @@
     .cl-tag.fix     { background: rgba(255,160,70,0.12); color: #ffab44; border: 1px solid rgba(255,160,70,0.3); }
     .cl-tag.balance { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
     .cl-tag.change  { background: rgba(200,100,255,0.12); color: #d070ff; border: 1px solid rgba(200,100,255,0.3); }
+    .cl-tag.polish  { background: rgba(255,100,140,0.12); color: #ff9eb0; border: 1px solid rgba(255,100,140,0.3); }
 
     [data-theme="light"] .cl-tag.new     { background: rgba(42,154,80,0.1);  color: #1e8040; }
     [data-theme="light"] .cl-tag.fix     { background: rgba(200,100,0,0.1);  color: #b05000; }
     [data-theme="light"] .cl-tag.balance { background: rgba(40,80,200,0.1);  color: #2040b0; }
     [data-theme="light"] .cl-tag.change  { background: rgba(130,40,180,0.1); color: #7020a0; }
+    [data-theme="light"] .cl-tag.polish  { background: rgba(180,40,100,0.1); color: #a02060; }
 
     #privacy { max-width: 760px; margin: 0 auto; padding: 0 2rem 6rem; }
 
@@ -520,11 +522,11 @@
   <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;transition:border-color 0.3s;" onmouseenter="this.style.borderColor='var(--green)'" onmouseleave="this.style.borderColor='var(--border)'">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.7rem;flex-wrap:wrap;">
-        <span style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--green);background:var(--green-bg);border:1px solid var(--green);padding:3px 14px;border-radius:20px;">v1.1.6</span>
+        <span style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--green);background:var(--green-bg);border:1px solid var(--green);padding:3px 14px;border-radius:20px;">v1.1.7</span>
         <span style="font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--green);color:#0f1117;">Latest</span>
       </div>
-      <p style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;">Polish & Performance Patch 🚀</p>
-      <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;max-width:400px;">Improved Game HUD, fixed notification rewards, enhanced analytics stability, and optimized performance for smoother gameplay.</p>
+      <p style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;">The Chubby Update 🐾</p>
+      <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;max-width:400px;">New free starter pet Chubby, icons on the leaderboard, a new store tab, bigger slimes, Casual Mode fixes, companion bug fixes, and more.</p>
     </div>
     <a href="changelog.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:12px;background:var(--green);color:#0f1117;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;white-space:nowrap;" onmouseenter="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.filter='';this.style.transform=''">Full Changelog →</a>
   </div>
@@ -646,7 +648,7 @@
 </section>
 
 <footer>
-  <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp; Last updated March 28, 2026.</p>
+  <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp; Last updated April 1, 2026.</p>
 </footer>
 <script>
   const btn = document.getElementById('themeBtn');
@@ -666,4 +668,5 @@
     btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     themeMeta.setAttribute('content', themeColors[newTheme]);
   });
-</script>
+</script></body>
+</html>
