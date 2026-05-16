@@ -30,7 +30,6 @@ Actively maintained — live on Google Play with ongoing updates
 | **Pets & Companions** | Unlock unique pets that actively alter gameplay dynamics |
 | **Adventure Mode** | 50+ handcrafted levels with escalating mechanics |
 | **Endless Mode** | Score-chase survival with global ranking |
-| **Retro Aesthetic** | Pixel-art visuals paired with a chiptune soundtrack |
 | **Global Leaderboards** | Live worldwide ranking via Unity Leaderboards |
 | **Daily Rewards** | Streak-based reward system to drive retention |
 | **Upgrades System** | Ability enhancements tied to in-game progression |
