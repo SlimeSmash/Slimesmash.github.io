@@ -723,17 +723,27 @@ const loadMoreBtn = document.getElementById('loadMoreBtn');
 const noResults = document.getElementById('noResults');
 const filterBtns = document.querySelectorAll('.filter-btn');
 let activeFilter = 'all';
+
 const themeBtn = document.getElementById('themeBtn');
+
+// Sync theme choice from localStorage on load
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+themeBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+document.getElementById('themeColorMeta').setAttribute('content', savedTheme === 'dark' ? "#0f1117" : "#f4f7f2");
+
 themeBtn.addEventListener('click', () => {
   const htmlDoc = document.documentElement;
   const currentTheme = htmlDoc.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
   htmlDoc.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme); // Save theme locally
   themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
   const metaColor = newTheme === 'dark' ? "#0f1117" : "#f4f7f2";
   document.getElementById('themeColorMeta').setAttribute('content', metaColor);
 });
-  function updateCounter() {
+
+function updateCounter() {
   const visible = [...entries].filter(e =>
     !e.classList.contains('hidden') && getComputedStyle(e).display !== 'none'
   ).length;
@@ -741,6 +751,7 @@ themeBtn.addEventListener('click', () => {
   document.getElementById("updateCount").textContent =
     visible + " Updates shown 🚀";
 }
+
 function updateVisibleEntries() {
   const visibleEntries = [...entries].filter(e =>
     !e.classList.contains('hidden')
@@ -770,6 +781,7 @@ function updateVisibleEntries() {
     loadMoreBtn.style.display = 'none';
   }
 }
+
 loadMoreBtn.addEventListener('click', () => {
   visibleLimit += loadStep;
   updateVisibleEntries();
@@ -792,7 +804,9 @@ filterBtns.forEach(btn => {
 
       if (activeFilter === 'all') {
         entry.classList.remove('hidden');
-        items.forEach(i => i.classList.remove('faded'));
+        items.forEach(i => {
+          i.classList.remove('faded', 'highlight'); // Reset states
+        });
         visibleCount++;
       } else {
         let hasMatch = false;
@@ -800,9 +814,11 @@ filterBtns.forEach(btn => {
         items.forEach(item => {
           if (item.dataset.tag === activeFilter) {
             item.classList.remove('faded');
+            item.classList.add('highlight'); // Force full color on match!
             hasMatch = true;
           } else {
             item.classList.add('faded');
+            item.classList.remove('highlight'); // Dim out mismatch
           }
         });
 
@@ -819,6 +835,7 @@ filterBtns.forEach(btn => {
     updateCounter();
   });
 });
+
 updateVisibleEntries();
 updateCounter();
 </script>
