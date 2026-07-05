@@ -1,0 +1,186 @@
+[
+  {
+    "version": "v1.2.0",
+    "latest": true,
+    "date": "16 May 2026",
+    "name": "Chain Reaction Update 🟢💥",
+    "builds": ["Production"],
+    "items": [
+      { "tag": "new", "text": "The brand-new Chain-Reaction Slime has arrived to trigger insane combos" },
+      { "tag": "change", "text": "The Freeze Slime has been officially retired to pave the way for chain reactions" },
+      { "tag": "balance", "text": "Adventure Mode has received a huge rebalance for a smoother progression experience" },
+      { "tag": "change", "text": "Removed the \"Danger Bad\" mechanic based on player feedback to focus on pure fast-paced fun" },
+      { "tag": "polish", "text": "Targeting 120 FPS by default with Vsync disabled for butter-smooth arcade action" },
+      { "tag": "new", "text": "Fresh live in-game notification systems added for real-time updates" },
+      { "tag": "polish", "text": "Highly accurate delivery updates and notifications for daily reward streaks" },
+      { "tag": "polish", "text": "UI overhauls featuring beautiful new interface designs across the game" },
+      { "tag": "polish", "text": "Clearer reward feedback and text integrated directly into the Win Panel" },
+      { "tag": "polish", "text": "Vastly improved Slime bounce and movement animations" },
+      { "tag": "fix", "text": "Resolved a variety of critical edge-case bugs and performance slowdowns" }
+    ]
+  },
+  {
+    "version": "v1.1.10",
+    "date": "11 May 2026",
+    "name": "PC Support Update 💻",
+    "builds": ["v1.1.9 · Internal testing", "Production"],
+    "items": [
+      { "tag": "new", "text": "Added keyboard support for Back, ESC, and Space keys" },
+      { "tag": "new", "text": "Space key can now activate pet abilities mid-game" },
+      { "tag": "change", "text": "Daily systems improvements" },
+      { "tag": "fix", "text": "Fixed Freeze and Mirror slime behaviour" },
+      { "tag": "polish", "text": "Improved stability and overall gameplay performance" },
+      { "tag": "polish", "text": "UI labels and text refined" },
+      { "tag": "change", "text": "Disabled unsupported non-PC features for better compatibility" }
+    ]
+  },
+  {
+    "version": "v1.1.8",
+    "date": "4 Apr 2026",
+    "name": "Stability Update 🛠️",
+    "builds": ["Production"],
+    "items": [
+      { "tag": "fix", "text": "Fixed issues introduced in the previous build" },
+      { "tag": "polish", "text": "Improved overall stability and performance" },
+      { "tag": "fix", "text": "Fixed bugs affecting cloud save, leaderboards, and notifications" },
+      { "tag": "fix", "text": "Fixed an issue that could cause multiple save conflicts" },
+      { "tag": "polish", "text": "Improved notification reliability" },
+      { "tag": "fix", "text": "Fixed various edge-case issues" }
+    ]
+  },
+  {
+    "version": "v1.1.7",
+    "date": "1 Apr 2026",
+    "name": "The Chubby Update 🐾",
+    "builds": ["Production"],
+    "items": [
+      { "tag": "new", "text": "Chubby — free starter pet that grows all slimes to 150% size for 5s. Existing players receive it automatically on their next level" },
+      { "tag": "new", "text": "Icons tab added to the Store panel" },
+      { "tag": "new", "text": "Player icons now display on the global leaderboard with a polished animated UI" },
+      { "tag": "balance", "text": "All slime types are now 15% larger" },
+      { "tag": "balance", "text": "Casual Mode rebalanced to be more accessible" },
+      { "tag": "fix", "text": "Casual Mode pause exploit patched — pause can no longer be used to gain an unfair advantage" },
+      { "tag": "fix", "text": "Pinball ability (Maximus companion) now correctly eliminates isBad slimes" },
+      { "tag": "fix", "text": "Pet upgrade progress display fixed — no more 0% → 0% confusion; percentages now clearly reflect actual progress" },
+      { "tag": "fix", "text": "Level feedback analytics events now correctly include level data" },
+      { "tag": "fix", "text": "Progress system edge case fixes" },
+      { "tag": "change", "text": "Integrity API checks added to protect against piracy" },
+      { "tag": "polish", "text": "Enhanced Slime Discovery panel UI" }
+    ]
+  },
+  {
+    "version": "v1.1.6",
+    "date": "28 Mar 2026",
+    "name": "Polish & Performance Patch 🚀",
+    "builds": ["Production"],
+    "items": [
+      { "tag": "polish", "text": "Improved Game HUD for Adventure and Casual modes for a sleeker experience" },
+      { "tag": "fix", "text": "Notification system fixed to reliably deliver rewards updates" },
+      { "tag": "change", "text": "Enhanced analytics and internal systems stability" },
+      { "tag": "polish", "text": "Performance optimisations for smoother gameplay" }
+    ]
+  },
+  {
+    "version": "v1.1.5",
+    "date": "27 Mar 2026",
+    "name": "The Quality Update 🚀",
+    "builds": ["Build 22 · Production", "Builds 18–21 · Internal testing"],
+    "items": [
+      { "tag": "new", "text": "Redesigned Win & Fail panels" },
+      { "tag": "new", "text": "Report system for Adventure levels" },
+      { "tag": "new", "text": "Mission progress is now shown after every run" },
+      { "tag": "new", "text": "Casual waves can now be paused mid-run" },
+      { "tag": "balance", "text": "Explosion Slimes now worth 3 points" },
+      { "tag": "fix", "text": "Shield Slime behaviour corrected" },
+      { "tag": "change", "text": "Enhanced account protection & cloud syncing" },
+      { "tag": "polish", "text": "New SFX added throughout the game" },
+      { "tag": "polish", "text": "UI/UX improvements across multiple screens" },
+      { "tag": "fix", "text": "Surf Mode stability tweaks" }
+    ]
+  },
+  {
+    "version": "v1.1.1",
+    "date": "26 Mar 2026",
+    "name": "The Big Update ⚔️",
+    "builds": ["Build 18 · Closed testing (Alpha)", "Builds 13–16 · Internal snapshots", "v1.1 · Production"],
+    "items": [
+      { "tag": "change", "text": "Companions & Pets abilities fully reworked" },
+      { "tag": "change", "text": "Massive UI & font overhaul across all menus" },
+      { "tag": "new", "text": "New VFX & enhanced in-game visuals" },
+      { "tag": "new", "text": "10 new achievements via Google Play Games" },
+      { "tag": "new", "text": "Daily reward push notifications" },
+      { "tag": "new", "text": "In-app rating prompt added" },
+      { "tag": "new", "text": "Privacy Policy & personalised ads consent shown in-app" },
+      { "tag": "new", "text": "Companions & Pets remote configuration support" },
+      { "tag": "balance", "text": "Adventure Mode levels rebalanced for better pacing" },
+      { "tag": "fix", "text": "Devourer spawning bug fixed" },
+      { "tag": "change", "text": "New AES encryption — ⚠️ progress was reset as part of this upgrade" }
+    ]
+  },
+  {
+    "version": "v1.0.11",
+    "date": "8 Feb 2026",
+    "name": "Safety & Polish 🛡️",
+    "builds": ["Build 12 · Production & Alpha"],
+    "items": [
+      { "tag": "new", "text": "Bad word filtering for player display names" },
+      { "tag": "new", "text": "In-game version check panel — notifies players when an update is required" },
+      { "tag": "balance", "text": "Casual Mode tweaked for smoother gameplay flow" },
+      { "tag": "fix", "text": "Minor fixes and general stability improvements" }
+    ]
+  },
+  {
+    "version": "v1.0.10",
+    "date": "7 Feb 2026",
+    "name": "Save System Fix 💾",
+    "builds": ["Build 11 · Closed testing (Alpha)"],
+    "items": [
+      { "tag": "fix", "text": "Fixed progress resetting after force-closing the app" },
+      { "tag": "fix", "text": "Save system stability and startup loading improved" },
+      { "tag": "change", "text": "Improved UI clarity and responsiveness across menus" },
+      { "tag": "change", "text": "Daily reward screen layout and feedback improved" },
+      { "tag": "fix", "text": "General performance and reliability improvements" }
+    ]
+  },
+  {
+    "version": "v1.0.2",
+    "date": "4 Feb 2026",
+    "name": "Balance Patch ⚖️",
+    "builds": ["Build 3 · Closed testing (Alpha)"],
+    "items": [
+      { "tag": "fix", "text": "Fixed an issue causing player progress loss" },
+      { "tag": "fix", "text": "Google Play Games connection stability improved" },
+      { "tag": "new", "text": "New UI elements and smooth animations on the Leaderboard screen" },
+      { "tag": "new", "text": "New countdown popup animation" },
+      { "tag": "balance", "text": "Significant balance adjustments to Casual Mode" },
+      { "tag": "fix", "text": "General UI improvements and bug fixes" }
+    ]
+  },
+  {
+    "version": "v1.0.1",
+    "date": "28 Jan 2026",
+    "name": "Foundation Patch 🔧",
+    "builds": ["Build 2 · Closed testing (Alpha)"],
+    "items": [
+      { "tag": "new", "text": "ARM7 support added for wider device compatibility" },
+      { "tag": "new", "text": "Google Play Services & UGS Remote Config integrated" },
+      { "tag": "new", "text": "Force Update notifications so players stay on the latest version" },
+      { "tag": "new", "text": "Data Deletion option added inside Settings" },
+      { "tag": "change", "text": "Profile UI streamlined; loading sequences updated" },
+      { "tag": "fix", "text": "Daily Missions now reset correctly" },
+      { "tag": "fix", "text": "Wave Mode stability improved" }
+    ]
+  },
+  {
+    "version": "v1.0.0",
+    "date": "23 Jan 2026",
+    "name": "Launch Day 🟢",
+    "builds": ["SlimeSmash_1.0V · Initial release"],
+    "items": [
+      { "tag": "new", "text": "SlimeSmash is live on Google Play! 🎉" },
+      { "tag": "new", "text": "Adventure Mode — pop slimes, collect coins, unlock companions" },
+      { "tag": "new", "text": "Casual Mode — endless waves, play at your own pace" },
+      { "tag": "new", "text": "Starter slime roster to discover and collect" }
+    ]
+  }
+]
