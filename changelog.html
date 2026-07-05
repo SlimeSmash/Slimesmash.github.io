@@ -38,7 +38,6 @@
       --shadow:     0 8px 32px rgba(0,0,0,0.07);
       --line:       rgba(42,154,80,0.4);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; background-color: var(--bg-base); }
     body {
@@ -46,7 +45,6 @@
       background: var(--bg); background-attachment: fixed;
       color: var(--text); min-height: 100vh;
     }
-
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -100,7 +98,6 @@
       color: var(--text-dim); font-size: 1rem;
       font-weight: 500; line-height: 1.6;
     }
-
     /* ── FILTER BAR ── */
     .filter-bar {
       display: flex; align-items: center; justify-content: center;
@@ -125,26 +122,22 @@
     }
     .filter-btn:hover { border-color: var(--green); color: var(--text); }
     .filter-btn.active { color: var(--text); }
-
     .filter-btn[data-filter="all"].active    { border-color: var(--green); background: var(--green-bg); color: var(--green); }
     .filter-btn[data-filter="new"].active    { border-color: #3ecf6e; background: rgba(62,207,110,0.12); color: #3ecf6e; }
     .filter-btn[data-filter="fix"].active    { border-color: #ffab44; background: rgba(255,160,70,0.1); color: #ffab44; }
     .filter-btn[data-filter="balance"].active { border-color: #7eb8ff; background: rgba(100,160,255,0.1); color: #7eb8ff; }
     .filter-btn[data-filter="change"].active { border-color: #d070ff; background: rgba(200,100,255,0.1); color: #d070ff; }
     .filter-btn[data-filter="polish"].active { border-color: #ff9eb0; background: rgba(255,100,140,0.1); color: #ff9eb0; }
-
     [data-theme="light"] .filter-btn[data-filter="new"].active    { color: #1e8040; border-color: #1e8040; background: rgba(42,154,80,0.08); }
     [data-theme="light"] .filter-btn[data-filter="fix"].active    { color: #b05000; border-color: #b05000; background: rgba(200,100,0,0.07); }
     [data-theme="light"] .filter-btn[data-filter="balance"].active { color: #2040b0; border-color: #2040b0; background: rgba(40,80,200,0.07); }
     [data-theme="light"] .filter-btn[data-filter="change"].active { color: #7020a0; border-color: #7020a0; background: rgba(130,40,180,0.07); }
     [data-theme="light"] .filter-btn[data-filter="polish"].active { color: #a02060; border-color: #a02060; background: rgba(180,40,100,0.07); }
-
     /* ── TIMELINE ── */
     .timeline-wrap {
       max-width: 760px; margin: 0 auto;
       padding: 0 2rem 6rem;
     }
-
     .timeline {
       position: relative;
       padding-left: 2.2rem;
@@ -156,14 +149,12 @@
       background: linear-gradient(to bottom, var(--green) 0%, transparent 100%);
       border-radius: 2px;
     }
-
     .tl-entry {
       position: relative;
       margin-bottom: 2rem;
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
     .tl-entry.hidden { display: none; }
-
     /* timeline dot */
     .tl-entry::before {
       content: '';
@@ -177,7 +168,6 @@
       z-index: 1;
     }
     .tl-entry:hover::before { transform: scale(1.5); }
-
     .tl-card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 16px; padding: 1.8rem 2rem;
@@ -185,7 +175,6 @@
       transition: border-color 0.25s, transform 0.25s;
     }
     .tl-card:hover { border-color: var(--green); transform: translateX(5px); }
-
     /* card header */
     .tl-header {
       display: flex; align-items: center; gap: 12px;
@@ -218,7 +207,6 @@
       border-radius: 12px; border: 1px solid var(--border);
       color: var(--text-muted); background: transparent;
     }
-
     /* items */
     .tl-items { display: flex; flex-direction: column; gap: 0.6rem; }
     .cl-item {
@@ -232,7 +220,6 @@
       opacity: 1 !important;
       color: var(--text);
     }
-
     .cl-tag {
       display: inline-block; font-size: 0.68rem; font-weight: 700;
       letter-spacing: 0.8px; text-transform: uppercase;
@@ -244,7 +231,6 @@
     .cl-tag.balance { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
     .cl-tag.change  { background: rgba(200,100,255,0.12); color: #d070ff; border: 1px solid rgba(200,100,255,0.3); }
     .cl-tag.polish  { background: rgba(255,100,140,0.12); color: #ff9eb0; border: 1px solid rgba(255,100,140,0.3); }
-
     [data-theme="light"] .cl-tag.new     { background: rgba(42,154,80,0.1);   color: #1e8040; border-color: rgba(42,154,80,0.25); }
     [data-theme="light"] .cl-tag.fix     { background: rgba(200,100,0,0.08);  color: #b05000; border-color: rgba(200,100,0,0.2); }
     [data-theme="light"] .cl-tag.balance { background: rgba(40,80,200,0.08); color: #2040b0; border-color: rgba(40,80,200,0.2); }
@@ -256,6 +242,12 @@
       color: var(--text-muted); font-size: 1rem; font-weight: 600;
       display: none;
     }
+    /* loading / error states */
+    #loadingState, #errorState {
+      text-align: center; padding: 3rem 1rem;
+      color: var(--text-muted); font-size: 1rem; font-weight: 600;
+    }
+    #errorState { display: none; color: #ffab44; }
     #loadMoreBtn {
       border-radius: 10px;
       border: 1px solid var(--border);
@@ -269,6 +261,7 @@
       cursor: pointer;
       min-width: 200px;
       padding: 12px 24px;
+      display: none;
     }
     #loadMoreBtn:hover {
       border-color: var(--green);
@@ -281,7 +274,6 @@
       color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
       background: var(--nav-bg);
     }
-
     /* ── RESPONSIVE ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
@@ -289,7 +281,6 @@
     }
     .page-header, .filter-bar { animation: fadeUp 0.5s ease both; }
     .timeline-wrap { animation: fadeUp 0.5s 0.1s ease both; }
-
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
@@ -300,7 +291,6 @@
   </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">🟢 SlimeSmash</a>
   <div class="nav-right">
@@ -313,7 +303,6 @@
     <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
   </div>
 </nav>
-
 <!-- ── HEADER ── -->
 <header class="page-header">
   <p class="section-label">Every update, every patch</p>
@@ -341,369 +330,9 @@
   <p id="updateCount" style="text-align:center;color:var(--text-muted);margin-bottom:2rem;"></p>
 <!-- ── TIMELINE ── -->
 <div class="timeline-wrap">
-  <div class="timeline" id="timeline">
-        <!-- ═══════════════════════════════ v1.2.0 ═══════════════════════════════ -->
-<div class="tl-entry" data-tags="new change balance polish fix">
-  <div class="tl-card">
-    <div class="tl-header">
-      <span class="version-badge">v1.2.0</span>
-      <span class="latest-pill">Latest</span>
-      <span class="version-date">16 May 2026</span>
-      <span class="version-name">Chain Reaction Update 🟢💥</span>
-    </div>
-    <div class="build-badges">
-      <span class="build-pill">Production</span>
-    </div>
-    <div class="tl-items">
-      <div class="cl-item" data-tag="new">
-        <span class="cl-tag new">New</span>
-        The brand-new Chain-Reaction Slime has arrived to trigger insane combos
-      </div>
-      <div class="cl-item" data-tag="change">
-        <span class="cl-tag change">Change</span>
-        The Freeze Slime has been officially retired to pave the way for chain reactions
-      </div>
-      <div class="cl-item" data-tag="balance">
-        <span class="cl-tag balance">Balance</span>
-        Adventure Mode has received a huge rebalance for a smoother progression experience
-      </div>
-      <div class="cl-item" data-tag="change">
-        <span class="cl-tag change">Change</span>
-        Removed the "Danger Bad" mechanic based on player feedback to focus on pure fast-paced fun
-      </div>
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        Targeting 120 FPS by default with Vsync disabled for butter-smooth arcade action
-      </div>
-      <div class="cl-item" data-tag="new">
-        <span class="cl-tag new">New</span>
-        Fresh live in-game notification systems added for real-time updates
-      </div>
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        Highly accurate delivery updates and notifications for daily reward streaks
-      </div>
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        UI overhauls featuring beautiful new interface designs across the game
-      </div>
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        Clearer reward feedback and text integrated directly into the Win Panel
-      </div>
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        Vastly improved Slime bounce and movement animations
-      </div>
-      <div class="cl-item" data-tag="fix">
-        <span class="cl-tag fix">Fix</span>
-        Resolved a variety of critical edge-case bugs and performance slowdowns
-      </div>
-    </div>
-  </div>
-</div>
-    <!-- ═══════════════════════════════ v1.1.10 ═══════════════════════════════ -->
-<div class="tl-entry" data-tags="new fix change polish">
-  <div class="tl-card">
-    <div class="tl-header">
-      <span class="version-badge">v1.1.10</span>
-      <span class="version-date">11 May 2026</span>
-      <span class="version-name">PC Support Update 💻</span>
-    </div>
-    <div class="build-badges">
-      <span class="build-pill">v1.1.9 · Internal testing</span>
-      <span class="build-pill">Production</span>
-    </div>
-    <div class="tl-items">
-      <div class="cl-item" data-tag="new">
-        <span class="cl-tag new">New</span>
-        Added keyboard support for Back, ESC, and Space keys
-      </div>
-      <div class="cl-item" data-tag="new">
-        <span class="cl-tag new">New</span>
-        Space key can now activate pet abilities mid-game
-      </div>
-      <div class="cl-item" data-tag="change">
-        <span class="cl-tag change">Change</span>
-        Daily systems improvements
-      </div>
-      <div class="cl-item" data-tag="fix">
-        <span class="cl-tag fix">Fix</span>
-        Fixed Freeze and Mirror slime behaviour
-      </div>
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        Improved stability and overall gameplay performance
-      </div>
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        UI labels and text refined
-      </div>
-      <div class="cl-item" data-tag="change">
-        <span class="cl-tag change">Change</span>
-        Disabled unsupported non-PC features for better compatibility
-      </div>
-
-    </div>
-  </div>
-</div>
-    <!-- ═══════════════════════════════ v1.1.8 ═══════════════════════════════ -->
-<div class="tl-entry" data-tags="fix polish change">
-  <div class="tl-card">
-    <div class="tl-header">
-      <span class="version-badge">v1.1.8</span>
-      <span class="version-date">4 Apr 2026</span>
-      <span class="version-name">Stability Update 🛠️</span>
-    </div>
-    <div class="build-badges">
-      <span class="build-pill">Production</span>
-    </div>
-    <div class="tl-items">
-
-      <div class="cl-item" data-tag="fix">
-        <span class="cl-tag fix">Fix</span>
-        Fixed issues introduced in the previous build
-      </div>
-
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        Improved overall stability and performance
-      </div>
-
-      <div class="cl-item" data-tag="fix">
-        <span class="cl-tag fix">Fix</span>
-        Fixed bugs affecting cloud save, leaderboards, and notifications
-      </div>
-
-      <div class="cl-item" data-tag="fix">
-        <span class="cl-tag fix">Fix</span>
-        Fixed an issue that could cause multiple save conflicts
-      </div>
-
-      <div class="cl-item" data-tag="polish">
-        <span class="cl-tag polish">Polish</span>
-        Improved notification reliability
-      </div>
-
-      <div class="cl-item" data-tag="fix">
-        <span class="cl-tag fix">Fix</span>
-        Fixed various edge-case issues
-      </div>
-
-    </div>
-  </div>
-</div>
-    <!-- ═══════════════════════════════ v1.1.7 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="new fix balance change polish">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.1.7</span>
-          <span class="version-date">1 Apr 2026</span>
-          <span class="version-name">The Chubby Update 🐾</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">Production</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Chubby — free starter pet that grows all slimes to 150% size for 5s. Existing players receive it automatically on their next level</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Icons tab added to the Store panel</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Player icons now display on the global leaderboard with a polished animated UI</div>
-          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>All slime types are now 15% larger</div>
-          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Casual Mode rebalanced to be more accessible</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Casual Mode pause exploit patched — pause can no longer be used to gain an unfair advantage</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Pinball ability (Maximus companion) now correctly eliminates isBad slimes</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Pet upgrade progress display fixed — no more 0% → 0% confusion; percentages now clearly reflect actual progress</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Level feedback analytics events now correctly include level data</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Progress system edge case fixes</div>
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Integrity API checks added to protect against piracy</div>
-          <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>Enhanced Slime Discovery panel UI</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════ v1.1.6 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="fix polish change balance">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.1.6</span>
-          <span class="version-date">28 Mar 2026</span>
-          <span class="version-name">Polish & Performance Patch 🚀</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">Production</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>Improved Game HUD for Adventure and Casual modes for a sleeker experience</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Notification system fixed to reliably deliver rewards updates</div>
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Enhanced analytics and internal systems stability</div>
-          <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>Performance optimisations for smoother gameplay</div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- ═══════════════════════════════ v1.1.5 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="new fix balance polish change">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.1.5</span>
-          <span class="version-date">27 Mar 2026</span>
-          <span class="version-name">The Quality Update 🚀</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">Build 22 · Production</span>
-          <span class="build-pill">Builds 18–21 · Internal testing</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Redesigned Win &amp; Fail panels</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Report system for Adventure levels</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Mission progress is now shown after every run</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Casual waves can now be paused mid-run</div>
-          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Explosion Slimes now worth 3 points</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Shield Slime behaviour corrected</div>
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Enhanced account protection &amp; cloud syncing</div>
-          <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>New SFX added throughout the game</div>
-          <div class="cl-item" data-tag="polish"><span class="cl-tag polish">Polish</span>UI/UX improvements across multiple screens</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Surf Mode stability tweaks</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════ v1.1.1 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="new fix balance change">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.1.1</span>
-          <span class="version-date">26 Mar 2026</span>
-          <span class="version-name">The Big Update ⚔️</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">Build 18 · Closed testing (Alpha)</span>
-          <span class="build-pill">Builds 13–16 · Internal snapshots</span>
-          <span class="build-pill">v1.1 · Production</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Companions &amp; Pets abilities fully reworked</div>
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Massive UI &amp; font overhaul across all menus</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>New VFX &amp; enhanced in-game visuals</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>10 new achievements via Google Play Games</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Daily reward push notifications</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>In-app rating prompt added</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Privacy Policy &amp; personalised ads consent shown in-app</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Companions &amp; Pets remote configuration support</div>
-          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Adventure Mode levels rebalanced for better pacing</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Devourer spawning bug fixed</div>
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>New AES encryption — ⚠️ progress was reset as part of this upgrade</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════ v1.0.11 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="new fix balance">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.0.11</span>
-          <span class="version-date">8 Feb 2026</span>
-          <span class="version-name">Safety &amp; Polish 🛡️</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">Build 12 · Production &amp; Alpha</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Bad word filtering for player display names</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>In-game version check panel — notifies players when an update is required</div>
-          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Casual Mode tweaked for smoother gameplay flow</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Minor fixes and general stability improvements</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════ v1.0.10 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="fix change">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.0.10</span>
-          <span class="version-date">7 Feb 2026</span>
-          <span class="version-name">Save System Fix 💾</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">Build 11 · Closed testing (Alpha)</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Fixed progress resetting after force-closing the app</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Save system stability and startup loading improved</div>
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Improved UI clarity and responsiveness across menus</div>
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Daily reward screen layout and feedback improved</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>General performance and reliability improvements</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════ v1.0.2 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="new fix balance">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.0.2</span>
-          <span class="version-date">4 Feb 2026</span>
-          <span class="version-name">Balance Patch ⚖️</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">Build 3 · Closed testing (Alpha)</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Fixed an issue causing player progress loss</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Google Play Games connection stability improved</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>New UI elements and smooth animations on the Leaderboard screen</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>New countdown popup animation</div>
-          <div class="cl-item" data-tag="balance"><span class="cl-tag balance">Balance</span>Significant balance adjustments to Casual Mode</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>General UI improvements and bug fixes</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════ v1.0.1 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="new fix change">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.0.1</span>
-          <span class="version-date">28 Jan 2026</span>
-          <span class="version-name">Foundation Patch 🔧</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">Build 2 · Closed testing (Alpha)</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>ARM7 support added for wider device compatibility</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Google Play Services &amp; UGS Remote Config integrated</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Force Update notifications so players stay on the latest version</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Data Deletion option added inside Settings</div>
-          <div class="cl-item" data-tag="change"><span class="cl-tag change">Change</span>Profile UI streamlined; loading sequences updated</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Daily Missions now reset correctly</div>
-          <div class="cl-item" data-tag="fix"><span class="cl-tag fix">Fix</span>Wave Mode stability improved</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════ v1.0.0 ═══════════════════════════════ -->
-    <div class="tl-entry" data-tags="new">
-      <div class="tl-card">
-        <div class="tl-header">
-          <span class="version-badge">v1.0.0</span>
-          <span class="version-date">23 Jan 2026</span>
-          <span class="version-name">Launch Day 🟢</span>
-        </div>
-        <div class="build-badges">
-          <span class="build-pill">SlimeSmash_1.0V · Initial release</span>
-        </div>
-        <div class="tl-items">
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>SlimeSmash is live on Google Play! 🎉</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Adventure Mode — pop slimes, collect coins, unlock companions</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Casual Mode — endless waves, play at your own pace</div>
-          <div class="cl-item" data-tag="new"><span class="cl-tag new">New</span>Starter slime roster to discover and collect</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <div id="loadingState">Loading updates… 🟢</div>
+  <div id="errorState">Couldn't load the changelog right now. Please try again later.</div>
+  <div class="timeline" id="timeline"></div>
   <div id="noResults">No updates found for this category. 🟢</div>
   <div style="text-align:center; margin-top:2rem;">
     <button id="loadMoreBtn" class="expand-btn">Show more updates ↓</button>
@@ -716,38 +345,112 @@
 </footer>
 
 <script>
+const TAG_META = {
+  new:     { label: 'New' },
+  fix:     { label: 'Fix' },
+  balance: { label: 'Balance' },
+  change:  { label: 'Change' },
+  polish:  { label: 'Polish' }
+};
+
+// ── Path to the data file. Since this page and changelog.json live in the
+// same GitHub repo (served via GitHub Pages at slimesmash.github.io), a
+// relative path works with no CORS setup and no API keys.
+// Add a cache-busting query param so browsers don't serve a stale cached copy.
+const CHANGELOG_JSON_URL = 'changelog.json?v=' + Date.now();
+
+let entries = [];
+let loadMoreBtn, noResults, filterBtns, themeBtn;
 let visibleLimit = 4;
 const loadStep = 3;
-const entries = document.querySelectorAll('.tl-entry');
-const loadMoreBtn = document.getElementById('loadMoreBtn');
-const noResults = document.getElementById('noResults');
-const filterBtns = document.querySelectorAll('.filter-btn');
 let activeFilter = 'all';
 
-const themeBtn = document.getElementById('themeBtn');
+// ── Render timeline entries from JSON data ──
+function renderTimeline(data) {
+  const timeline = document.getElementById('timeline');
+  timeline.innerHTML = '';
 
-// Sync theme choice from localStorage on load
-const savedTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
-themeBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-document.getElementById('themeColorMeta').setAttribute('content', savedTheme === 'dark' ? "#0f1117" : "#f4f7f2");
+  data.forEach(release => {
+    const uniqueTags = [...new Set(release.items.map(i => i.tag))];
 
-themeBtn.addEventListener('click', () => {
-  const htmlDoc = document.documentElement;
-  const currentTheme = htmlDoc.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  htmlDoc.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme); // Save theme locally
-  themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-  const metaColor = newTheme === 'dark' ? "#0f1117" : "#f4f7f2";
-  document.getElementById('themeColorMeta').setAttribute('content', metaColor);
-});
+    const entry = document.createElement('div');
+    entry.className = 'tl-entry';
+    entry.dataset.tags = uniqueTags.join(' ');
+
+    const card = document.createElement('div');
+    card.className = 'tl-card';
+
+    // header
+    const header = document.createElement('div');
+    header.className = 'tl-header';
+
+    const versionBadge = document.createElement('span');
+    versionBadge.className = 'version-badge';
+    versionBadge.textContent = release.version;
+    header.appendChild(versionBadge);
+
+    if (release.latest) {
+      const latestPill = document.createElement('span');
+      latestPill.className = 'latest-pill';
+      latestPill.textContent = 'Latest';
+      header.appendChild(latestPill);
+    }
+
+    const dateSpan = document.createElement('span');
+    dateSpan.className = 'version-date';
+    dateSpan.textContent = release.date;
+    header.appendChild(dateSpan);
+
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'version-name';
+    nameSpan.textContent = release.name;
+    header.appendChild(nameSpan);
+
+    card.appendChild(header);
+
+    // build badges
+    if (release.builds && release.builds.length) {
+      const buildBadges = document.createElement('div');
+      buildBadges.className = 'build-badges';
+      release.builds.forEach(buildText => {
+        const pill = document.createElement('span');
+        pill.className = 'build-pill';
+        pill.textContent = buildText;
+        buildBadges.appendChild(pill);
+      });
+      card.appendChild(buildBadges);
+    }
+
+    // changelog items
+    const itemsWrap = document.createElement('div');
+    itemsWrap.className = 'tl-items';
+    release.items.forEach(item => {
+      const meta = TAG_META[item.tag] || { label: item.tag };
+
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cl-item';
+      itemDiv.dataset.tag = item.tag;
+
+      const tagSpan = document.createElement('span');
+      tagSpan.className = `cl-tag ${item.tag}`;
+      tagSpan.textContent = meta.label;
+      itemDiv.appendChild(tagSpan);
+
+      itemDiv.appendChild(document.createTextNode(item.text));
+
+      itemsWrap.appendChild(itemDiv);
+    });
+    card.appendChild(itemsWrap);
+
+    entry.appendChild(card);
+    timeline.appendChild(entry);
+  });
+}
 
 function updateCounter() {
   const visible = [...entries].filter(e =>
     !e.classList.contains('hidden') && getComputedStyle(e).display !== 'none'
   ).length;
-
   document.getElementById("updateCount").textContent =
     visible + " Updates shown 🚀";
 }
@@ -756,9 +459,7 @@ function updateVisibleEntries() {
   const visibleEntries = [...entries].filter(e =>
     !e.classList.contains('hidden')
   );
-
   let shown = 0;
-
   visibleEntries.forEach(entry => {
     if (shown < visibleLimit) {
       entry.style.display = '';
@@ -771,9 +472,7 @@ function updateVisibleEntries() {
       entry.style.transform = "translateY(10px)";
     }
   });
-
   const remaining = visibleEntries.length - visibleLimit;
-
   if (remaining > 0) {
     loadMoreBtn.style.display = 'inline-block';
     loadMoreBtn.textContent = `Show more (${remaining} left) ↓`;
@@ -782,62 +481,97 @@ function updateVisibleEntries() {
   }
 }
 
-loadMoreBtn.addEventListener('click', () => {
-  visibleLimit += loadStep;
-  updateVisibleEntries();
-  updateCounter();
-});
+function setupInteractivity() {
+  entries = document.querySelectorAll('.tl-entry');
+  loadMoreBtn = document.getElementById('loadMoreBtn');
+  noResults = document.getElementById('noResults');
+  filterBtns = document.querySelectorAll('.filter-btn');
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-
-    activeFilter = btn.dataset.filter;
-    visibleLimit = 4;
-
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    let visibleCount = 0;
-
-    entries.forEach(entry => {
-      const items = entry.querySelectorAll('.cl-item');
-
-      if (activeFilter === 'all') {
-        entry.classList.remove('hidden');
-        items.forEach(i => {
-          i.classList.remove('faded', 'highlight'); // Reset states
-        });
-        visibleCount++;
-      } else {
-        let hasMatch = false;
-
-        items.forEach(item => {
-          if (item.dataset.tag === activeFilter) {
-            item.classList.remove('faded');
-            item.classList.add('highlight'); // Force full color on match!
-            hasMatch = true;
-          } else {
-            item.classList.add('faded');
-            item.classList.remove('highlight'); // Dim out mismatch
-          }
-        });
-
-        if (hasMatch) {
-          entry.classList.remove('hidden');
-          visibleCount++;
-        } else {
-          entry.classList.add('hidden');
-        }
-      }
-    });
-    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  loadMoreBtn.addEventListener('click', () => {
+    visibleLimit += loadStep;
     updateVisibleEntries();
     updateCounter();
   });
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeFilter = btn.dataset.filter;
+      visibleLimit = 4;
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      let visibleCount = 0;
+      entries.forEach(entry => {
+        const items = entry.querySelectorAll('.cl-item');
+        if (activeFilter === 'all') {
+          entry.classList.remove('hidden');
+          items.forEach(i => {
+            i.classList.remove('faded', 'highlight');
+          });
+          visibleCount++;
+        } else {
+          let hasMatch = false;
+          items.forEach(item => {
+            if (item.dataset.tag === activeFilter) {
+              item.classList.remove('faded');
+              item.classList.add('highlight');
+              hasMatch = true;
+            } else {
+              item.classList.add('faded');
+              item.classList.remove('highlight');
+            }
+          });
+          if (hasMatch) {
+            entry.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            entry.classList.add('hidden');
+          }
+        }
+      });
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      updateVisibleEntries();
+      updateCounter();
+    });
+  });
+
+  updateVisibleEntries();
+  updateCounter();
+}
+
+// ── Theme toggle (independent of data loading) ──
+themeBtn = document.getElementById('themeBtn');
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+themeBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+document.getElementById('themeColorMeta').setAttribute('content', savedTheme === 'dark' ? "#0f1117" : "#f4f7f2");
+
+themeBtn.addEventListener('click', () => {
+  const htmlDoc = document.documentElement;
+  const currentTheme = htmlDoc.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  htmlDoc.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  const metaColor = newTheme === 'dark' ? "#0f1117" : "#f4f7f2";
+  document.getElementById('themeColorMeta').setAttribute('content', metaColor);
 });
 
-updateVisibleEntries();
-updateCounter();
+// ── Fetch changelog.json and render ──
+fetch(CHANGELOG_JSON_URL)
+  .then(res => {
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  })
+  .then(data => {
+    document.getElementById('loadingState').style.display = 'none';
+    renderTimeline(data);
+    setupInteractivity();
+  })
+  .catch(err => {
+    console.error('Failed to load changelog.json:', err);
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('errorState').style.display = 'block';
+  });
 </script>
 </body>
 </html>
