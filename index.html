@@ -16,7 +16,7 @@
   <meta name="keywords" content="SlimeSmash, slime smash, arcade game, wave survival, mobile game, android game, casual game, pet companions, SlimeSmashStudio">
   <meta name="author" content="SlimeSmashStudio">
   
-  <!-- Canonical URL (Fixes Indexing Duplicate Issues) -->
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://slimesmash.github.io/">
 
   <!-- Open Graph / Social Meta Tags -->
@@ -28,10 +28,10 @@
 
   <!-- Theme & Favicon -->
   <meta name="theme-color" id="themeColorMeta" content="#0f1117">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
+  <link rel="icon" href="icon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Schema.org Structured Data for Googlebot Indexing -->
+  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -56,32 +56,34 @@
 
   <style>
     [data-theme="dark"] {
-      --bg-base:  #0f1117;
-      --bg:       radial-gradient(circle at 50% -20%, rgba(62,207,110,0.15), #0f1117 60%);
-      --card:     #1a2030;
-      --border:   #2a3347; 
-      --text:     #e8f0fe;
-      --text-dim: #8b9bbf;
-      --text-muted: #5a6a8a;
-      --green:    #3ecf6e;
-      --green-bg: rgba(62,207,110,0.1);
-      --btn-text: #0f1117;
-      --nav-bg:   rgba(15,17,23,0.85);
-      --shadow:   0 8px 32px rgba(0,0,0,0.4);
+      --bg-base:     #0f1117;
+      --bg:          radial-gradient(circle at 50% -20%, rgba(62,207,110,0.15), #0f1117 60%);
+      --hero-overlay: linear-gradient(180deg, rgba(15,17,23,0.78) 0%, rgba(15,17,23,0.92) 80%, #0f1117 100%);
+      --card:        #1a2030;
+      --border:      #2a3347; 
+      --text:        #e8f0fe;
+      --text-dim:    #8b9bbf;
+      --text-muted:  #5a6a8a;
+      --green:       #3ecf6e;
+      --green-bg:    rgba(62,207,110,0.1);
+      --btn-text:    #0f1117;
+      --nav-bg:      rgba(15,17,23,0.85);
+      --shadow:      0 8px 32px rgba(0,0,0,0.4);
     }
     [data-theme="light"] {
-      --bg-base:  #f4f7f2;
-      --bg:       radial-gradient(circle at 50% -20%, rgba(42,154,80,0.12), #f4f7f2 60%);
-      --card:     #ffffff;
-      --border:   #dde8d8;
-      --text:     #1a2410;
-      --text-dim: #4a6040;
-      --text-muted: #7a9070;
-      --green:    #2a9a50;
-      --green-bg: rgba(42,154,80,0.08);
-      --btn-text: #ffffff;
-      --nav-bg:   rgba(244,247,242,0.85);
-      --shadow:   0 8px 32px rgba(0,0,0,0.08);
+      --bg-base:     #f4f7f2;
+      --bg:          radial-gradient(circle at 50% -20%, rgba(42,154,80,0.12), #f4f7f2 60%);
+      --hero-overlay: linear-gradient(180deg, rgba(244,247,242,0.82) 0%, rgba(244,247,242,0.95) 80%, #f4f7f2 100%);
+      --card:        #ffffff;
+      --border:      #dde8d8;
+      --text:        #1a2410;
+      --text-dim:    #4a6040;
+      --text-muted:  #7a9070;
+      --green:       #2a9a50;
+      --green-bg:    rgba(42,154,80,0.08);
+      --btn-text:    #ffffff;
+      --nav-bg:      rgba(244,247,242,0.85);
+      --shadow:      0 8px 32px rgba(0,0,0,0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -94,6 +96,8 @@
       color: var(--text);
       transition: color 0.3s;
     }
+
+    /* Navigation Header */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -106,10 +110,16 @@
     .nav-logo {
       font-family: 'Fredoka One', cursive;
       font-size: 1.5rem; color: var(--green);
-      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      text-decoration: none; display: flex; align-items: center; gap: 10px;
       transition: transform 0.2s;
     }
-    .nav-logo:hover { transform: scale(1.05); }
+    .nav-logo:hover { transform: scale(1.03); }
+
+    .nav-app-icon {
+      width: 30px; height: 30px; border-radius: 7px;
+      object-fit: cover; border: 1px solid var(--border);
+      box-shadow: 0 0 10px var(--green-bg);
+    }
     
     .nav-right { display: flex; align-items: center; gap: 2rem; }
     .nav-links { display: flex; gap: 1.8rem; }
@@ -121,18 +131,27 @@
 
     .theme-btn {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 8px 12px;
-      cursor: pointer; font-size: 1.1rem; line-height: 1;
-      transition: all 0.2s ease;
-      color: var(--text);
+      border-radius: 8px; padding: 8px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s ease; color: var(--text);
     }
+    .theme-btn svg { width: 18px; height: 18px; fill: currentColor; }
     .theme-btn:hover { border-color: var(--green); transform: translateY(-2px); }
 
+    /* Hero Section with Preview Background */
     #home {
-      min-height: 100vh; padding: 8rem 2rem 3rem;
+      min-height: 100vh; padding: 9rem 2rem 5rem;
       display: flex; flex-direction: column;
       align-items: center; text-align: center;
-      justify-content: center;
+      justify-content: center; position: relative;
+      background: var(--hero-overlay), url('preview.png') center/cover no-repeat;
+    }
+
+    .hero-app-icon {
+      width: 90px; height: 90px; border-radius: 20px;
+      object-fit: cover; border: 2px solid var(--border);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 0 20px var(--green-bg);
+      margin-bottom: 1.2rem; animation: fadeUp 0.6s ease both;
     }
 
     .hero-badge {
@@ -141,89 +160,53 @@
       color: var(--green); font-size: 0.85rem; font-weight: 700;
       letter-spacing: 1.5px; text-transform: uppercase;
       padding: 6px 16px; border-radius: 20px;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
+      margin-bottom: 1.2rem;
+      backdrop-filter: blur(4px);
+      animation: fadeUp 0.6s 0.1s ease both;
     }
     
-    /* Semantic H1 styling for SEO & accessibility */
     h1.hero-title-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Fredoka One', cursive;
-      font-weight: normal;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s 0.1s ease both;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fredoka One', cursive; font-weight: normal;
+      margin-bottom: 1.5rem; animation: fadeUp 0.6s 0.2s ease both;
       -webkit-text-stroke: 2px #000;
-      text-shadow: 3px 3px 0px rgba(0,0,0,0.4);
-      letter-spacing: 2px;
+      text-shadow: 3px 3px 0px rgba(0,0,0,0.5); letter-spacing: 2px;
     }
     .letter-s {
-      font-size: clamp(4.5rem, 18vw, 12rem);
-      color: #ffffff;
-      line-height: 0.8;
-      padding-right: 4px;
+      font-size: clamp(4.5rem, 18vw, 12rem); color: #ffffff;
+      line-height: 0.8; padding-right: 4px;
     }
     .stacked-letters {
-      display: flex;
-      flex-direction: column;
-      font-size: clamp(2.5rem, 8vw, 5.2rem);
-      line-height: 0.95;
-      text-align: left;
+      display: flex; flex-direction: column;
+      font-size: clamp(2.5rem, 8vw, 5.2rem); line-height: 0.95; text-align: left;
     }
 
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--text-dim); max-width: 550px;
-      margin: 1rem auto 2.5rem; font-weight: 500; line-height: 1.65;
-      animation: fadeUp 0.6s 0.2s ease both;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text-dim); max-width: 580px;
+      margin: 0.5rem auto 2.5rem; font-weight: 500; line-height: 1.65;
+      animation: fadeUp 0.6s 0.3s ease both;
     }
     .hero-btns {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap; animation: fadeUp 0.6s 0.4s ease both;
     }
+    .hero-btns a { display: flex; align-items: center; height: 60px; }
+    .hero-btns a img { height: 100%; width: auto; display: block; }
     
-    .hero-btns a {
-      display: flex;
-      align-items: center;
-      height: 60px;
-    }
-    
-    .hero-btns a img {
-      height: 100%;
-      width: auto;
-      display: block;
-    }
-    .btn-dl, .btn-ghost {
+    .btn-ghost {
       display: inline-flex; align-items: center; gap: 10px;
       padding: 14px 32px; border-radius: 12px;
       font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.05rem;
       text-decoration: none; transition: all 0.2s ease;
-    }
-    .btn-dl {
-      background: var(--green); color: var(--btn-text);
-      border: 2px solid var(--green);
-      box-shadow: 0 4px 15px rgba(62, 207, 110, 0.3);
-    }
-    .btn-dl:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 6px 20px rgba(62, 207, 110, 0.4); }
-
-    .btn-ghost {
-      background: transparent; color: var(--text);
-      border: 2px solid var(--border);
+      background: var(--card); color: var(--text); border: 2px solid var(--border);
     }
     .btn-ghost:hover { transform: translateY(-3px); border-color: var(--green); color: var(--green); }
-    .play-icon { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
 
-    #about {
-      max-width: 800px; margin: 2rem auto 4rem; padding: 0 2rem; text-align: center;
-    }
+    /* Sections */
+    #about { max-width: 800px; margin: 2rem auto 4rem; padding: 0 2rem; text-align: center; }
+    #features { max-width: 1000px; margin: 4rem auto 4rem; padding: 0 2rem; }
 
-    #features {
-      max-width: 1000px; margin: 4rem auto 4rem; padding: 0 2rem;
-    }
     .section-label {
       text-align: center; font-size: 0.85rem; font-weight: 700;
       letter-spacing: 2px; text-transform: uppercase;
@@ -231,8 +214,7 @@
     }
     .section-title {
       text-align: center; font-family: 'Fredoka One', cursive;
-      font-size: clamp(2rem, 5vw, 2.8rem); color: var(--text);
-      margin-bottom: 2.5rem;
+      font-size: clamp(2rem, 5vw, 2.8rem); color: var(--text); margin-bottom: 2.5rem;
     }
 
     .features-grid {
@@ -240,20 +222,83 @@
     }
     .feature-card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 2rem;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow);
+      border-radius: 16px; padding: 2rem; transition: all 0.3s ease; box-shadow: var(--shadow);
     }
     .feature-card:hover { border-color: var(--green); transform: translateY(-6px) scale(1.02); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .feature-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
+    .feature-icon {
+      width: 48px; height: 48px; margin-bottom: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--green-bg); border-radius: 12px; color: var(--green);
+    }
+    .feature-icon svg { width: 26px; height: 26px; fill: currentColor; }
     .feature-card h3 {
       font-family: 'Fredoka One', cursive; font-size: 1.3rem;
       color: var(--text); margin-bottom: 0.5rem;
     }
     .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
 
-    #media {
-      max-width: 800px; margin: 4rem auto 4rem; padding: 0 2rem; text-align: center;
+    /* Vertically Scrollable Screenshot Gallery Box */
+    #screenshots { max-width: 850px; margin: 4rem auto; padding: 0 2rem; }
+
+    .gallery-vertical-container {
+      max-height: 600px;
+      overflow-y: auto;
+      padding: 1.2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      scroll-snap-type: y mandatory;
+    }
+
+    .gallery-vertical-container::-webkit-scrollbar {
+      width: 8px;
+    }
+    .gallery-vertical-container::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .gallery-vertical-container::-webkit-scrollbar-thumb {
+      background: var(--green);
+      border-radius: 8px;
+    }
+
+    .gallery-grid-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .gallery-card {
+      scroll-snap-align: start;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.25s ease, transform 0.25s ease;
+      background: var(--bg-base);
+    }
+
+    .gallery-card:hover {
+      border-color: var(--green);
+      transform: translateY(-3px);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Media Section with Youtube Embed */
+    #media { max-width: 850px; margin: 4rem auto 4rem; padding: 0 2rem; text-align: center; }
+
+    .video-container {
+      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+      border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow);
+      background: var(--card); margin-bottom: 2rem;
+    }
+    .video-container iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
     }
 
     .divider {
@@ -261,9 +306,7 @@
       background: linear-gradient(90deg, transparent, var(--border), transparent);
     }
 
-    #changelog {
-      max-width: 760px; margin: 0 auto; padding: 0 2rem 2rem;
-    }
+    #changelog { max-width: 760px; margin: 0 auto; padding: 0 2rem 2rem; }
 
     footer {
       text-align: center; padding: 2.5rem; border-top: 1px solid var(--border);
@@ -283,34 +326,29 @@
     }
     
     .nav-yt-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center;
       transition: transform 0.2s ease;
     }
     .nav-yt-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--text-dim);
-      transition: fill 0.2s ease;
+      width: 24px; height: 24px; fill: var(--text-dim); transition: fill 0.2s ease;
     }
-    .nav-yt-icon:hover {
-      transform: scale(1.1);
-    }
-    .nav-yt-icon:hover svg {
-      fill: #ff0000;
-    }
+    .nav-yt-icon:hover { transform: scale(1.1); }
+    .nav-yt-icon:hover svg { fill: #ff0000; }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="#home" class="nav-logo">🟢 SlimeSmash</a>
+  <a href="#home" class="nav-logo">
+    <img src="icon.png" alt="SlimeSmash Icon" class="nav-app-icon"> SlimeSmash
+  </a>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#media">Media</a>
       <a href="changelog.html">Changelog</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
@@ -320,14 +358,21 @@
         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
       </svg>
     </a>
-    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+      <!-- Sun Icon -->
+      <svg id="sunIcon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0zm12.37-12.37l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0z"/></svg>
+      <!-- Moon Icon -->
+      <svg id="moonIcon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0 9.7 11.5 10 10 0 1 1-11.7-11.5z"/></svg>
+    </button>
   </div>
 </nav>
 
 <section id="home">
-  <div class="hero-badge">🎮 Free on Google Play</div>
+  <!-- Featured Game Icon -->
+  <img src="icon.png" alt="SlimeSmash App Icon" class="hero-app-icon">
+
+  <div class="hero-badge">Free on Google Play</div>
   
-  <!-- Semantic H1 with full screen-reader and search engine support -->
   <h1 class="hero-title-container" aria-label="SlimeSmash">
     <div class="letter-s" aria-hidden="true">S</div>
     <div class="stacked-letters" aria-hidden="true">
@@ -340,7 +385,7 @@
     </div>
   </h1>
   
-  <p class="hero-sub">Pop slimes, unlock companion pets, and compete globally.<br><strong>Can you reach #1 on the leaderboards? 🏆</strong></p>
+  <p class="hero-sub">Pop slimes, unlock companion pets, and compete globally.<br><strong>Can you reach #1 on the leaderboards?</strong></p>
   
   <div class="hero-btns">
     <a href="https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash&hl=en" target="_blank">
@@ -367,44 +412,86 @@
   <h2 class="section-title">Everything you need to smash</h2>
   <div class="features-grid">
     <div class="feature-card">
-      <div class="feature-icon">🐾</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 11.5c-2.5 0-4.5 1.8-4.5 4 0 1.5 1 2.5 2.5 2.5 1 0 1.5-.5 2-.5s1 .5 2 .5c1.5 0 2.5-1 2.5-2.5 0-2.2-2-4-4.5-4zm-5.5-3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm11 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-8.5-4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      </div>
       <h3>Pets & Companions</h3>
       <p>Unlock passive and active pets. Each companion introduces unique active battle abilities and passive synergy loadouts.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🗺️</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.5 3l-6 2-6-2-6 2v16l6-2 6 2 6-2V3zM14 19.1l-4-1.33V4.9l4 1.33v12.87z"/></svg>
+      </div>
       <h3>Adventure Mode</h3>
       <p>50+ levels with increasing difficulty, special modes like Surf Mode, and unique enemy slime types like Devourers.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">♾️</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M18.6 6.6c-1.7 0-3.3.8-4.5 2.1-1.2-1.3-2.8-2.1-4.5-2.1-3.6 0-6.6 3-6.6 6.6s3 6.6 6.6 6.6c1.7 0 3.3-.8 4.5-2.1 1.2 1.3 2.8 2.1 4.5 2.1 3.6 0 6.6-3 6.6-6.6s-3-6.6-6.6-6.6zm-9 10.2c-2 0-3.6-1.6-3.6-3.6s1.6-3.6 3.6-3.6 3.6 1.6 3.6 3.6-1.6 3.6-3.6 3.6zm9 0c-2 0-3.6-1.6-3.6-3.6s1.6-3.6 3.6-3.6 3.6 1.6 3.6 3.6-1.6 3.6-3.6 3.6z"/></svg>
+      </div>
       <h3>Casual Mode</h3>
       <p>Endless waves, hearts, and unique slime effects. Pure score chasing and reflex endurance testing without timers.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🏆</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V18H8v2h8v-2h-3v-2.1c2.16-.4 3.84-2.11 4.39-4.36C19.08 11.23 21 9.15 21 6.6V5c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+      </div>
       <h3>Global Leaderboards</h3>
       <p>Compete worldwide via Google Play integration. Track wave clearance totals and see how high you can rank globally.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🎁</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 6h-3.17c.42-.62.67-1.37.67-2.2C17.5 1.7 15.8 0 13.7 0c-1.4 0-2.6.7-3.2 1.8C9.9.7 8.7 0 7.3 0 5.2 0 3.5 1.7 3.5 3.8c0 .83.25 1.58.67 2.2H1c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1zm-6.3-4c.83 0 1.5.67 1.5 1.5S14.53 5 13.7 5h-2.2c.1-.8.7-2 2.2-2zM7.3 2c1.5 0 2.1 1.2 2.2 2H7.3c-.83 0-1.5-.67-1.5-1.5S6.47 2 7.3 2zM1 12v9c0 .55.45 1 1 1h7v-10H1zm11 10h7c.55 0 1-.45 1-1v-9h-8v10z"/></svg>
+      </div>
       <h3>Daily Rewards</h3>
       <p>Earn daily streak bonuses and complete action missions to gather gold coins for unlocks and powerups.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">⚡</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+      </div>
       <h3>Upgrades & Store</h3>
       <p>Spend gold coins earned entirely in-game to summon rare pets, upgrade companion stats, and boost your survival power.</p>
     </div>
   </div>
 </section>
 
+<!-- Vertically Scrollable Screenshot Gallery Section -->
+<section id="screenshots">
+  <p class="section-label">Gallery</p>
+  <h2 class="section-title">In-Game Screenshots</h2>
+  
+  <div class="gallery-vertical-container">
+    <div class="gallery-grid-inner">
+      <div class="gallery-card"><img src="unnamed (4).png" alt="SlimeSmash Screenshot 1" loading="lazy"></div>
+      <div class="gallery-card"><img src="unnamed (5).png" alt="SlimeSmash Screenshot 2" loading="lazy"></div>
+      <div class="gallery-card"><img src="unnamed (6).png" alt="SlimeSmash Screenshot 3" loading="lazy"></div>
+      <div class="gallery-card"><img src="unnamed (7).png" alt="SlimeSmash Screenshot 4" loading="lazy"></div>
+      <div class="gallery-card"><img src="unnamed (8).png" alt="SlimeSmash Screenshot 5" loading="lazy"></div>
+      <div class="gallery-card"><img src="unnamed (9).png" alt="SlimeSmash Screenshot 6" loading="lazy"></div>
+      <div class="gallery-card"><img src="unnamed (10).png" alt="SlimeSmash Screenshot 7" loading="lazy"></div>
+      <div class="gallery-card"><img src="unnamed (11).png" alt="SlimeSmash Screenshot 8" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Media Section with Youtube Video Embed -->
 <section id="media">
   <p class="section-label">Media & Previews</p>
   <h2 class="section-title">Watch SlimeSmash in Action</h2>
   <p style="color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; max-width: 600px; margin: 0 auto 2rem;">
-    Explore official update trailers, gameplay showcases, and devlogs on our YouTube channel.
+    Explore official update trailers, gameplay showcases, and devlogs directly on our YouTube channel.
   </p>
+  
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed?listType=user_uploads&list=SlimeSmashStudio" 
+      title="SlimeSmash Official Gameplay Trailer" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
   <div>
     <a href="https://www.youtube.com/@SlimeSmashStudio" target="_blank" rel="noopener" class="btn-ghost">
       Watch on YouTube &rarr;
@@ -425,7 +512,7 @@
         <span style="font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--green);color:#0f1117;">Latest</span>
       </div>
       <p style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;">
-        Chain Reaction Update 🟢💥
+        Chain Reaction Update
       </p>
       <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;max-width:420px;">
         Introducing the brand-new Chain-Reaction Slime! Experience massive rebalances across Adventure Mode, targeted 120 FPS support, sleek new Win Panel rewards feedback, and beautiful interface design refreshes.
@@ -445,19 +532,29 @@
   const btn = document.getElementById('themeBtn');
   const html = document.documentElement;
   const themeMeta = document.getElementById('themeColorMeta');
+  const sunIcon = document.getElementById('sunIcon');
+  const moonIcon = document.getElementById('moonIcon');
   const themeColors = { dark: '#0f1117', light: '#f4f7f2' };
 
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeMeta.setAttribute('content', themeColors[theme]);
+    if (theme === 'dark') {
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    } else {
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+  }
+
   const savedTheme = localStorage.getItem('theme') || 'dark';
-  html.setAttribute('data-theme', savedTheme);
-  btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  applyTheme(savedTheme);
 
   btn.addEventListener('click', () => {
     const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-    themeMeta.setAttribute('content', themeColors[newTheme]);
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
   });
 </script>
 </body>
