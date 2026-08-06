@@ -4,23 +4,56 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV2NR7Y33N"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date()); 
-  gtag('config', 'G-WV2NR7Y33N');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); 
+    gtag('config', 'G-WV2NR7Y33N');
   </script>
   <meta charset="UTF-8">
-  <title>SlimeSmash - Pop Slimes, Climb Leaderboards</title>
+  <title>SlimeSmash - Pop Slimes, Unlock Pets & Climb Leaderboards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pop slimes, unlock pets, and climb the global leaderboards in SlimeSmash. Download free on Google Play!">
-  <meta name="keywords" content="slime game, arcade game, mobile game, android game, casual game, slime smash">
-  <meta name="author" content="SlimeSmash Developer">
-  <meta property="og:title" content="SlimeSmash - Pop Slimes & Climb Leaderboards">
-  <meta property="og:description" content="Fast-paced arcade slime game. Free on Google Play.">
-  <meta property="og:image" content="https://SlimeSmash.github.io/preview.png">
+  <meta name="description" content="Pop slimes, unlock pet companion synergies, and climb global leaderboards in SlimeSmash! Fast-paced retro arcade wave-survival game. Download free on Google Play!">
+  <meta name="keywords" content="SlimeSmash, slime smash, arcade game, wave survival, mobile game, android game, casual game, pet companions, SlimeSmashStudio">
+  <meta name="author" content="SlimeSmashStudio">
+  
+  <!-- Canonical URL (Fixes Indexing Duplicate Issues) -->
+  <link rel="canonical" href="https://slimesmash.github.io/">
+
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:title" content="SlimeSmash - Retro Arcade Wave Survival Game">
+  <meta property="og:description" content="Fast-paced retro arcade slime game. Build pet loadouts, survive endless waves, and climb global leaderboards. Free on Google Play!">
+  <meta property="og:image" content="https://slimesmash.github.io/preview.png">
+  <meta property="og:url" content="https://slimesmash.github.io/">
+  <meta property="og:type" content="website">
+
+  <!-- Theme & Favicon -->
   <meta name="theme-color" id="themeColorMeta" content="#0f1117">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Schema.org Structured Data for Googlebot Indexing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SlimeSmash",
+    "operatingSystem": "Android, Windows (PC via Google Play Games)",
+    "applicationCategory": "GameApplication",
+    "gamePlatform": "Android, PC",
+    "genre": "Arcade Wave Survival",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "SlimeSmashStudio",
+      "url": "https://www.youtube.com/@SlimeSmashStudio"
+    }
+  }
+  </script>
+
   <style>
     [data-theme="dark"] {
       --bg-base:  #0f1117;
@@ -111,11 +144,14 @@
       margin-bottom: 1.5rem;
       animation: fadeUp 0.6s ease both;
     }
-    .hero-title-container {
+    
+    /* Semantic H1 styling for SEO & accessibility */
+    h1.hero-title-container {
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Fredoka One', cursive;
+      font-weight: normal;
       margin-bottom: 1.5rem;
       animation: fadeUp 0.6s 0.1s ease both;
       -webkit-text-stroke: 2px #000;
@@ -138,7 +174,7 @@
 
     .hero-sub {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--text-dim); max-width: 500px;
+      color: var(--text-dim); max-width: 550px;
       margin: 1rem auto 2.5rem; font-weight: 500; line-height: 1.65;
       animation: fadeUp 0.6s 0.2s ease both;
     }
@@ -181,8 +217,12 @@
     .btn-ghost:hover { transform: translateY(-3px); border-color: var(--green); color: var(--green); }
     .play-icon { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
 
+    #about {
+      max-width: 800px; margin: 2rem auto 4rem; padding: 0 2rem; text-align: center;
+    }
+
     #features {
-      max-width: 1000px; margin: 6rem auto; padding: 0 2rem;
+      max-width: 1000px; margin: 4rem auto 6rem; padding: 0 2rem;
     }
     .section-label {
       text-align: center; font-size: 0.85rem; font-weight: 700;
@@ -204,7 +244,7 @@
       transition: all 0.3s ease;
       box-shadow: var(--shadow);
     }
-    .feature-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);transform: translateY(-6px) scale(1.02);}
+    .feature-card:hover { border-color: var(--green); transform: translateY(-6px) scale(1.02); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     .feature-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
     .feature-card h3 {
       font-family: 'Fredoka One', cursive; font-size: 1.3rem;
@@ -265,6 +305,7 @@
   <div class="nav-right">
     <div class="nav-links">
       <a href="#home">Home</a>
+      <a href="#about">About</a>
       <a href="#features">Features</a>
       <a href="changelog.html">Changelog</a>
       <a href="privacy.html">Privacy</a>
@@ -281,9 +322,10 @@
 <section id="home">
   <div class="hero-badge">🎮 Free on Google Play</div>
   
-  <div class="hero-title-container">
-    <div class="letter-s">S</div>
-    <div class="stacked-letters">
+  <!-- Fixed semantic H1 with full screen-reader and search engine support -->
+  <h1 class="hero-title-container" aria-label="SlimeSmash">
+    <div class="letter-s" aria-hidden="true">S</div>
+    <div class="stacked-letters" aria-hidden="true">
       <div>
         <span style="color:#00FF00">L</span><span style="color:#FF0000">I</span><span style="color:#FFFF00">M</span><span style="color:#0000FF">E</span>
       </div>
@@ -291,18 +333,29 @@
         <span style="color:#00FF00">M</span><span style="color:#FF0000">A</span><span style="color:#FFFF00">S</span><span style="color:#0000FF">H</span>
       </div>
     </div>
-  </div>
-  <p class="hero-sub">Smash slimes, unlock pets, and compete globally.<br><strong>Can you reach #1? 🏆</strong></p>
+  </h1>
+  
+  <p class="hero-sub">Pop slimes, unlock companion pets, and compete globally.<br><strong>Can you reach #1 on the leaderboards? 🏆</strong></p>
+  
   <div class="hero-btns">
     <a href="https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash&hl=en" target="_blank">
       <img 
         src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-        alt="Get it on Google Play"
+        alt="Get SlimeSmash on Google Play"
         style="height:80px"
       >
     </a>
     <a href="changelog.html" class="btn-ghost">What's New →</a>
   </div>
+</section>
+
+<!-- Additional static text section to resolve Google Search Console thin content issues -->
+<section id="about">
+  <p class="section-label">About SlimeSmash</p>
+  <h2 class="section-title">Retro Pixel Reflex Survival</h2>
+  <p style="color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; max-width: 720px; margin: 0 auto;">
+    <strong>SlimeSmash</strong> is an independent, fast-paced retro pixel arcade wave-survival game built for reflex-driven players. Test your reaction speed across 50+ hand-crafted Adventure levels, customize active and passive pet companion squad loadouts, or test your endurance in Casual Endless mode. Featuring global Google Play leaderboards, daily streak rewards, and native PC keyboard controls via Google Play Games on PC, SlimeSmash delivers a pure skill-based experience with zero pay-to-win mechanics.
+  </p>
 </section>
 
 <section id="features">
@@ -312,32 +365,32 @@
     <div class="feature-card">
       <div class="feature-icon">🐾</div>
       <h3>Pets & Companions</h3>
-      <p>Unlock passive and active pets. Each one changes how you play.</p>
+      <p>Unlock passive and active pets. Each companion introduces unique active battle abilities and passive synergy loadouts.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🗺️</div>
       <h3>Adventure Mode</h3>
-      <p>50+ levels with increasing difficulty, special slimes, and danger bars.</p>
+      <p>50+ levels with increasing difficulty, special enemy slime types like Devourers, and intense danger bar challenges.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">♾️</div>
       <h3>Casual Mode</h3>
-      <p>Endless waves, hearts, and unique slime effects. Just vibe and score.</p>
+      <p>Endless waves, hearts, and unique slime effects. Pure score chasing and reflex endurance testing without timers.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🏆</div>
       <h3>Global Leaderboards</h3>
-      <p>Compete worldwide via Google Play. See how high you can climb.</p>
+      <p>Compete worldwide via Google Play integration. Track wave clearance totals and see how high you can rank globally.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🎁</div>
       <h3>Daily Rewards</h3>
-      <p>Streak-based daily coin rewards to keep things interesting.</p>
+      <p>Earn daily streak bonuses and complete action missions to gather gold coins for unlocks and powerups.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">⚡</div>
       <h3>Upgrades & Store</h3>
-      <p>Spend coins to upgrade pets, unlock companions, and boost your power.</p>
+      <p>Spend gold coins earned entirely in-game to summon rare pets, upgrade companion stats, and boost your survival power.</p>
     </div>
   </div>
 </section>
@@ -368,7 +421,7 @@
 </section>
 
 <footer>
-  <p>© 2026 SlimeSmash. All rights reserved.</p>
+  <p>© 2026 SlimeSmash. Developed by SlimeSmashStudio. All rights reserved.</p>
 </footer>
 
 <script>
