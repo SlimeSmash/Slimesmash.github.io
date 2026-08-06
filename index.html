@@ -222,7 +222,7 @@
     }
 
     #features {
-      max-width: 1000px; margin: 4rem auto 6rem; padding: 0 2rem;
+      max-width: 1000px; margin: 4rem auto 4rem; padding: 0 2rem;
     }
     .section-label {
       text-align: center; font-size: 0.85rem; font-weight: 700;
@@ -232,7 +232,7 @@
     .section-title {
       text-align: center; font-family: 'Fredoka One', cursive;
       font-size: clamp(2rem, 5vw, 2.8rem); color: var(--text);
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
     }
 
     .features-grid {
@@ -251,6 +251,10 @@
       color: var(--text); margin-bottom: 0.5rem;
     }
     .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
+
+    #media {
+      max-width: 800px; margin: 4rem auto 4rem; padding: 0 2rem; text-align: center;
+    }
 
     .divider {
       height: 1px; max-width: 700px; margin: 5rem auto;
@@ -323,7 +327,7 @@
 <section id="home">
   <div class="hero-badge">🎮 Free on Google Play</div>
   
-  <!-- Fixed semantic H1 with full screen-reader and search engine support -->
+  <!-- Semantic H1 with full screen-reader and search engine support -->
   <h1 class="hero-title-container" aria-label="SlimeSmash">
     <div class="letter-s" aria-hidden="true">S</div>
     <div class="stacked-letters" aria-hidden="true">
@@ -350,7 +354,6 @@
   </div>
 </section>
 
-<!-- Additional static text section to resolve Google Search Console thin content issues -->
 <section id="about">
   <p class="section-label">About SlimeSmash</p>
   <h2 class="section-title">Retro Pixel Reflex Survival</h2>
@@ -393,6 +396,19 @@
       <h3>Upgrades & Store</h3>
       <p>Spend gold coins earned entirely in-game to summon rare pets, upgrade companion stats, and boost your survival power.</p>
     </div>
+  </div>
+</section>
+
+<section id="media">
+  <p class="section-label">Media & Previews</p>
+  <h2 class="section-title">Watch SlimeSmash in Action</h2>
+  <p style="color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; max-width: 600px; margin: 0 auto 2rem;">
+    Explore official update trailers, gameplay showcases, and devlogs on our YouTube channel.
+  </p>
+  <div>
+    <a href="https://www.youtube.com/@SlimeSmashStudio" target="_blank" rel="noopener" class="btn-ghost">
+      Watch on YouTube &rarr;
+    </a>
   </div>
 </section>
 
@@ -446,3 +462,4 @@
 </script>
 </body>
 </html>
+
