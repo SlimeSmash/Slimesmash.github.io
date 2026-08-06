@@ -30,6 +30,7 @@
   <meta name="theme-color" id="themeColorMeta" content="#0f1117">
   <link rel="icon" href="Icon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
@@ -236,39 +237,36 @@
     }
     .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
 
-    /* Vertically Scrollable Screenshot Gallery Box */
-    #screenshots { max-width: 850px; margin: 4rem auto; padding: 0 2rem; }
+    /* Horizontally Scrollable Screenshot Gallery Section */
+    #screenshots { max-width: 1000px; margin: 4rem auto; padding: 0 2rem; }
 
-    .gallery-vertical-container {
-      max-height: 600px;
-      overflow-y: auto;
+    .gallery-horizontal-container {
+      display: flex;
+      gap: 1.2rem;
+      overflow-x: auto;
       padding: 1.2rem;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
       box-shadow: var(--shadow);
-      scroll-snap-type: y mandatory;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .gallery-vertical-container::-webkit-scrollbar {
-      width: 8px;
+    .gallery-horizontal-container::-webkit-scrollbar {
+      height: 8px;
     }
-    .gallery-vertical-container::-webkit-scrollbar-track {
+    .gallery-horizontal-container::-webkit-scrollbar-track {
       background: rgba(0, 0, 0, 0.1);
       border-radius: 8px;
     }
-    .gallery-vertical-container::-webkit-scrollbar-thumb {
+    .gallery-horizontal-container::-webkit-scrollbar-thumb {
       background: var(--green);
       border-radius: 8px;
     }
 
-    .gallery-grid-inner {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
-
     .gallery-card {
+      flex: 0 0 240px;
       scroll-snap-align: start;
       border-radius: 12px;
       overflow: hidden;
@@ -322,6 +320,7 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       #changelog { padding: 0 1rem 2rem; }
+      .gallery-card { flex: 0 0 200px; }
     }
     
     .nav-yt-icon {
@@ -339,7 +338,7 @@
 
 <nav>
   <a href="#home" class="nav-logo">
-    <img src="icon.png" alt="SlimeSmash Icon" class="nav-app-icon"> SlimeSmash
+    <img src="Icon.png" alt="SlimeSmash Icon" class="nav-app-icon"> SlimeSmash
   </a>
   <div class="nav-right">
     <div class="nav-links">
@@ -368,7 +367,7 @@
 
 <section id="home">
   <!-- Featured Game Icon -->
-  <img src="icon.png" alt="SlimeSmash App Icon" class="hero-app-icon">
+  <img src="Icon.png" alt="SlimeSmash App Icon" class="hero-app-icon">
 
   <div class="hero-badge">Free on Google Play</div>
   
@@ -455,22 +454,20 @@
   </div>
 </section>
 
-<!-- Vertically Scrollable Screenshot Gallery Section -->
+<!-- Horizontally Scrollable Screenshot Gallery Section -->
 <section id="screenshots">
   <p class="section-label">Gallery</p>
   <h2 class="section-title">In-Game Screenshots</h2>
   
-  <div class="gallery-vertical-container">
-    <div class="gallery-grid-inner">
-      <div class="gallery-card"><img src="unnamed (4).png" alt="SlimeSmash Screenshot 1" loading="lazy"></div>
-      <div class="gallery-card"><img src="unnamed (5).png" alt="SlimeSmash Screenshot 2" loading="lazy"></div>
-      <div class="gallery-card"><img src="unnamed (6).png" alt="SlimeSmash Screenshot 3" loading="lazy"></div>
-      <div class="gallery-card"><img src="unnamed (7).png" alt="SlimeSmash Screenshot 4" loading="lazy"></div>
-      <div class="gallery-card"><img src="unnamed (8).png" alt="SlimeSmash Screenshot 5" loading="lazy"></div>
-      <div class="gallery-card"><img src="unnamed (9).png" alt="SlimeSmash Screenshot 6" loading="lazy"></div>
-      <div class="gallery-card"><img src="unnamed (10).png" alt="SlimeSmash Screenshot 7" loading="lazy"></div>
-      <div class="gallery-card"><img src="unnamed (11).png" alt="SlimeSmash Screenshot 8" loading="lazy"></div>
-    </div>
+  <div class="gallery-horizontal-container">
+    <div class="gallery-card"><img src="unnamed (4).png" alt="SlimeSmash Screenshot 1" loading="lazy"></div>
+    <div class="gallery-card"><img src="unnamed (5).png" alt="SlimeSmash Screenshot 2" loading="lazy"></div>
+    <div class="gallery-card"><img src="unnamed (6).png" alt="SlimeSmash Screenshot 3" loading="lazy"></div>
+    <div class="gallery-card"><img src="unnamed (7).png" alt="SlimeSmash Screenshot 4" loading="lazy"></div>
+    <div class="gallery-card"><img src="unnamed (8).png" alt="SlimeSmash Screenshot 5" loading="lazy"></div>
+    <div class="gallery-card"><img src="unnamed (9).png" alt="SlimeSmash Screenshot 6" loading="lazy"></div>
+    <div class="gallery-card"><img src="unnamed (10).png" alt="SlimeSmash Screenshot 7" loading="lazy"></div>
+    <div class="gallery-card"><img src="unnamed (11).png" alt="SlimeSmash Screenshot 8" loading="lazy"></div>
   </div>
 </section>
 
@@ -484,7 +481,7 @@
   
   <div class="video-container">
     <iframe 
-      src="https://www.youtube.com/embed?listType=user_uploads&list=SlimeSmashStudio" 
+      src="https://www.youtube.com/embed/videoseries?list=PL0SLUT5_Gp64F2ZQmiQc8WGLX_JUbrNTq" 
       title="SlimeSmash Official Gameplay Trailer" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen>
@@ -558,4 +555,3 @@
 </script>
 </body>
 </html>
-
