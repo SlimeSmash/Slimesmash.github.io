@@ -15,21 +15,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Terms of Service for SlimeSmash. Read the rules, policies, and guidelines for playing the game.">
   <meta name="theme-color" id="themeColorMeta" content="#0f1117">
+  <link rel="canonical" href="https://slimesmash.github.io/terms.html">
+  <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:title" content="Terms of Service – SlimeSmash">
   <meta property="og:description" content="Terms of Service for SlimeSmash. Read the rules, policies, and guidelines for playing the game.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://slimesmash.github.io/terms.html">
+  <meta property="og:image" content="https://slimesmash.github.io/preview.png">
   <meta property="og:site_name" content="SlimeSmash">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Terms of Service – SlimeSmash">
   <meta name="twitter:description" content="Terms of Service for SlimeSmash. Read the rules, policies, and guidelines for playing the game.">
+  <meta name="twitter:image" content="https://slimesmash.github.io/preview.png">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
+  <link rel="icon" href="Icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="Icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://slimesmash.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://slimesmash.github.io/terms.html" }
+    ]
+  }
+  </script>
   
   <style>
     [data-theme="dark"] {
@@ -108,13 +125,45 @@
 
     .theme-btn {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 8px 12px;
-      cursor: pointer; font-size: 1.1rem; line-height: 1;
+      border-radius: 8px; padding: 8px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
       transition: all 0.2s ease;
       color: var(--text);
     }
+    .theme-btn svg { width: 18px; height: 18px; fill: currentColor; }
     .theme-btn:hover { border-color: var(--green); transform: translateY(-2px); }
-    
+
+    .nav-app-icon {
+      width: 30px; height: 30px; border-radius: 7px;
+      object-fit: cover; border: 1px solid var(--border);
+      box-shadow: 0 0 10px var(--green-bg);
+    }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 200;
+      background: var(--green); color: #0f1117; font-weight: 700;
+      padding: 10px 18px; border-radius: 0 0 8px 0; text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+    .back-to-top {
+      position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 90;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--green); color: #0f1117; border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: var(--shadow);
+      opacity: 0; pointer-events: none; transform: translateY(10px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .back-to-top svg { width: 22px; height: 22px; fill: currentColor; }
+
+    .pcard-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 9px;
+      background: var(--green-bg); color: var(--green); flex-shrink: 0;
+    }
+    .pcard-icon svg { width: 17px; height: 17px; fill: currentColor; }
+
     .nav-yt-icon {
       display: inline-flex; align-items: center; justify-content: center;
       transition: transform 0.2s ease;
@@ -221,24 +270,32 @@
   </style>
 </head>
 <body>
+<a href="#terms" class="skip-link">Skip to content</a>
 
 <nav>
-  <a href="index.html" class="nav-logo">🟢 SlimeSmash</a>
+  <a href="index.html" class="nav-logo">
+    <img src="Icon.png" alt="SlimeSmash Icon" class="nav-app-icon"> SlimeSmash
+  </a>
   <div class="nav-right">
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="index.html#about">About</a>
       <a href="index.html#features">Features</a>
+      <a href="index.html#screenshots">Screenshots</a>
+      <a href="index.html#media">Media</a>
       <a href="changelog.html">Changelog</a>
       <a href="privacy.html">Privacy</a>
-      <a href="#" style="color:var(--green)" aria-current="page">Terms</a>
+      <a href="terms.html" style="color:var(--green)" aria-current="page">Terms</a>
     </div>
-    <a href="https://www.youtube.com/@SlimeSmashDev" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel" class="nav-yt-icon">
+    <a href="https://www.youtube.com/@SlimeSmashStudio" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel" class="nav-yt-icon">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
       </svg>
     </a>
-    <button class="theme-btn" id="themeBtn" aria-label="Switch to light theme">☀️</button>
+    <button class="theme-btn" id="themeBtn" aria-label="Switch to light theme">
+      <svg id="sunIcon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0zm12.37-12.37l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0z"/></svg>
+      <svg id="moonIcon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0 9.7 11.5 10 10 0 1 1-11.7-11.5z"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -249,18 +306,18 @@
   </div>
 
   <div class="pcard">
-    <h3>📜 Agreement to Terms</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><path d="M7 3h11a2 2 0 012 2v13a2 2 0 01-2 2H9a2 2 0 01-2-2V3zM7 3a2 2 0 00-2 2v11a2 2 0 002 2M11 8h6M11 12h6M11 16h4" style="fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;"/></svg></span> Agreement to Terms</h3>
     <p>By downloading, installing, or playing <strong>SlimeSmash</strong>, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not install or use the game.</p>
     <p>SlimeSmash is developed and maintained independently under <strong>SlimeSmashDev</strong>. These terms govern your usage of the game and any associated online services.</p>
   </div>
 
   <div class="pcard">
-    <h3>👶 Age Requirements</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" style="fill:none;stroke:currentColor;stroke-width:1.6;"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" style="fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;"/></svg></span> Age Requirements</h3>
     <p>SlimeSmash is intended for a general audience. If you are under the age required to accept these Terms in your country, you should use the game with the permission of a parent or legal guardian.</p>
   </div>
 
   <div class="pcard">
-    <h3>🎮 License & Use</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><path d="M6 9h12a4 4 0 014 4v4a2 2 0 01-3.5 1.3L16 15H8l-2.5 3.3A2 2 0 012 17v-4a4 4 0 014-4zM8 12v3M6.5 13.5h3M15 12.5h.01M17.5 14h.01" style="fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;"/></svg></span> License & Use</h3>
     <p>SlimeSmashDev grants you a personal, non-exclusive, non-transferable, revocable limited license to download and play SlimeSmash for personal, non-commercial entertainment purposes.</p>
     <ul>
       <li><strong>Personal Use:</strong> You may run the game on compatible Android or supported platform devices.</li>
@@ -270,12 +327,12 @@
   </div>
 
   <div class="pcard">
-    <h3>🚫 Account Suspension & Termination</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" style="fill:none;stroke:currentColor;stroke-width:1.6;"/><path d="M5.5 5.5l13 13" style="stroke:currentColor;stroke-width:1.6;stroke-linecap:round;"/></svg></span> Account Suspension & Termination</h3>
     <p>SlimeSmashDev may suspend or terminate access to the game or online features if these Terms are violated, cheating or abuse is detected, or required to comply with applicable law.</p>
   </div>
 
   <div class="pcard">
-    <h3>💰 Virtual Items & Game Progress</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" style="fill:none;stroke:currentColor;stroke-width:1.6;"/><path d="M12 7v10M9.5 9.5c0-1.4 1.1-2 2.5-2s2.5.7 2.5 1.8c0 2.7-5 1.4-5 4.1 0 1.1 1.1 1.8 2.5 1.8s2.5-.6 2.5-2" style="fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;"/></svg></span> Virtual Items & Game Progress</h3>
     <p>SlimeSmash includes in-game virtual currency (such as coins) and progression elements (levels, achievements, unlocked content).</p>
     <ul>
       <li>Virtual items and progress have <strong>no real-world monetary value</strong> and cannot be redeemed for legal currency or transferred to other players.</li>
@@ -285,13 +342,13 @@
   </div>
 
   <div class="pcard">
-    <h3>🌐 Third-Party Services</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" style="fill:none;stroke:currentColor;stroke-width:1.6;"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" style="fill:none;stroke:currentColor;stroke-width:1.4;"/></svg></span> Third-Party Services</h3>
     <p>SlimeSmash integrates third-party tools to deliver ads, analytics, leaderboards, and cloud functions (e.g., Google AdMob, Google Play Games Services, Firebase, Unity Cloud Services).</p>
     <p>Your interaction with these features is also subject to the respective terms and privacy policies of these third-party providers. SlimeSmashDev is not responsible for external services or third-party content.</p>
   </div>
 
   <div class="pcard">
-    <h3>🎨 Intellectual Property</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 000 18c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.4-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H16a5 5 0 005-5c0-3.9-4-6.5-9-6.5z" style="fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;"/><circle cx="7.5" cy="10.5" r="1.1"/><circle cx="10.5" cy="7" r="1.1"/><circle cx="15" cy="8" r="1.1"/></svg></span> Intellectual Property</h3>
     <p>All original software code, branding, logos, and original content of SlimeSmash are owned by SlimeSmashDev. Some graphics, audio, or other assets used in the game may be licensed under CC0 or other third-party licenses and remain subject to their respective license terms.</p>
     <div class="info-box">
       <strong>Content Creators & Streamers:</strong> You are welcome to stream, create videos, or publish reviews of SlimeSmash on platforms like YouTube and Twitch, provided content does not claim false ownership or represent official affiliation.
@@ -299,7 +356,7 @@
   </div>
 
   <div class="pcard">
-    <h3>⚖️ Disclaimer & Limitation of Liability</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M4 7l4-4 4 4M20 7l-4-4-4 4M4 7l-3 6a4 4 0 008 0zM20 7l-3 6a4 4 0 008 0z" style="fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"/></svg></span> Disclaimer & Limitation of Liability</h3>
     <p>SlimeSmash is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind, either express or implied, including performance guarantees or uninterrupted service.</p>
     <ul>
       <li>SlimeSmashDev does not warrant that the app will be entirely error-free, uninterrupted, or free of temporary bugs.</li>
@@ -308,17 +365,17 @@
   </div>
 
   <div class="pcard">
-    <h3>🔄 Updates & Changes to Terms</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><path d="M17.65 6.35A8 8 0 105.64 18.36a8 8 0 0011.72-1.1l-1.5-1.16A6 6 0 116 12h3L5 16 1 12h3a8 8 0 0113.65-5.65zM19 12h3l-4 4-4-4h3a6 6 0 00-6-6V4a8 8 0 018 8z"/></svg></span> Updates & Changes to Terms</h3>
     <p>We reserve the right to modify or replace these Terms of Service at any time. Updates will be published on this page with a revised 'Last Updated' date.</p>
     <p>Continued play or usage of SlimeSmash after terms updates constitutes acceptance of the modified Terms of Service.</p>
   </div>
 
   <div class="pcard contact-card">
-    <h3>💬 Questions regarding Terms?</h3>
+    <h3><span class="pcard-icon"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1.2-4.3A8 8 0 1121 12z" style="fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;"/></svg></span> Questions regarding Terms?</h3>
     <p>If you have questions or concerns regarding these Terms of Service, feel free to reach out:</p>
     <p><strong><a href="mailto:SlimeSmash.Dev@gmail.com" style="border:none; color:var(--text-dim)">SlimeSmash.Dev@gmail.com</a></strong></p>
     <a href="mailto:SlimeSmash.Dev@gmail.com" class="email-btn">
-      ✉️ Contact Developer
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3zM3 6l9 7 9-7"/></svg> Contact Developer
     </a>
   </div>
 </main>
@@ -327,17 +384,24 @@
   <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp; Last updated Aug 6, 2026.</p>
 </footer>
 
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+
 <script>
   const btn = document.getElementById('themeBtn');
   const html = document.documentElement;
   const themeMeta = document.getElementById('themeColorMeta');
+  const sunIcon = document.getElementById('sunIcon');
+  const moonIcon = document.getElementById('moonIcon');
   const themeColors = { dark: '#0f1117', light: '#f4f7f2' };
 
   function updateThemeUI(theme) {
     html.setAttribute('data-theme', theme);
-    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
     btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     themeMeta.setAttribute('content', themeColors[theme]);
+    sunIcon.style.display = theme === 'dark' ? 'block' : 'none';
+    moonIcon.style.display = theme === 'dark' ? 'none' : 'block';
   }
 
   // Sync theme choice from localStorage on load
@@ -351,7 +415,13 @@
     localStorage.setItem('theme', newTheme);
     updateThemeUI(newTheme);
   });
+
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 </body>
 </html>
-
