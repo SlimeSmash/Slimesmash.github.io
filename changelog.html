@@ -1,578 +1,475 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <title>SlimeSmash Changelog – Updates & Patch Notes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Full SlimeSmash update history, patch notes, version changes, and balance updates for Android mobile game.">
-  <meta name="keywords" content="SlimeSmash update, changelog, patch notes, mobile game updates">
-  <meta name="theme-color" id="themeColorMeta" content="#0f1117">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    [data-theme="dark"] {
-      --bg-base:    #0f1117;
-      --bg:         radial-gradient(circle at 50% -20%, rgba(62,207,110,0.12), #0f1117 55%);
-      --card:       #1a2030;
-      --border:     #2a3347;
-      --text:       #e8f0fe; 
-      --text-dim:   #8b9bbf;
-      --text-muted: #5a6a8a;
-      --green:      #3ecf6e;
-      --green-bg:   rgba(62,207,110,0.1);
-      --nav-bg:     rgba(15,17,23,0.88);
-      --shadow:     0 8px 32px rgba(0,0,0,0.4);
-      --line:       rgba(62,207,110,0.4);
-    }
-    [data-theme="light"] {
-      --bg-base:    #f4f7f2;
-      --bg:         radial-gradient(circle at 50% -20%, rgba(42,154,80,0.1), #f4f7f2 55%);
-      --card:       #ffffff;
-      --border:     #dde8d8;
-      --text:       #1a2410;
-      --text-dim:   #4a6040;
-      --text-muted: #7a9070;
-      --green:      #2a9a50;
-      --green-bg:   rgba(42,154,80,0.08);
-      --nav-bg:     rgba(244,247,242,0.88);
-      --shadow:     0 8px 32px rgba(0,0,0,0.07);
-      --line:       rgba(42,154,80,0.4);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; background-color: var(--bg-base); }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg); background-attachment: fixed;
-      color: var(--text); min-height: 100vh;
-    }
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2.5rem;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'Fredoka One', cursive; font-size: 1.5rem;
-      color: var(--green); text-decoration: none;
-      display: flex; align-items: center; gap: 8px; transition: transform 0.2s;
-    }
-    .nav-logo:hover { transform: scale(1.05); }
-    .nav-right { display: flex; align-items: center; gap: 2rem; }
-    .nav-links { display: flex; gap: 1.8rem; }
-    .nav-links a {
-      color: var(--text-dim); text-decoration: none;
-      font-weight: 600; font-size: 0.95rem; transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--green); }
-    .theme-btn {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 8px 12px;
-      cursor: pointer; font-size: 1.1rem; line-height: 1;
-      transition: all 0.2s; color: var(--text);
-    }
-    .theme-btn:hover { border-color: var(--green); transform: translateY(-2px); }
-    #updateCount {
-      margin-top: 0.5rem;
-    }
-    /* ── PAGE HEADER ── */
-    .page-header {
-      padding: 8rem 2rem 3rem;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-size: 0.85rem; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--green); margin-bottom: 0.8rem;
-    }
-    .page-header h1 {
-      font-family: 'Fredoka One', cursive;
-      font-size: clamp(2.5rem, 7vw, 4rem);
-      color: var(--text); margin-bottom: 0.8rem;
-    }
-    .page-header p {
-      color: var(--text-dim); font-size: 1rem;
-      font-weight: 500; line-height: 1.6;
-    }
-    /* ── FILTER BAR ── */
-    .filter-bar {
-      display: flex; align-items: center; justify-content: center;
-      gap: 10px; flex-wrap: wrap;
-      max-width: 700px; margin: 0 auto 3rem;
-      padding: 0 2rem;
-      margin-top: 2.5rem;
-    }
-    .filter-label {
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; color: var(--text-muted);
-      margin-right: 4px;
-    }
-    .filter-btn {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 7px 16px; border-radius: 20px; cursor: pointer;
-      font-family: 'DM Sans', sans-serif; font-weight: 700;
-      font-size: 0.8rem; letter-spacing: 0.5px; text-transform: uppercase;
-      border: 1.5px solid var(--border);
-      background: var(--card); color: var(--text-dim);
-      transition: all 0.2s;
-    }
-    .filter-btn:hover { border-color: var(--green); color: var(--text); }
-    .filter-btn.active { color: var(--text); }
-    .filter-btn[data-filter="all"].active    { border-color: var(--green); background: var(--green-bg); color: var(--green); }
-    .filter-btn[data-filter="new"].active    { border-color: #3ecf6e; background: rgba(62,207,110,0.12); color: #3ecf6e; }
-    .filter-btn[data-filter="fix"].active    { border-color: #ffab44; background: rgba(255,160,70,0.1); color: #ffab44; }
-    .filter-btn[data-filter="balance"].active { border-color: #7eb8ff; background: rgba(100,160,255,0.1); color: #7eb8ff; }
-    .filter-btn[data-filter="change"].active { border-color: #d070ff; background: rgba(200,100,255,0.1); color: #d070ff; }
-    .filter-btn[data-filter="polish"].active { border-color: #ff9eb0; background: rgba(255,100,140,0.1); color: #ff9eb0; }
-    [data-theme="light"] .filter-btn[data-filter="new"].active    { color: #1e8040; border-color: #1e8040; background: rgba(42,154,80,0.08); }
-    [data-theme="light"] .filter-btn[data-filter="fix"].active    { color: #b05000; border-color: #b05000; background: rgba(200,100,0,0.07); }
-    [data-theme="light"] .filter-btn[data-filter="balance"].active { color: #2040b0; border-color: #2040b0; background: rgba(40,80,200,0.07); }
-    [data-theme="light"] .filter-btn[data-filter="change"].active { color: #7020a0; border-color: #7020a0; background: rgba(130,40,180,0.07); }
-    [data-theme="light"] .filter-btn[data-filter="polish"].active { color: #a02060; border-color: #a02060; background: rgba(180,40,100,0.07); }
-    /* ── TIMELINE ── */
-    .timeline-wrap {
-      max-width: 760px; margin: 0 auto;
-      padding: 0 2rem 6rem;
-    }
-    .timeline {
-      position: relative;
-      padding-left: 2.2rem;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute; left: 0; top: 10px; bottom: 10px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--green) 0%, transparent 100%);
-      border-radius: 2px;
-    }
-    .tl-entry {
-      position: relative;
-      margin-bottom: 2rem;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-    .tl-entry.hidden { display: none; }
-    /* timeline dot */
-    .tl-entry::before {
-      content: '';
-      position: absolute; left: -2.6rem; top: 1.5rem;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: var(--green);
-      border: 2px solid var(--bg-base);
-      box-shadow: 0 0 0 3px var(--green-bg);
-      transition: transform 0.25s;
-      z-index: 1;
-    }
-    .tl-entry:hover::before { transform: scale(1.5); }
-    .tl-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 1.8rem 2rem;
-      box-shadow: var(--shadow);
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .tl-card:hover { border-color: var(--green); transform: translateX(5px); }
-    /* card header */
-    .tl-header {
-      display: flex; align-items: center; gap: 12px;
-      flex-wrap: wrap; margin-bottom: 1.3rem;
-    }
-    .version-badge {
-      font-family: 'Fredoka One', cursive; font-size: 1.1rem;
-      color: var(--green); background: var(--green-bg);
-      border: 1px solid var(--green);
-      padding: 3px 14px; border-radius: 20px;
-    }
-    .latest-pill {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
-      background: var(--green); color: #0f1117;
-    }
-    .version-date {
-      font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
-    }
-    .version-name {
-      font-family: 'Fredoka One', cursive; font-size: 1rem;
-      color: var(--text-dim); margin-left: auto;
-    }
-    .build-badges {
-      display: flex; flex-wrap: wrap; gap: 6px;
-      margin-bottom: 1.1rem;
-    }
-    .build-pill {
-      font-size: 0.72rem; font-weight: 600; padding: 2px 10px;
-      border-radius: 12px; border: 1px solid var(--border);
-      color: var(--text-muted); background: transparent;
-    }
-    /* items */
-    .tl-items { display: flex; flex-direction: column; gap: 0.6rem; }
-    .cl-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;
-      transition: opacity 0.15s;
-    }
-    .cl-item.faded { opacity: 0.18; }
-    
-    .cl-item.highlight {
-      opacity: 1 !important;
-      color: var(--text);
-    }
-    .cl-tag {
-      display: inline-block; font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.8px; text-transform: uppercase;
-      padding: 2px 8px; border-radius: 6px;
-      flex-shrink: 0; margin-top: 2px;
-    }
-    .cl-tag.new     { background: rgba(62,207,110,0.15);  color: #3ecf6e; border: 1px solid rgba(62,207,110,0.3); }
-    .cl-tag.fix     { background: rgba(255,160,70,0.12);  color: #ffab44; border: 1px solid rgba(255,160,70,0.3); }
-    .cl-tag.balance { background: rgba(100,160,255,0.12); color: #7eb8ff; border: 1px solid rgba(100,160,255,0.3); }
-    .cl-tag.change  { background: rgba(200,100,255,0.12); color: #d070ff; border: 1px solid rgba(200,100,255,0.3); }
-    .cl-tag.polish  { background: rgba(255,100,140,0.12); color: #ff9eb0; border: 1px solid rgba(255,100,140,0.3); }
-    [data-theme="light"] .cl-tag.new     { background: rgba(42,154,80,0.1);   color: #1e8040; border-color: rgba(42,154,80,0.25); }
-    [data-theme="light"] .cl-tag.fix     { background: rgba(200,100,0,0.08);  color: #b05000; border-color: rgba(200,100,0,0.2); }
-    [data-theme="light"] .cl-tag.balance { background: rgba(40,80,200,0.08); color: #2040b0; border-color: rgba(40,80,200,0.2); }
-    [data-theme="light"] .cl-tag.change  { background: rgba(130,40,180,0.08);color: #7020a0; border-color: rgba(130,40,180,0.2); }
-    [data-theme="light"] .cl-tag.polish  { background: rgba(180,40,100,0.08);color: #a02060; border-color: rgba(180,40,100,0.2); }
-    /* no-results message */
-    #noResults {
-      text-align: center; padding: 3rem 1rem;
-      color: var(--text-muted); font-size: 1rem; font-weight: 600;
-      display: none;
-    }
-    /* loading / error states */
-    #loadingState, #errorState {
-      text-align: center; padding: 3rem 1rem;
-      color: var(--text-muted); font-size: 1rem; font-weight: 600;
-    }
-    #errorState { display: none; color: #ffab44; }
-    #loadMoreBtn {
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      text-align: center;
-      margin-top: 1.5rem;
-      color: var(--text-dim);
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-      cursor: pointer;
-      min-width: 200px;
-      padding: 12px 24px;
-      display: none;
-    }
-    #loadMoreBtn:hover {
-      border-color: var(--green);
-      transform: translateY(-2px);
-    }
-    /* ── FOOTER ── */
-    footer {
-      text-align: center; padding: 2.5rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
-      background: var(--nav-bg);
-    }
-    /* ── RESPONSIVE ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .page-header, .filter-bar { animation: fadeUp 0.5s ease both; }
-    .timeline-wrap { animation: fadeUp 0.5s 0.1s ease both; }
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .tl-card { padding: 1.3rem 1.4rem; }
-      .timeline-wrap { padding: 0 1rem 4rem; }
-      .version-name { margin-left: 0; width: 100%; }
-    }
-  </style>
-</head>
-<body>
-<nav>
-  <a href="index.html" class="nav-logo">🟢 SlimeSmash</a>
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#features">Features</a>
-      <a href="index.html#privacy">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </div>
-    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
-  </div>
-</nav>
-<!-- ── HEADER ── -->
-<header class="page-header">
-  <p class="section-label">Every update, every patch</p>
-  <h1>Changelog 📋</h1>
-  <p>Full release history for SlimeSmash — from launch day to right now.</p>
-</header>
-<div style="text-align:center;">
-  <a href="https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash"
-     style="display:inline-block;margin-top:1.5rem;padding:12px 22px;
-     background:var(--green);color:#0f1117;font-weight:700;
-     border-radius:10px;text-decoration:none;">
-     ⬇️ Get Latest Version
-  </a>
-</div>
-<!-- ── FILTER BAR ── -->
-<div class="filter-bar">
-  <span class="filter-label">Filter:</span>
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="new">✨ New</button>
-  <button class="filter-btn" data-filter="fix">🐛 Fix</button>
-  <button class="filter-btn" data-filter="balance">⚖️ Balance</button>
-  <button class="filter-btn" data-filter="change">🔄 Change</button>
-  <button class="filter-btn" data-filter="polish">🎨 Polish</button>
-</div>
-  <p id="updateCount" style="text-align:center;color:var(--text-muted);margin-bottom:2rem;"></p>
-<!-- ── TIMELINE ── -->
-<div class="timeline-wrap">
-  <div id="loadingState">Loading updates… 🟢</div>
-  <div id="errorState">Couldn't load the changelog right now. Please try again later.</div>
-  <div class="timeline" id="timeline"></div>
-  <div id="noResults">No updates found for this category. 🟢</div>
-  <div style="text-align:center; margin-top:2rem;">
-    <button id="loadMoreBtn" class="expand-btn">Show more updates ↓</button>
-  </div>
-</div>
-<footer>
-  <p>© 2026 SlimeSmash. All rights reserved. &nbsp;·&nbsp;
-    <a href="index.html" style="color:var(--green);text-decoration:none;font-weight:600;">← Back to main site</a>
-  </p>
-</footer>
-
-<script>
-const TAG_META = {
-  new:     { label: 'New' },
-  fix:     { label: 'Fix' },
-  balance: { label: 'Balance' },
-  change:  { label: 'Change' },
-  polish:  { label: 'Polish' }
-};
-
-// ── Path to the data file. Since this page and changelog.json live in the
-// same GitHub repo (served via GitHub Pages at slimesmash.github.io), a
-// relative path works with no CORS setup and no API keys.
-// Add a cache-busting query param so browsers don't serve a stale cached copy.
-const CHANGELOG_JSON_URL = 'changelog.json?v=' + Date.now();
-
-let entries = [];
-let loadMoreBtn, noResults, filterBtns, themeBtn;
-let visibleLimit = 4;
-const loadStep = 3;
-let activeFilter = 'all';
-
-// ── Render timeline entries from JSON data ──
-function renderTimeline(data) {
-  const timeline = document.getElementById('timeline');
-  timeline.innerHTML = '';
-
-  data.forEach(release => {
-    const uniqueTags = [...new Set(release.items.map(i => i.tag))];
-
-    const entry = document.createElement('div');
-    entry.className = 'tl-entry';
-    entry.dataset.tags = uniqueTags.join(' ');
-
-    const card = document.createElement('div');
-    card.className = 'tl-card';
-
-    // header
-    const header = document.createElement('div');
-    header.className = 'tl-header';
-
-    const versionBadge = document.createElement('span');
-    versionBadge.className = 'version-badge';
-    versionBadge.textContent = release.version;
-    header.appendChild(versionBadge);
-
-    if (release.latest) {
-      const latestPill = document.createElement('span');
-      latestPill.className = 'latest-pill';
-      latestPill.textContent = 'Latest';
-      header.appendChild(latestPill);
-    }
-
-    const dateSpan = document.createElement('span');
-    dateSpan.className = 'version-date';
-    dateSpan.textContent = release.date;
-    header.appendChild(dateSpan);
-
-    const nameSpan = document.createElement('span');
-    nameSpan.className = 'version-name';
-    nameSpan.textContent = release.name;
-    header.appendChild(nameSpan);
-
-    card.appendChild(header);
-
-    // build badges
-    if (release.builds && release.builds.length) {
-      const buildBadges = document.createElement('div');
-      buildBadges.className = 'build-badges';
-      release.builds.forEach(buildText => {
-        const pill = document.createElement('span');
-        pill.className = 'build-pill';
-        pill.textContent = buildText;
-        buildBadges.appendChild(pill);
-      });
-      card.appendChild(buildBadges);
-    }
-
-    // changelog items
-    const itemsWrap = document.createElement('div');
-    itemsWrap.className = 'tl-items';
-    release.items.forEach(item => {
-      const meta = TAG_META[item.tag] || { label: item.tag };
-
-      const itemDiv = document.createElement('div');
-      itemDiv.className = 'cl-item';
-      itemDiv.dataset.tag = item.tag;
-
-      const tagSpan = document.createElement('span');
-      tagSpan.className = `cl-tag ${item.tag}`;
-      tagSpan.textContent = meta.label;
-      itemDiv.appendChild(tagSpan);
-
-      itemDiv.appendChild(document.createTextNode(item.text));
-
-      itemsWrap.appendChild(itemDiv);
-    });
-    card.appendChild(itemsWrap);
-
-    entry.appendChild(card);
-    timeline.appendChild(entry);
-  });
-}
-
-function updateCounter() {
-  const visible = [...entries].filter(e =>
-    !e.classList.contains('hidden') && getComputedStyle(e).display !== 'none'
-  ).length;
-  document.getElementById("updateCount").textContent =
-    visible + " Updates shown 🚀";
-}
-
-function updateVisibleEntries() {
-  const visibleEntries = [...entries].filter(e =>
-    !e.classList.contains('hidden')
-  );
-  let shown = 0;
-  visibleEntries.forEach(entry => {
-    if (shown < visibleLimit) {
-      entry.style.display = '';
-      entry.style.opacity = 1;
-      entry.style.transform = "translateY(0)";
-      shown++;
-    } else {
-      entry.style.display = 'none';
-      entry.style.opacity = 0;
-      entry.style.transform = "translateY(10px)";
-    }
-  });
-  const remaining = visibleEntries.length - visibleLimit;
-  if (remaining > 0) {
-    loadMoreBtn.style.display = 'inline-block';
-    loadMoreBtn.textContent = `Show more (${remaining} left) ↓`;
-  } else {
-    loadMoreBtn.style.display = 'none';
+[
+  {
+    "version": "v1.2.0",
+    "latest": true,
+    "date": "16 May 2026",
+    "name": "Chain Reaction Update",
+    "builds": [
+      "Production"
+    ],
+    "items": [
+      {
+        "tag": "new",
+        "text": "The brand-new Chain-Reaction Slime has arrived to trigger insane combos"
+      },
+      {
+        "tag": "change",
+        "text": "The Freeze Slime has been officially retired to pave the way for chain reactions"
+      },
+      {
+        "tag": "balance",
+        "text": "Adventure Mode has received a huge rebalance for a smoother progression experience"
+      },
+      {
+        "tag": "change",
+        "text": "Removed the \"Danger Bar\" mechanic based on player feedback to focus on pure fast-paced fun"
+      },
+      {
+        "tag": "polish",
+        "text": "Targeting 120 FPS by default with Vsync disabled for butter-smooth arcade action"
+      },
+      {
+        "tag": "new",
+        "text": "Fresh live in-game notification systems added for real-time updates"
+      },
+      {
+        "tag": "polish",
+        "text": "Highly accurate delivery updates and notifications for daily reward streaks"
+      },
+      {
+        "tag": "polish",
+        "text": "UI overhauls featuring beautiful new interface designs across the game"
+      },
+      {
+        "tag": "polish",
+        "text": "Clearer reward feedback and text integrated directly into the Win Panel"
+      },
+      {
+        "tag": "polish",
+        "text": "Vastly improved Slime bounce and movement animations"
+      },
+      {
+        "tag": "fix",
+        "text": "Resolved a variety of critical edge-case bugs and performance slowdowns"
+      }
+    ]
+  },
+  {
+    "version": "v1.1.10",
+    "date": "11 May 2026",
+    "name": "PC Support Update",
+    "builds": [
+      "v1.1.9 · Internal testing",
+      "Production"
+    ],
+    "items": [
+      {
+        "tag": "new",
+        "text": "Added keyboard support for Back, ESC, and Space keys"
+      },
+      {
+        "tag": "new",
+        "text": "Space key can now activate pet abilities mid-game"
+      },
+      {
+        "tag": "change",
+        "text": "Daily systems improvements"
+      },
+      {
+        "tag": "fix",
+        "text": "Fixed Freeze and Mirror slime behaviour"
+      },
+      {
+        "tag": "polish",
+        "text": "Improved stability and overall gameplay performance"
+      },
+      {
+        "tag": "polish",
+        "text": "UI labels and text refined"
+      },
+      {
+        "tag": "change",
+        "text": "Disabled unsupported non-PC features for better compatibility"
+      }
+    ]
+  },
+  {
+    "version": "v1.1.8",
+    "date": "4 Apr 2026",
+    "name": "Stability Update",
+    "builds": [
+      "Production"
+    ],
+    "items": [
+      {
+        "tag": "fix",
+        "text": "Fixed issues introduced in the previous build"
+      },
+      {
+        "tag": "polish",
+        "text": "Improved overall stability and performance"
+      },
+      {
+        "tag": "fix",
+        "text": "Fixed bugs affecting cloud save, leaderboards, and notifications"
+      },
+      {
+        "tag": "fix",
+        "text": "Fixed an issue that could cause multiple save conflicts"
+      },
+      {
+        "tag": "polish",
+        "text": "Improved notification reliability"
+      },
+      {
+        "tag": "fix",
+        "text": "Fixed various edge-case issues"
+      }
+    ]
+  },
+  {
+    "version": "v1.1.7",
+    "date": "1 Apr 2026",
+    "name": "The Chubby Update",
+    "builds": [
+      "Production"
+    ],
+    "items": [
+      {
+        "tag": "new",
+        "text": "Chubby — free starter pet that grows all slimes to 150% size for 5s. Existing players receive it automatically on their next level"
+      },
+      {
+        "tag": "new",
+        "text": "Icons tab added to the Store panel"
+      },
+      {
+        "tag": "new",
+        "text": "Player icons now display on the global leaderboard with a polished animated UI"
+      },
+      {
+        "tag": "balance",
+        "text": "All slime types are now 15% larger"
+      },
+      {
+        "tag": "balance",
+        "text": "Casual Mode rebalanced to be more accessible"
+      },
+      {
+        "tag": "fix",
+        "text": "Casual Mode pause exploit patched — pause can no longer be used to gain an unfair advantage"
+      },
+      {
+        "tag": "fix",
+        "text": "Pinball ability (Maximus companion) now correctly eliminates isBad slimes"
+      },
+      {
+        "tag": "fix",
+        "text": "Pet upgrade progress display fixed — no more 0% → 0% confusion; percentages now clearly reflect actual progress"
+      },
+      {
+        "tag": "fix",
+        "text": "Level feedback analytics events now correctly include level data"
+      },
+      {
+        "tag": "fix",
+        "text": "Progress system edge case fixes"
+      },
+      {
+        "tag": "change",
+        "text": "Integrity API checks added to protect against piracy"
+      },
+      {
+        "tag": "polish",
+        "text": "Enhanced Slime Discovery panel UI"
+      }
+    ]
+  },
+  {
+    "version": "v1.1.6",
+    "date": "28 Mar 2026",
+    "name": "Polish & Performance Patch",
+    "builds": [
+      "Production"
+    ],
+    "items": [
+      {
+        "tag": "polish",
+        "text": "Improved Game HUD for Adventure and Casual modes for a sleeker experience"
+      },
+      {
+        "tag": "fix",
+        "text": "Notification system fixed to reliably deliver rewards updates"
+      },
+      {
+        "tag": "change",
+        "text": "Enhanced analytics and internal systems stability"
+      },
+      {
+        "tag": "polish",
+        "text": "Performance optimisations for smoother gameplay"
+      }
+    ]
+  },
+  {
+    "version": "v1.1.5",
+    "date": "27 Mar 2026",
+    "name": "The Quality Update",
+    "builds": [
+      "Build 22 · Production",
+      "Builds 18–21 · Internal testing"
+    ],
+    "items": [
+      {
+        "tag": "new",
+        "text": "Redesigned Win & Fail panels"
+      },
+      {
+        "tag": "new",
+        "text": "Report system for Adventure levels"
+      },
+      {
+        "tag": "new",
+        "text": "Mission progress is now shown after every run"
+      },
+      {
+        "tag": "new",
+        "text": "Casual waves can now be paused mid-run"
+      },
+      {
+        "tag": "balance",
+        "text": "Explosion Slimes now worth 3 points"
+      },
+      {
+        "tag": "fix",
+        "text": "Shield Slime behaviour corrected"
+      },
+      {
+        "tag": "change",
+        "text": "Enhanced account protection & cloud syncing"
+      },
+      {
+        "tag": "polish",
+        "text": "New SFX added throughout the game"
+      },
+      {
+        "tag": "polish",
+        "text": "UI/UX improvements across multiple screens"
+      },
+      {
+        "tag": "fix",
+        "text": "Surf Mode stability tweaks"
+      }
+    ]
+  },
+  {
+    "version": "v1.1.1",
+    "date": "26 Mar 2026",
+    "name": "The Big Update",
+    "builds": [
+      "Build 18 · Closed testing (Alpha)",
+      "Builds 13–16 · Internal snapshots",
+      "v1.1 · Production"
+    ],
+    "items": [
+      {
+        "tag": "change",
+        "text": "Companions & Pets abilities fully reworked"
+      },
+      {
+        "tag": "change",
+        "text": "Massive UI & font overhaul across all menus"
+      },
+      {
+        "tag": "new",
+        "text": "New VFX & enhanced in-game visuals"
+      },
+      {
+        "tag": "new",
+        "text": "10 new achievements via Google Play Games"
+      },
+      {
+        "tag": "new",
+        "text": "Daily reward push notifications"
+      },
+      {
+        "tag": "new",
+        "text": "In-app rating prompt added"
+      },
+      {
+        "tag": "new",
+        "text": "Privacy Policy & personalised ads consent shown in-app"
+      },
+      {
+        "tag": "new",
+        "text": "Companions & Pets remote configuration support"
+      },
+      {
+        "tag": "balance",
+        "text": "Adventure Mode levels rebalanced for better pacing"
+      },
+      {
+        "tag": "fix",
+        "text": "Devourer spawning bug fixed"
+      },
+      {
+        "tag": "change",
+        "text": "New AES encryption — ️ progress was reset as part of this upgrade"
+      }
+    ]
+  },
+  {
+    "version": "v1.0.11",
+    "date": "8 Feb 2026",
+    "name": "Safety & Polish",
+    "builds": [
+      "Build 12 · Production & Alpha"
+    ],
+    "items": [
+      {
+        "tag": "new",
+        "text": "Bad word filtering for player display names"
+      },
+      {
+        "tag": "new",
+        "text": "In-game version check panel — notifies players when an update is required"
+      },
+      {
+        "tag": "balance",
+        "text": "Casual Mode tweaked for smoother gameplay flow"
+      },
+      {
+        "tag": "fix",
+        "text": "Minor fixes and general stability improvements"
+      }
+    ]
+  },
+  {
+    "version": "v1.0.10",
+    "date": "7 Feb 2026",
+    "name": "Save System Fix",
+    "builds": [
+      "Build 11 · Closed testing (Alpha)"
+    ],
+    "items": [
+      {
+        "tag": "fix",
+        "text": "Fixed progress resetting after force-closing the app"
+      },
+      {
+        "tag": "fix",
+        "text": "Save system stability and startup loading improved"
+      },
+      {
+        "tag": "change",
+        "text": "Improved UI clarity and responsiveness across menus"
+      },
+      {
+        "tag": "change",
+        "text": "Daily reward screen layout and feedback improved"
+      },
+      {
+        "tag": "fix",
+        "text": "General performance and reliability improvements"
+      }
+    ]
+  },
+  {
+    "version": "v1.0.2",
+    "date": "4 Feb 2026",
+    "name": "Balance Patch",
+    "builds": [
+      "Build 3 · Closed testing (Alpha)"
+    ],
+    "items": [
+      {
+        "tag": "fix",
+        "text": "Fixed an issue causing player progress loss"
+      },
+      {
+        "tag": "fix",
+        "text": "Google Play Games connection stability improved"
+      },
+      {
+        "tag": "new",
+        "text": "New UI elements and smooth animations on the Leaderboard screen"
+      },
+      {
+        "tag": "new",
+        "text": "New countdown popup animation"
+      },
+      {
+        "tag": "balance",
+        "text": "Significant balance adjustments to Casual Mode"
+      },
+      {
+        "tag": "fix",
+        "text": "General UI improvements and bug fixes"
+      }
+    ]
+  },
+  {
+    "version": "v1.0.1",
+    "date": "28 Jan 2026",
+    "name": "Foundation Patch",
+    "builds": [
+      "Build 2 · Closed testing (Alpha)"
+    ],
+    "items": [
+      {
+        "tag": "new",
+        "text": "ARM7 support added for wider device compatibility"
+      },
+      {
+        "tag": "new",
+        "text": "Google Play Services & UGS Remote Config integrated"
+      },
+      {
+        "tag": "new",
+        "text": "Force Update notifications so players stay on the latest version"
+      },
+      {
+        "tag": "new",
+        "text": "Data Deletion option added inside Settings"
+      },
+      {
+        "tag": "change",
+        "text": "Profile UI streamlined; loading sequences updated"
+      },
+      {
+        "tag": "fix",
+        "text": "Daily Missions now reset correctly"
+      },
+      {
+        "tag": "fix",
+        "text": "Wave Mode stability improved"
+      }
+    ]
+  },
+  {
+    "version": "v1.0.0",
+    "date": "23 Jan 2026",
+    "name": "Launch Day",
+    "builds": [
+      "SlimeSmash_1.0V · Initial release"
+    ],
+    "items": [
+      {
+        "tag": "new",
+        "text": "SlimeSmash is live on Google Play!"
+      },
+      {
+        "tag": "new",
+        "text": "Adventure Mode — pop slimes, collect coins, unlock companions"
+      },
+      {
+        "tag": "new",
+        "text": "Casual Mode — endless waves, play at your own pace"
+      },
+      {
+        "tag": "new",
+        "text": "Starter slime roster to discover and collect"
+      }
+    ]
   }
-}
-
-function setupInteractivity() {
-  entries = document.querySelectorAll('.tl-entry');
-  loadMoreBtn = document.getElementById('loadMoreBtn');
-  noResults = document.getElementById('noResults');
-  filterBtns = document.querySelectorAll('.filter-btn');
-
-  loadMoreBtn.addEventListener('click', () => {
-    visibleLimit += loadStep;
-    updateVisibleEntries();
-    updateCounter();
-  });
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      activeFilter = btn.dataset.filter;
-      visibleLimit = 4;
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      let visibleCount = 0;
-      entries.forEach(entry => {
-        const items = entry.querySelectorAll('.cl-item');
-        if (activeFilter === 'all') {
-          entry.classList.remove('hidden');
-          items.forEach(i => {
-            i.classList.remove('faded', 'highlight');
-          });
-          visibleCount++;
-        } else {
-          let hasMatch = false;
-          items.forEach(item => {
-            if (item.dataset.tag === activeFilter) {
-              item.classList.remove('faded');
-              item.classList.add('highlight');
-              hasMatch = true;
-            } else {
-              item.classList.add('faded');
-              item.classList.remove('highlight');
-            }
-          });
-          if (hasMatch) {
-            entry.classList.remove('hidden');
-            visibleCount++;
-          } else {
-            entry.classList.add('hidden');
-          }
-        }
-      });
-      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-      updateVisibleEntries();
-      updateCounter();
-    });
-  });
-
-  updateVisibleEntries();
-  updateCounter();
-}
-
-// ── Theme toggle (independent of data loading) ──
-themeBtn = document.getElementById('themeBtn');
-const savedTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
-themeBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-document.getElementById('themeColorMeta').setAttribute('content', savedTheme === 'dark' ? "#0f1117" : "#f4f7f2");
-
-themeBtn.addEventListener('click', () => {
-  const htmlDoc = document.documentElement;
-  const currentTheme = htmlDoc.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  htmlDoc.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-  themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-  const metaColor = newTheme === 'dark' ? "#0f1117" : "#f4f7f2";
-  document.getElementById('themeColorMeta').setAttribute('content', metaColor);
-});
-
-// ── Fetch changelog.json and render ──
-fetch(CHANGELOG_JSON_URL)
-  .then(res => {
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return res.json();
-  })
-  .then(data => {
-    document.getElementById('loadingState').style.display = 'none';
-    renderTimeline(data);
-    setupInteractivity();
-  })
-  .catch(err => {
-    console.error('Failed to load changelog.json:', err);
-    document.getElementById('loadingState').style.display = 'none';
-    document.getElementById('errorState').style.display = 'block';
-  });
-</script>
-</body>
-</html>
+]
