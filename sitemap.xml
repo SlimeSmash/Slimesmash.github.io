@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://slimesmash.github.io/</loc>
+    <loc>https://slimesmash.github.io/index.html</loc>
   </url>
   <url>
-    <loc>https://slimesmash.github.io/changelog</loc>
+    <loc>https://slimesmash.github.io/changelog.html</loc>
   </url>
   <url>
-    <loc>https://slimesmash.github.io/privacy</loc>
+    <loc>https://slimesmash.github.io/privacy.html</loc>
   </url>
   <url>
-    <loc>https://slimesmash.github.io/terms</loc>
+    <loc>https://slimesmash.github.io/terms.html</loc>
   </url>
 </urlset>
