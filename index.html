@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <title>SlimeSmash - Pop Slimes, Unlock Pets & Climb Leaderboards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pop slimes, unlock pet companion synergies, and climb global leaderboards in SlimeSmash! Fast-paced retro arcade wave-survival game. Download free on Google Play!">
+  <meta name="description" content="Pop slimes, unlock pet companion synergies, and climb global leaderboards in SlimeSmash! Fast-paced retro arcade wave-survival game. Download free on Google Play.">
   <meta name="keywords" content="SlimeSmash, slime smash, arcade game, wave survival, mobile game, android game, casual game, pet companions, SlimeSmashStudio">
   <meta name="author" content="SlimeSmashStudio">
   <!-- Canonical URL -->
@@ -136,6 +136,93 @@
       font-weight: 600; font-size: 0.95rem; transition: color 0.2s;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--green); }
+
+    /* Hamburger Menu Button */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 101;
+    }
+    .hamburger-btn span {
+      width: 24px;
+      height: 2.5px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger-btn.active span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+    .hamburger-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-btn.active span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-left: 1px solid var(--border);
+      z-index: 99;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      padding-top: 80px;
+    }
+    .mobile-menu.active {
+      right: 0;
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 1rem 1.5rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+    .mobile-menu a:hover {
+      color: var(--green);
+      padding-left: 2rem;
+    }
+    .mobile-menu .mobile-social {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* Overlay behind mobile menu */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 98;
+    }
+    .mobile-overlay.active {
+      display: block;
+    }
 
     /* Skip link for accessibility */
     .skip-link {
@@ -345,13 +432,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      #changelog { padding: 0 1rem 2rem; }
-      .gallery-card { flex: 0 0 200px; }
-    }
-    
     .nav-yt-icon {
       display: inline-flex; align-items: center; justify-content: center;
       transition: transform 0.2s ease;
@@ -361,6 +441,17 @@
     }
     .nav-yt-icon:hover { transform: scale(1.1); }
     .nav-yt-icon:hover svg { fill: #ff0000; }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger-btn { display: flex; }
+      .nav-right { gap: 1rem; }
+      #changelog { padding: 0 1rem 2rem; }
+      .gallery-card { flex: 0 0 200px; }
+      .mobile-menu { display: block; }
+    }
   </style>
 </head>
 <body>
@@ -388,12 +479,37 @@
     </a>
     <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
       <!-- Sun Icon -->
-      <svg id="sunIcon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0zm12.37-12.37l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0z"/></svg>
+      <svg id="sunIcon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-1.56 1.56-1.56 4.09 0 5.66l1.41-1.41c-.78-.78-.78-2.05 0-2.83l-.01-.01zM18.01 4.58l-.01.01c.78.78.78 2.05 0 2.83l1.41 1.41c1.56-1.56 1.56-4.09 0-5.66-.39-.39-1.02-.39-1.4 0zm0 14.83c1.56-1.56 1.56-4.09 0-5.66l-1.41 1.41c.78.78.78 2.05 0 2.83l.01.01c.39.39 1.02.39 1.4 0zM5.99 19.42l.01-.01c-.78-.78-.78-2.05 0-2.83l-1.41-1.41c-1.56 1.56-1.56 4.09 0 5.66.39.39 1.02.39 1.4 0z"/></svg>
       <!-- Moon Icon -->
       <svg id="moonIcon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0 9.7 11.5 10 10 0 1 1-11.7-11.5z"/></svg>
     </button>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#features" class="mobile-link">Features</a>
+  <a href="#screenshots" class="mobile-link">Screenshots</a>
+  <a href="#media" class="mobile-link">Media</a>
+  <a href="changelog.html" class="mobile-link">Changelog</a>
+  <a href="privacy.html" class="mobile-link">Privacy</a>
+  <a href="terms.html" class="mobile-link">Terms</a>
+  <div class="mobile-social">
+    <a href="https://www.youtube.com/@SlimeSmashStudio" target="_blank" aria-label="YouTube Channel" class="nav-yt-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
+    </a>
+  </div>
+</div>
 
 <section id="home">
   <!-- Featured Game Icon -->
@@ -431,7 +547,7 @@
   <p class="section-label">About SlimeSmash</p>
   <h2 class="section-title">Retro Pixel Reflex Survival</h2>
   <p style="color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; max-width: 720px; margin: 0 auto;">
-    <strong>SlimeSmash</strong> is an independent, fast-paced retro pixel arcade wave-survival game built for reflex-driven players. Test your reaction speed across 50+ hand-crafted Adventure levels, customize active and passive pet companion squad loadouts, or test your endurance in Casual Endless mode. Featuring global Google Play leaderboards, daily streak rewards, and native PC keyboard controls via Google Play Games on PC, SlimeSmash delivers a pure skill-based experience with zero pay-to-win mechanics.
+    <strong>SlimeSmash</strong> is an independent, fast-paced retro pixel arcade wave-survival game built for reflex-driven players. Test your reaction speed across 50+ hand-crafted Adventure levels with unique difficulty modes. Unlock companion pets with synergistic abilities, survive endless waves, and dominate the global leaderboards!
   </p>
 </section>
 
@@ -441,7 +557,7 @@
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 11.5c-2.5 0-4.5 1.8-4.5 4 0 1.5 1 2.5 2.5 2.5 1 0 1.5-.5 2-.5s1 .5 2 .5c1.5 0 2.5-1 2.5-2.5 0-2.2-2-4-4.5-4zm-5.5-3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm11 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-8.5-4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 11.5c-2.5 0-4.5 1.8-4.5 4 0 1.5 1 2.5 2.5 2.5 1 0 1.5-.5 2-.5s1 .5 2 .5c1.5 0 2.5-1 2.5-2.5 0-2.2-2-4-4.5-4zm-5.5-3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm11 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
       </div>
       <h3>Pets & Companions</h3>
       <p>Unlock passive and active pets. Each companion introduces unique active battle abilities and passive synergy loadouts.</p>
@@ -455,21 +571,21 @@
     </div>
     <div class="feature-card">
       <div class="feature-icon">
-        <svg viewBox="0 0 24 24"><path d="M18.6 6.6c-1.7 0-3.3.8-4.5 2.1-1.2-1.3-2.8-2.1-4.5-2.1-3.6 0-6.6 3-6.6 6.6s3 6.6 6.6 6.6c1.7 0 3.3-.8 4.5-2.1 1.2 1.3 2.8 2.1 4.5 2.1 3.6 0 6.6-3 6.6-6.6s-3-6.6-6.6-6.6zm-9 10.2c-2 0-3.6-1.6-3.6-3.6s1.6-3.6 3.6-3.6 3.6 1.6 3.6 3.6-1.6 3.6-3.6 3.6zm9 0c-2 0-3.6-1.6-3.6-3.6s1.6-3.6 3.6-3.6 3.6 1.6 3.6 3.6-1.6 3.6-3.6 3.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M18.6 6.6c-1.7 0-3.3.8-4.5 2.1-1.2-1.3-2.8-2.1-4.5-2.1-3.6 0-6.6 3-6.6 6.6s3 6.6 6.6 6.6c1.7 0 3.3-.8 4.5-2.1 1.2 1.3 2.8 2.1 4.5 2.1 3.6 0 6.6-3 6.6-6.6s-3-6.6-6.6-6.6zm0 11.2c-1.2 0-2.3-.5-3-1.3-.7-.8-1.1-2-1.1-3.3 0-1.3.4-2.5 1.1-3.3.7-.8 1.8-1.3 3-1.3s2.3.5 3 1.3c.7.8 1.1 2 1.1 3.3 0 1.3-.4 2.5-1.1 3.3-.7.8-1.8 1.3-3 1.3zm-9-11.2c-1.2 0-2.3.5-3 1.3-.7.8-1.1 2-1.1 3.3 0 1.3.4 2.5 1.1 3.3.7.8 1.8 1.3 3 1.3s2.3-.5 3-1.3c.7-.8 1.1-2 1.1-3.3 0-1.3-.4-2.5-1.1-3.3-.7-.8-1.8-1.3-3-1.3z"/></svg>
       </div>
       <h3>Casual Mode</h3>
       <p>Endless waves, hearts, and unique slime effects. Pure score chasing and reflex endurance testing without timers.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">
-        <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V18H8v2h8v-2h-3v-2.1c2.16-.4 3.84-2.11 4.39-4.36C19.08 11.23 21 9.15 21 6.6V5c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V18H8v2h8v-2h-3v-2.1c2.16-.4 3.84-2.11 4.39-4.36C19.08 11.23 21 9.15 21 6.5V5c0-1.1-.9-2-2-2zm0 2v1.5c0 1.82-1.48 3.3-3.3 3.3-1.82 0-3.3-1.48-3.3-3.3V7h6.6z"/></svg>
       </div>
       <h3>Global Leaderboards</h3>
       <p>Compete worldwide via Google Play integration. Track wave clearance totals and see how high you can rank globally.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 6h-3.17c.42-.62.67-1.37.67-2.2C17.5 1.7 15.8 0 13.7 0c-1.4 0-2.6.7-3.2 1.8C9.9.7 8.7 0 7.3 0 5.2 0 3.5 1.7 3.5 3.8c0 .83.25 1.58.67 2.2H1c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h18c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1zm-6.3-4c.83 0 1.5.67 1.5 1.5S14.53 5 13.7 5h-2.2c.1-.8.7-2 2.2-2zM7.3 2c1.5 0 2.1 1.2 2.2 2H7.3c-.83 0-1.5-.67-1.5-1.5S6.47 2 7.3 2zM1 12v9c0 .55.45 1 1 1h7v-10H1zm11 10h7c.55 0 1-.45 1-1v-9h-8v10z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 6h-3.17c.42-.62.67-1.37.67-2.2C17.5 1.7 15.8 0 13.7 0c-1.4 0-2.6.7-3.2 1.8C9.9.7 8.7 0 7.3 0 5.2 0 3.5 1.7 3.5 3.8c0 .83.25 1.58.67 2.2H1c-.55 0-1 .45-1 1v13c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-.55-.45-1-1-1zm-6.5 13h-3v-3h3v3zm3.5-8h-12V7h12v4z"/></svg>
       </div>
       <h3>Daily Rewards</h3>
       <p>Earn daily streak bonuses and complete action missions to gather gold coins for unlocks and powerups.</p>
@@ -531,7 +647,7 @@
   <p class="section-label">What's new</p>
   <h2 class="section-title">Latest Update</h2>
 
-  <div style="background:var(--card);border:1px solid var(--green);border-radius:16px;padding:2rem;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;">
+  <div style="background:var(--card);border:1px solid var(--green);border-radius:16px;padding:2rem;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.7rem;flex-wrap:wrap;">
         <span style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--green);background:var(--green-bg);border:1px solid var(--green);padding:3px 14px;border-radius:20px;">v1.2.0</span>
@@ -541,10 +657,10 @@
         Chain Reaction Update
       </p>
       <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;max-width:420px;">
-        Introducing the brand-new Chain-Reaction Slime! Experience massive rebalances across Adventure Mode, targeted 120 FPS support, sleek new Win Panel rewards feedback, and beautiful interface design refreshes.
+        Introducing the brand-new Chain-Reaction Slime! Experience massive rebalances across Adventure Mode, targeted 120 FPS support, sleek new Win Panel rewards feedback, and beautiful interface improvements.
       </p>
     </div>
-    <a href="changelog.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:12px;background:var(--green);color:#0f1117;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;white-space:nowrap;">
+    <a href="changelog.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:12px;background:var(--green);color:#0f1117;font-family:'DM Sans',sans-serif;font-weight:700;text-decoration:none;font-size:0.95rem;white-space:nowrap;transition:all 0.2s ease;flex-shrink:0;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
       Full Changelog →
     </a>
   </div>
@@ -560,6 +676,7 @@
 </button>
 
 <script>
+  // Theme Toggle
   const btn = document.getElementById('themeBtn');
   const html = document.documentElement;
   const themeMeta = document.getElementById('themeColorMeta');
@@ -586,6 +703,27 @@
   btn.addEventListener('click', () => {
     const currentTheme = html.getAttribute('data-theme');
     applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+
+  // Hamburger Menu Toggle
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu() {
+    hamburgerBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    mobileOverlay.classList.toggle('active');
+    hamburgerBtn.setAttribute('aria-expanded', hamburgerBtn.classList.contains('active'));
+  }
+
+  hamburgerBtn.addEventListener('click', toggleMenu);
+  mobileOverlay.addEventListener('click', toggleMenu);
+
+  // Close menu when a link is clicked
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
   });
 
   // Back-to-top button
