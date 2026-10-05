@@ -3,64 +3,41 @@ layout: default
 title: "SlimeSmash - Pop Slimes, Unlock Pets & Climb Leaderboards"
 raw_title: true
 og_title: "SlimeSmash - Retro Arcade Wave Survival Game"
-description: "Pop slimes, unlock pets with unique abilities, and climb global leaderboards in SlimeSmash! Fast-paced retro arcade game. Download free on Google Play."
+description: "Pop slimes, unlock pet companion synergies, and climb global leaderboards in SlimeSmash! Fast-paced retro arcade wave-survival game. Download free on Google Play."
 styles: [home]
-scripts: [home]
 body_class: page-home
 ---
-{%- assign hero = site.data.screenshots | where: "hero", true | first -%}
-{%- capture play_badge -%}
-<a class="play-badge" href="{{ site.data.site.play_url | escape }}&amp;hl=en" target="_blank" rel="noopener noreferrer">
-  <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get SlimeSmash on Google Play" width="207" height="80" decoding="async">
-</a>
-{%- endcapture -%}
-
 <section id="home">
-  {% if hero %}<img class="hero-bg" src="/assets/img/screenshots/{{ hero.file }}" alt="" width="{{ hero.w }}" height="{{ hero.h }}" fetchpriority="high" decoding="async">{% endif %}
-  <div class="hero-inner">
-    <img src="/Icon.png" alt="" class="hero-app-icon" width="90" height="90">
-    <p class="hero-badge">Free on Google Play</p>
-    <h1 class="wordmark" aria-label="SlimeSmash">
-      <span class="wm-s" aria-hidden="true">S</span>
-      <span class="wm-stack" aria-hidden="true">
-        <span class="wm-row"><b>L</b><b>I</b><b>M</b><b>E</b></span>
-        <span class="wm-row"><b>M</b><b>A</b><b>S</b><b>H</b></span>
-      </span>
-    </h1>
-    <p class="hero-sub">Pop slimes, unlock pets, and compete globally.<br><strong>Can you reach #1 on the leaderboards?</strong></p>
-    <div class="hero-btns">
-      {{ play_badge }}
-      <a href="#media" class="btn btn-ghost">Watch gameplay</a>
+  <img src="/Icon.png" alt="" class="hero-app-icon" width="90" height="90">
+  <div class="hero-badge">Free on Google Play</div>
+
+  <h1 class="hero-title-container" aria-label="SlimeSmash">
+    <div class="letter-s" aria-hidden="true">S</div>
+    <div class="stacked-letters" aria-hidden="true">
+      <div><span style="color:#00FF00">L</span><span style="color:#FF0000">I</span><span style="color:#FFFF00">M</span><span style="color:#0000FF">E</span></div>
+      <div><span style="color:#00FF00">M</span><span style="color:#FF0000">A</span><span style="color:#FFFF00">S</span><span style="color:#0000FF">H</span></div>
     </div>
-    <p class="hero-platforms">Android · Windows PC via Google Play Games</p>
+  </h1>
+
+  <p class="hero-sub">Pop slimes, unlock companion pets, and compete globally.<br><strong>Can you reach #1 on the leaderboards?</strong></p>
+
+  <div class="hero-btns">
+    <a class="play-badge" href="{{ site.data.site.play_url | escape }}&amp;hl=en" target="_blank" rel="noopener noreferrer">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get SlimeSmash on Google Play">
+    </a>
+    <a href="/changelog.html" class="btn btn-ghost">What's New →</a>
   </div>
 </section>
-
-<ul class="highlights" aria-label="Highlights">
-  <li><strong>50+</strong> Adventure levels</li>
-  <li><strong>Endless</strong> Casual waves</li>
-  <li><strong>Pets</strong> with unique abilities</li>
-  <li><strong>Global</strong> leaderboards</li>
-</ul>
 
 <section id="about" class="narrow-section">
   <p class="section-label">About SlimeSmash</p>
   <h2 class="section-title">Retro Pixel Reflex Survival</h2>
-  <p class="lead"><strong>SlimeSmash</strong> is an independent, fast-paced pixel arcade game built for reflex-driven players. Beat the clock across 50+ hand-crafted Adventure levels, survive endless waves, equip pets with game-changing abilities, and climb the global leaderboards.</p>
+  <p class="lead">
+    <strong>SlimeSmash</strong> is an independent, fast-paced retro pixel arcade wave-survival game built for reflex-driven players. Test your reaction speed across 50+ hand-crafted Adventure levels with unique difficulty modes. Unlock companion pets with synergistic abilities, survive endless waves, and dominate the global leaderboards!
+  </p>
 </section>
 
-<section id="how" class="wide-section">
-  <p class="section-label">How it works</p>
-  <h2 class="section-title">Easy to learn, hard to master</h2>
-  <ol class="steps">
-    <li><span class="step-n">1</span><h3>Pop slimes</h3><p>Tap fast and chain combos. Every level has a timer and a target score.</p></li>
-    <li><span class="step-n">2</span><h3>Earn and unlock</h3><p>Collect gold coins, then unlock pets and icons in the Store.</p></li>
-    <li><span class="step-n">3</span><h3>Climb the ranks</h3><p>Sign in with Google Play Games to appear on the global leaderboards.</p></li>
-  </ol>
-  <p class="more"><a href="/help/guides/getting-started/">Read the getting started guide →</a></p>
-</section>
-
-<section id="features" class="wide-section">
+<section id="features">
   <p class="section-label">What's in the game</p>
   <h2 class="section-title">Everything you need to smash</h2>
   <div class="features-grid">
@@ -74,48 +51,29 @@ body_class: page-home
   </div>
 </section>
 
-<section id="modes" class="wide-section">
-  <p class="section-label">Game modes</p>
-  <h2 class="section-title">Pick your challenge</h2>
-  <div class="mode-grid">
-    <a class="mode-card" href="/help/modes/adventure-mode/"><h3>Adventure</h3><p>50+ levels. Beat the timer and reach the target score.</p><span>How it works →</span></a>
-    <a class="mode-card" href="/help/modes/casual-mode/"><h3>Casual</h3><p>Endless waves with 3 hearts. No timer, just survive.</p><span>How it works →</span></a>
-    <a class="mode-card" href="/help/modes/surf-mode/"><h3>Surf levels</h3><p>Slimes slide across the screen. Catch them on the move.</p><span>How it works →</span></a>
-    {% if site.data.site.defense_live %}<a class="mode-card" href="/help/modes/defense-mode/"><h3>Defense</h3><p>Hold your base as slimes attack from every direction.</p><span>How it works →</span></a>{% endif %}
-  </div>
-</section>
-
-<section id="screenshots" class="wide-section">
+<section id="screenshots">
   <p class="section-label">Gallery</p>
   <h2 class="section-title">In-Game Screenshots</h2>
-  <div class="gallery" role="region" aria-label="Screenshot gallery" tabindex="0">
-    {% for s in site.data.screenshots %}{% unless s.hero %}
-    <figure class="gallery-card"><img src="/assets/img/screenshots/{{ s.file }}" alt="{{ s.alt | escape }}" width="{{ s.w }}" height="{{ s.h }}" loading="lazy" decoding="async"></figure>
-    {% endunless %}{% endfor %}
+  <div class="gallery-horizontal-container" role="region" aria-label="Screenshot gallery" tabindex="0">
+    {% for s in site.data.screenshots %}
+    <div class="gallery-card"><img src="/assets/img/screenshots/{{ s.file }}" alt="{{ s.alt | escape }}" loading="lazy" decoding="async"></div>
+    {% endfor %}
   </div>
 </section>
 
-<section id="media" class="narrow-section">
-  <p class="section-label">Media</p>
-  <h2 class="section-title">Watch SlimeSmash in action</h2>
-  <p class="lead">Trailers, gameplay and devlogs from our YouTube channel.</p>
-  <div class="video" data-playlist="{{ site.data.site.youtube_playlist }}">
-    {% if hero %}<img src="/assets/img/screenshots/{{ hero.file }}" alt="" width="{{ hero.w }}" height="{{ hero.h }}" loading="lazy" decoding="async">{% endif %}
-    <button class="video-play" type="button" aria-label="Play SlimeSmash videos"><span class="play-icon" aria-hidden="true"></span><span>Play videos</span></button>
+<section id="media">
+  <p class="section-label">Media & Previews</p>
+  <h2 class="section-title">Watch SlimeSmash in Action</h2>
+  <p class="lead">Explore official update trailers, gameplay showcases, and devlogs directly on our YouTube channel.</p>
+  <div class="video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list={{ site.data.site.youtube_playlist }}"
+      title="SlimeSmash official videos" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
   <a href="{{ site.data.site.youtube_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Watch on YouTube →</a>
 </section>
 
-<section id="learn" class="wide-section">
-  <p class="section-label">Help center</p>
-  <h2 class="section-title">Learn the game</h2>
-  <div class="learn-grid">
-    {% for c in site.data.help_categories %}{% unless c.id == 'updates' %}
-    {%- assign n = site.help | where: "category", c.id | size -%}
-    <a class="mode-card" href="{{ c.url }}"><h3>{{ c.name }}</h3><p>{{ c.blurb }}</p><span>{{ n }} pages →</span></a>
-    {% endunless %}{% endfor %}
-  </div>
-</section>
+<div class="divider"></div>
 
 {% assign latest = site.data.changelog.first %}
 {% if latest %}
@@ -124,17 +82,17 @@ body_class: page-home
   <h2 class="section-title" id="latest-title">Latest Update</h2>
   <div class="latest-card">
     <div>
-      <div class="latest-head"><span class="latest-version">{{ latest.version }}</span><span class="latest-date">{{ latest.date }}</span></div>
+      <div class="latest-head">
+        <span class="latest-version">{{ latest.version }}</span>
+        <span class="latest-date">{{ latest.date }}</span>
+      </div>
       <p class="latest-name">{{ latest.name | escape }}</p>
-      <ul class="latest-list">{% for item in latest.items limit: 3 %}<li>{{ item.text | escape }}</li>{% endfor %}</ul>
+      <ul class="latest-list">
+        {% for item in latest.items limit: 3 %}<li>{{ item.text | escape }}</li>
+        {% endfor %}
+      </ul>
     </div>
     <a href="/changelog.html" class="btn btn-primary btn-sm">Full Changelog →</a>
   </div>
 </section>
 {% endif %}
-
-<section class="final-cta">
-  <h2>Ready to smash?</h2>
-  <p>Free on Google Play.</p>
-  {{ play_badge }}
-</section>
