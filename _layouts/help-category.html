@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{%- assign cat = site.data.help_categories | where: "id", page.category | first -%}
+{%- assign docs = site.help | where: "category", page.category | sort: "order" -%}
+<div class="help">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/help/">Help</a><span aria-hidden="true">/</span><span aria-current="page">{{ cat.name }}</span>
+  </nav>
+  <header class="cat-head">
+    <h1>{{ cat.name }}</h1>
+    <p>{{ cat.blurb }}</p>
+  </header>
+
+  {% if cat.display == "cards" %}
+  <div class="entry-grid">
+    {% for d in docs %}
+    <a class="entry-card" href="{{ d.url }}">
+      <span class="entry-name">{{ d.title }}</span>
+      {% if d.status == 'retired' %}<span class="badge badge-retired">Retired</span>{% endif %}
+      <span class="entry-sum">{{ d.summary }}</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <ul class="entry-rows">
+    {% for d in docs %}
+    <li><a href="{{ d.url }}"><span class="entry-name">{{ d.title }}</span><span class="entry-sum">{{ d.summary }}</span></a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

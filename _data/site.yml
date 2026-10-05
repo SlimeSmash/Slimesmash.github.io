@@ -1,0 +1,21 @@
+# Single source of truth. Change a value here and it updates on every page.
+name: SlimeSmash
+studio: SlimeSmashStudio
+email: Slimesmash.support@gmail.com
+play_url: https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.SlimeSmash
+youtube_url: https://www.youtube.com/@SlimeSmashStudio
+youtube_playlist: PL0SLUT5_Gp64F2ZQmiQc8WGLX_JUbrNTq
+ga_id: G-WV2NR7Y33N
+nav:
+  - { label: Home,        url: "/#home" }
+  - { label: About,       url: "/#about" }
+  - { label: Features,    url: "/#features" }
+  - { label: Screenshots, url: "/#screenshots" }
+  - { label: Media,       url: "/#media" }
+  - { label: Help,        url: "/help/" }
+  - { label: Changelog,   url: "/changelog.html" }
+footer_links:
+  - { label: Help,      url: "/help/" }
+  - { label: Changelog, url: "/changelog.html" }
+  - { label: Privacy,   url: "/privacy.html" }
+  - { label: Terms,     url: "/terms.html" }

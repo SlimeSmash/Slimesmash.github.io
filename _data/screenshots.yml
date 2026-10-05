@@ -1,0 +1,38 @@
+# w/h = real pixel size (stops layout shift). hero: true = used as the hero background; it is left out of the gallery.
+- file: Screenshot00.webp
+  alt: "SlimeSmash gameplay"
+  w: 2340
+  h: 1080
+  hero: true
+- file: Screenshot01.webp
+  alt: "SlimeSmash gameplay screenshot 1"
+  w: 512
+  h: 288
+- file: Screenshot02.webp
+  alt: "SlimeSmash gameplay screenshot 2"
+  w: 512
+  h: 288
+- file: Screenshot03.webp
+  alt: "SlimeSmash gameplay screenshot 3"
+  w: 512
+  h: 288
+- file: Screenshot04.webp
+  alt: "SlimeSmash gameplay screenshot 4"
+  w: 512
+  h: 288
+- file: Screenshot05.webp
+  alt: "SlimeSmash gameplay screenshot 5"
+  w: 512
+  h: 288
+- file: Screenshot06.webp
+  alt: "SlimeSmash gameplay screenshot 6"
+  w: 512
+  h: 288
+- file: Screenshot07.webp
+  alt: "SlimeSmash gameplay screenshot 7"
+  w: 512
+  h: 288
+- file: Screenshot08.webp
+  alt: "SlimeSmash gameplay screenshot 8"
+  w: 512
+  h: 288

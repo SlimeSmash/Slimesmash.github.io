@@ -1,0 +1,30 @@
+title: SlimeSmash
+description: Pop slimes, unlock pet synergies, and climb global leaderboards in SlimeSmash! Fast-paced retro arcade wave-survival game. Download free on Google Play.
+url: https://slimesmash.github.io
+
+# Jekyll skips dot-folders by default; Android App Links need this one published.
+include:
+  - .well-known
+
+# Help center / wiki: every file in _help/ becomes a page at /help/<path>/
+collections:
+  help:
+    output: true
+    permalink: /help/:path/
+    
+plugins:
+  - jekyll-sitemap
+defaults:
+  - scope: { path: "", type: "help" }
+    values:
+      layout: article
+      styles: [help]
+      scripts: [help]
+      order: 50
+
+exclude:
+  - README.md
+  - migrate.sh
+  - Gemfile
+  - Gemfile.lock
+  - vendor

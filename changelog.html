@@ -1,0 +1,56 @@
+---
+layout: default
+title: "Changelog & Patch Notes"
+description: "Full SlimeSmash update history, patch notes, version changes, and balance updates for Android mobile game."
+styles: [changelog]
+scripts: [changelog]
+body_class: page-changelog
+---
+<header class="page-header">
+  <p class="section-label">Every update, every patch</p>
+  <h1>Changelog</h1>
+  <p>Full release history for SlimeSmash — from launch day to right now.</p>
+  <a href="{{ site.data.site.play_url | escape }}" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Get Latest Version</a>
+</header>
+
+<div class="search-wrap">
+  <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+  <input type="search" id="searchInput" class="search-input" placeholder="Search the changelog…" aria-label="Search the changelog">
+</div>
+
+<div class="filter-bar" role="group" aria-label="Filter by type">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+  <button class="filter-btn" data-filter="new" aria-pressed="false">New</button>
+  <button class="filter-btn" data-filter="fix" aria-pressed="false">Fix</button>
+  <button class="filter-btn" data-filter="balance" aria-pressed="false">Balance</button>
+  <button class="filter-btn" data-filter="change" aria-pressed="false">Change</button>
+  <button class="filter-btn" data-filter="polish" aria-pressed="false">Polish</button>
+</div>
+<p id="updateCount" class="update-count" aria-live="polite"></p>
+
+<div class="timeline-wrap">
+  <div class="timeline" id="timeline">
+    {% for r in site.data.changelog %}
+    {% assign tags = r.items | map: "tag" | uniq %}
+    {% if tags contains "new" %}{% assign icon_tag = "new" %}{% else %}{% assign icon_tag = tags.first | default: "polish" %}{% endif %}
+    <article class="tl-entry" data-tags="{{ tags | join: ' ' }}">
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="version-badge">{% include tag-icon.html tag=icon_tag %}{{ r.version }}</span>
+          {% if forloop.first %}<span class="latest-pill">Latest</span>{% endif %}
+          <span class="version-date">{{ r.date }}</span>
+          <span class="version-name">{{ r.name | escape }}</span>
+        </div>
+        {% if r.builds.size > 0 %}<div class="build-badges">{% for b in r.builds %}<span class="build-pill">{{ b | escape }}</span>{% endfor %}</div>{% endif %}
+        <div class="tl-items">
+          {% for item in r.items %}<div class="cl-item" data-tag="{{ item.tag }}"><span class="cl-tag {{ item.tag }}">{{ item.tag | capitalize }}</span>{{ item.text | escape }}</div>
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <div id="noResults">No updates found for this search or category.</div>
+  <div class="more-wrap"><button id="loadMoreBtn" type="button">Show more updates ↓</button></div>
+</div>

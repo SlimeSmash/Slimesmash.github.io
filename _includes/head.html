@@ -1,0 +1,82 @@
+{%- assign page_title = page.title -%}
+{%- unless page.raw_title -%}{%- assign page_title = page.title | append: " – " | append: site.title -%}{%- endunless -%}
+{%- assign page_desc = page.description | default: site.description -%}
+{%- assign og_title = page.og_title | default: page_title -%}
+{%- assign canonical = page.url | absolute_url -%}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title | escape }}</title>
+<meta name="description" content="{{ page_desc | escape }}">
+<meta name="author" content="{{ site.data.site.studio }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ canonical }}">
+
+<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:description" content="{{ page_desc | escape }}">
+<meta property="og:image" content="{{ '/preview.png' | absolute_url }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+<meta name="twitter:description" content="{{ page_desc | escape }}">
+<meta name="twitter:image" content="{{ '/preview.png' | absolute_url }}">
+
+<meta name="theme-color" content="#0f1117">
+<link rel="icon" href="/Icon.png" type="image/png">
+<link rel="apple-touch-icon" href="/Icon.png">
+
+{%- comment %} Runs before first paint: no flash of the wrong theme. {% endcomment %}
+<script>
+  document.documentElement.classList.add('js');
+  try { document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/base.css">
+{% if page.layout == 'legal' %}<link rel="stylesheet" href="/assets/css/legal.css">
+{% endif %}
+{% for s in page.styles %}<link rel="stylesheet" href="/assets/css/{{ s }}.css">
+{% endfor %}
+
+{% if page.url == '/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": {{ site.title | jsonify }},
+  "operatingSystem": "Android, Windows (PC via Google Play Games)",
+  "applicationCategory": "GameApplication",
+  "genre": "Arcade Wave Survival",
+  "installUrl": {{ site.data.site.play_url | jsonify }},
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": {{ site.data.site.studio | jsonify }}, "url": {{ site.data.site.youtube_url | jsonify }} }
+}
+</script>
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "WebSite", "name": {{ site.title | jsonify }}, "url": {{ site.url | jsonify }} }
+</script>
+{% else %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ '/' | absolute_url | jsonify }} },
+    { "@type": "ListItem", "position": 2, "name": {{ page.title | jsonify }}, "item": {{ canonical | jsonify }} }
+  ]
+}
+</script>
+{% endif %}
+
+{%- if jekyll.environment == 'production' and site.data.site.ga_id %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.data.site.ga_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.data.site.ga_id }}');
+</script>
+{%- endif %}

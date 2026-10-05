@@ -1,0 +1,21 @@
+# Order here = order on the Help home page.
+- id: guides
+  name: Guides
+  url: /help/guides/
+  display: rows
+  blurb: How to play, saving, rewards, playing on PC, and fixing problems.
+- id: modes
+  name: Game modes
+  url: /help/modes/
+  display: rows
+  blurb: Adventure, Casual and special modes.
+- id: slimes
+  name: Slimes
+  url: /help/slimes/
+  display: cards
+  blurb: Every slime type, and what has changed.
+- id: pets
+  name: Pets & companions
+  url: /help/pets/
+  display: cards
+  blurb: Companions, their abilities, and how to get them.

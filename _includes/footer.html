@@ -1,0 +1,7 @@
+<footer class="site-footer">
+  <p>© {{ 'now' | date: '%Y' }} {{ site.title }}. Developed by {{ site.data.site.studio }}. All rights reserved.</p>
+  <nav class="footer-links" aria-label="Footer">
+    {% for l in site.data.site.footer_links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}
+    <a href="mailto:{{ site.data.site.email }}">Contact</a>
+  </nav>
+</footer>
