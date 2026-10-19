@@ -1,0 +1,36 @@
+# Order here = order on the Help home page.
+- id: guides
+  name: Guides
+  url: /help/guides/
+  display: rows
+  blurb: How to play, saving, rewards, playing on PC, and fixing problems.
+- id: modes
+  name: Game modes
+  url: /help/modes/
+  display: rows
+  blurb: Adventure, Casual, Defense and Surf modes explained in detail.
+- id: slimes
+  name: Slimes
+  url: /help/slimes/
+  display: cards
+  blurb: Every slime type, how it behaves, and what has changed.
+- id: pets
+  name: Pets & companions
+  url: /help/pets/
+  display: cards
+  blurb: Companions, their abilities, and how to get them.
+- id: levels
+  name: Adventure levels
+  url: /help/levels/
+  display: compact
+  blurb: All 50 Adventure levels with goals, timers, slime mixes and coin rewards.
+- id: reference
+  name: Reference
+  url: /help/reference/
+  display: rows
+  blurb: Tables, formulas, glossary, achievements and every number in one place.
+- id: updates
+  name: Updates
+  url: /help/updates/
+  display: rows
+  blurb: Version history and what is coming in the next update.

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+{% include head.html %}
+</head>
+<body class="{% if page.layout == 'legal' %}page-legal{% else %}{{ page.body_class }}{% endif %}">
+<a href="#main" class="skip-link">Skip to content</a>
+{% include nav.html %}
+<main id="main">
+{{ content }}
+</main>
+{% include footer.html %}
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+<script src="/assets/js/site.js" defer></script>
+{% if page.layout == 'legal' %}<script src="/assets/js/legal.js" defer></script>{% endif %}
+{% for s in page.scripts %}<script src="/assets/js/{{ s }}.js" defer></script>
+{% endfor %}
+</body>
+</html>

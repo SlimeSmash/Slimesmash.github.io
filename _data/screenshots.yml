@@ -1,0 +1,19 @@
+# Files live in assets/img/screenshots/. Add a line to add a screenshot.
+- file: Screenshot00.webp
+  alt: "SlimeSmash gameplay screenshot 1"
+- file: Screenshot01.webp
+  alt: "SlimeSmash gameplay screenshot 2"
+- file: Screenshot02.webp
+  alt: "SlimeSmash gameplay screenshot 3"
+- file: Screenshot03.webp
+  alt: "SlimeSmash gameplay screenshot 4"
+- file: Screenshot04.webp
+  alt: "SlimeSmash gameplay screenshot 5"
+- file: Screenshot05.webp
+  alt: "SlimeSmash gameplay screenshot 6"
+- file: Screenshot06.webp
+  alt: "SlimeSmash gameplay screenshot 7"
+- file: Screenshot07.webp
+  alt: "SlimeSmash gameplay screenshot 8"
+- file: Screenshot08.webp
+  alt: "SlimeSmash gameplay screenshot 9"

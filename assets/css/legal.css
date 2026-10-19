@@ -1,0 +1,55 @@
+/* legal.css — privacy & terms. One readable column, sections separated by rules. */
+.legal { max-width: 720px; margin: 0 auto; padding: 8rem 1.5rem 5rem; }
+
+.legal-header { padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+.legal-header h1 {
+  font-family: var(--font-display); font-weight: normal;
+  font-size: clamp(2.4rem, 6vw, 3.4rem); line-height: 1.1; color: var(--text);
+}
+.legal-header p { margin-top: 0.7rem; color: var(--text-muted); font-size: 0.95rem; font-weight: 600; }
+
+/* "On this page" — built by legal.js, hidden if JS is off */
+.toc { margin: 2rem 0 0.5rem; padding: 1.2rem 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+.toc strong { display: block; margin-bottom: 0.6rem; font-size: 0.9rem; color: var(--text); }
+.toc ol { list-style: none; columns: 2; column-gap: 2rem; font-size: 0.93rem; }
+.toc li { break-inside: avoid; padding: 0.2rem 0; }
+.toc a { color: var(--text-dim); text-decoration: none; }
+.toc a:hover { color: var(--green); text-decoration: underline; }
+
+/* Sections (markup class kept as .pcard so the content files don't change) */
+.pcard { padding: 2.2rem 0; border-bottom: 1px solid var(--border); }
+.pcard:last-of-type { border-bottom: 0; }
+.pcard h3 {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: normal;
+  font-size: 1.45rem; line-height: 1.25; color: var(--text); margin-bottom: 1rem;
+}
+.pcard-icon {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 32px; height: 32px; border-radius: 9px; background: var(--green-bg); color: var(--green);
+}
+.pcard-icon svg { width: 18px; height: 18px; }
+.pcard h4 { margin: 1.6rem 0 0.6rem; font-size: 1rem; font-weight: 700; color: var(--text); }
+
+.pcard p { color: var(--text-dim); font-size: 1.02rem; line-height: 1.75; margin-bottom: 0.9rem; }
+.pcard ul { list-style: disc; padding-left: 1.3rem; display: grid; gap: 0.55rem; margin-bottom: 0.9rem; }
+.pcard li { color: var(--text-dim); font-size: 1.02rem; line-height: 1.7; padding-left: 0.2rem; }
+.pcard li::marker { color: var(--green); }
+.pcard li strong, .pcard p strong { color: var(--text); }
+.pcard a:not(.btn) { color: var(--green); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.pcard a:not(.btn):hover { text-decoration-thickness: 2px; }
+.pcard a.plain-link { color: var(--text); }
+
+.info-box {
+  margin: 1.2rem 0 0.4rem; padding: 1rem 1.3rem;
+  background: var(--green-bg); border-left: 4px solid var(--green); border-radius: 0 10px 10px 0;
+  color: var(--text-dim); font-size: 0.98rem; line-height: 1.65;
+}
+.info-box strong { color: var(--text); }
+
+.contact-card .btn { margin-top: 0.8rem; }
+
+@media (max-width: 768px) {
+  .legal { padding: 6.5rem 1.2rem 4rem; }
+  .toc ol { columns: 1; }
+}

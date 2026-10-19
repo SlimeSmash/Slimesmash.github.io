@@ -1,0 +1,73 @@
+---
+layout: default
+---
+{%- assign cat = site.data.help_categories | where: "id", page.category | first -%}
+<div class="help">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/help/">Help</a><span aria-hidden="true">/</span>
+    {% if cat %}<a href="{{ cat.url }}">{{ cat.name }}</a><span aria-hidden="true">/</span>{% endif %}
+    <span aria-current="page">{{ page.title }}</span>
+  </nav>
+
+  <div class="article-grid">
+    <article class="article-main">
+      <header>
+        <h1>
+          {{ page.title }}
+          {% if page.status == 'retired' %}<span class="badge badge-retired">Retired</span>{% endif %}
+          {% if page.status == 'upcoming' %}<span class="badge badge-upcoming">Upcoming</span>{% endif %}
+        </h1>
+        {% if page.summary %}<p class="article-summary">{{ page.summary }}</p>{% endif %}
+      </header>
+
+      {% if page.notice %}
+      <div class="note note-notice" role="note">{{ page.notice | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+      {% endif %}
+
+      {% if page.stub %}
+      <div class="note note-stub">
+        <strong>This entry is still being written.</strong> It lists only what is confirmed so far.
+        If you know more,
+        <a href="mailto:{{ site.data.site.email }}?subject={{ 'Help page: ' | append: page.title | uri_escape }}">tell us</a>.
+      </div>
+      {% endif %}
+
+      <div class="prose">{{ content }}</div>
+
+      <footer class="article-foot">
+        <p>Last updated {{ page.updated | date: "%-d %B %Y" }}.
+          <a href="mailto:{{ site.data.site.email }}?subject={{ 'Help page: ' | append: page.title | uri_escape }}">Something missing or wrong? Email us.</a></p>
+      </footer>
+
+      {%- assign related = site.help | where: "category", page.category | sort: "order" -%}
+      {% if related.size > 1 %}
+      <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">More in {{ cat.name | default: "this section" }}</h2>
+        <ul>
+          {% for r in related %}{% unless r.url == page.url %}<li><a href="{{ r.url }}">{{ r.title }}</a></li>{% endunless %}{% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+    </article>
+
+    <aside class="article-aside">
+      {% if page.facts %}
+      <dl class="infobox">
+        {% for f in page.facts %}<div><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>{% endfor %}
+      </dl>
+      {% endif %}
+      <div id="tocSlot"></div>
+    </aside>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Help", "item": {{ '/help/' | absolute_url | jsonify }} },
+    {% if cat %}{ "@type": "ListItem", "position": 2, "name": {{ cat.name | jsonify }}, "item": {{ cat.url | absolute_url | jsonify }} },
+    { "@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }} }{% else %}{ "@type": "ListItem", "position": 2, "name": {{ page.title | jsonify }} }{% endif %}
+  ]
+}
+</script>

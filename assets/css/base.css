@@ -1,0 +1,187 @@
+/* ==========================================================================
+   base.css — loaded on every page: tokens, reset, nav, buttons, footer
+   ========================================================================== */
+
+/* ── Tokens ── */
+:root {
+  --font-display: 'Fredoka One', cursive;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+[data-theme="dark"] {
+  --bg-base:     #0f1117;
+  --bg:          radial-gradient(circle at 50% -20%, rgba(62,207,110,0.15), #0f1117 60%);
+  --hero-overlay: linear-gradient(180deg, rgba(15,17,23,0.78) 0%, rgba(15,17,23,0.92) 80%, #0f1117 100%);
+  --card:        #1a2030;
+  --border:      #2a3347;
+  --text:        #e8f0fe;
+  --text-dim:    #8b9bbf;
+  --text-muted:  #7d8db0;   /* was #5a6a8a (3.0:1) — now 4.9:1 on cards */
+  --green:       #3ecf6e;
+  --green-bg:    rgba(62,207,110,0.1);
+  --btn-text:    #0f1117;
+  --nav-bg:      rgba(15,17,23,0.85);
+  --shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --line:        rgba(62,207,110,0.4);
+}
+[data-theme="light"] {
+  --bg-base:     #f4f7f2;
+  --bg:          radial-gradient(circle at 50% -20%, rgba(35,127,66,0.12), #f4f7f2 60%);
+  --hero-overlay: linear-gradient(180deg, rgba(244,247,242,0.82) 0%, rgba(244,247,242,0.95) 80%, #f4f7f2 100%);
+  --card:        #ffffff;
+  --border:      #dde8d8;
+  --text:        #1a2410;
+  --text-dim:    #4a6040;
+  --text-muted:  #587050;   /* was #7a9070 (3.5:1) — now 5.5:1 */
+  --green:       #237f42;   /* was #2a9a50 (3.3:1 as text) — now 4.6:1 */
+  --green-bg:    rgba(35,127,66,0.09);
+  --btn-text:    #ffffff;
+  --nav-bg:      rgba(244,247,242,0.85);
+  --shadow:      0 8px 32px rgba(0,0,0,0.08);
+  --line:        rgba(35,127,66,0.4);
+}
+
+/* ── Reset & page frame ── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; background-color: var(--bg-base); }
+body {
+  font-family: var(--font-body);
+  background: var(--bg); background-attachment: fixed;
+  color: var(--text);
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+main { flex: 1; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--green); color: var(--btn-text); font-weight: 700;
+  padding: 10px 18px; border-radius: 0 0 8px 0; text-decoration: none;
+}
+.skip-link:focus { left: 0; }
+
+/* ── Shared type ── */
+.section-label {
+  text-align: center; font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--green); margin-bottom: 0.8rem;
+}
+.section-title {
+  text-align: center; font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.8rem); color: var(--text); margin-bottom: 2.5rem;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 32px; border-radius: 12px;
+  font-family: var(--font-body); font-weight: 700; font-size: 1.05rem;
+  text-decoration: none; cursor: pointer; transition: transform 0.2s, border-color 0.2s, color 0.2s, filter 0.2s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-primary { background: var(--green); color: var(--btn-text); border: 2px solid var(--green); }
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-ghost { background: var(--card); color: var(--text); border: 2px solid var(--border); }
+.btn-ghost:hover { border-color: var(--green); color: var(--green); }
+.btn-sm { padding: 12px 22px; font-size: 0.95rem; border-radius: 10px; }
+
+/* ── Navigation ── */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display); font-size: 1.5rem; color: var(--green);
+  text-decoration: none; display: flex; align-items: center; gap: 10px;
+  transition: transform 0.2s;
+}
+.nav-logo:hover { transform: scale(1.03); }
+.nav-app-icon {
+  width: 30px; height: 30px; border-radius: 7px; object-fit: cover;
+  border: 1px solid var(--border); box-shadow: 0 0 10px var(--green-bg);
+}
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+.nav-links { display: flex; gap: 1.8rem; }
+.nav-links a {
+  color: var(--text-dim); text-decoration: none;
+  font-weight: 600; font-size: 0.95rem; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--green); }
+
+.nav-yt-icon { display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; transition: transform 0.2s; }
+.nav-yt-icon svg { width: 24px; height: 24px; fill: var(--text-dim); transition: fill 0.2s; }
+.nav-yt-icon:hover { transform: scale(1.1); }
+.nav-yt-icon:hover svg { fill: #ff0000; }
+
+.theme-btn {
+  background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 8px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--text); transition: border-color 0.2s, transform 0.2s;
+}
+.theme-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.theme-btn:hover { border-color: var(--green); transform: translateY(-2px); }
+[data-theme="dark"]  .icon-moon { display: none; }   /* dark shows the sun (= "switch to light") */
+[data-theme="light"] .icon-sun  { display: none; }
+
+.hamburger-btn {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 8px; z-index: 101;
+}
+.hamburger-btn span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+.hamburger-btn.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger-btn.active span:nth-child(2) { opacity: 0; }
+.hamburger-btn.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 0; right: -100%; z-index: 99;
+  width: 70%; max-width: 300px; height: 100vh; overflow-y: auto; padding-top: 80px;
+  background: var(--card); border-left: 1px solid var(--border);
+  visibility: hidden; transition: right 0.3s ease, visibility 0.3s;
+}
+.mobile-menu.active { right: 0; visibility: visible; }
+.mobile-menu a {
+  display: block; padding: 1rem 1.5rem; color: var(--text-dim); text-decoration: none;
+  font-weight: 600; border-bottom: 1px solid var(--border); transition: color 0.2s, padding 0.2s;
+}
+.mobile-menu a:hover, .mobile-menu a[aria-current="page"] { color: var(--green); padding-left: 2rem; }
+.mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 98; }
+.mobile-overlay.active { display: block; }
+
+@media (max-width: 768px) {
+  .site-nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-right { gap: 1rem; }
+  .hamburger-btn { display: flex; }
+  .mobile-menu { display: block; }
+}
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center; padding: 2.5rem 1.5rem; margin-top: 4rem;
+  border-top: 1px solid var(--border); background: var(--nav-bg);
+  color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+}
+.footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 0.8rem; }
+.footer-links a { color: var(--text-dim); text-decoration: underline; transition: color 0.2s; }
+.footer-links a:hover { color: var(--green); }
+
+/* ── Back to top ── */
+.back-to-top {
+  position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 90;
+  width: 48px; height: 48px; border-radius: 50%; border: none;
+  background: var(--green); color: var(--btn-text); box-shadow: var(--shadow);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  opacity: 0; pointer-events: none; transform: translateY(10px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.back-to-top svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* ── Motion ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

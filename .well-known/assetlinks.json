@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.SlimeSmashStudio.SlimeSmash",
+      "sha256_cert_fingerprints": [
+        "4F:C2:CF:EA:FF:AF:BC:85:CC:BC:6F:3B:14:58:92:31:9C:EA:83:2D:B3:80:96:23:0C:94:56:41:15:EB:4B:06"
+      ]
+    }
+  }
+]
