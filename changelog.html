@@ -9,38 +9,58 @@ body_class: page-changelog
 <header class="page-header">
   <p class="section-label">Every update, every patch</p>
   <h1>Changelog</h1>
-  <p>Full release history for SlimeSmash — from launch day to right now.</p>
+  <p>New features, gameplay changes, fixes and everything else in every SlimeSmash release.</p>
   <a href="{{ site.data.site.play_url | escape }}" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Get Latest Version</a>
 </header>
 
+{% assign latest_release = site.data.changelog.first %}
+{% if latest_release %}
+<section class="release-spotlight" aria-labelledby="spotlight-title">
+  <img class="spotlight-art" src="/assets/img/screenshots/Screenshot-v2-01.png" alt="" width="1365" height="768">
+  <div class="spotlight-content">
+    <div class="spotlight-meta">
+      <span class="spotlight-label">Latest release</span>
+      <span class="spotlight-version">{{ latest_release.version }}</span>
+      <time>{{ latest_release.date | escape }}</time>
+    </div>
+    <h2 id="spotlight-title">{{ latest_release.name | escape }}</h2>
+    <p>{{ latest_release.items.size }} release notes, including:</p>
+    <ul class="spotlight-highlights">
+      {% for item in latest_release.items limit: 3 %}<li>{{ item.text | escape }}</li>{% endfor %}
+    </ul>
+    <a class="spotlight-link" href="#release-{{ latest_release.version | replace: '.', '-' }}">Explore the full release <span aria-hidden="true">↓</span></a>
+  </div>
+</section>
+{% endif %}
+
 <div class="search-wrap">
   <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
-  <input type="search" id="searchInput" class="search-input" placeholder="Search the changelog…" aria-label="Search the changelog">
+  <input type="search" id="searchInput" class="search-input" placeholder="Search versions, releases, and notes…" aria-label="Search versions, releases, and notes">
 </div>
 
 <div class="filter-bar" role="group" aria-label="Filter by type">
   <span class="filter-label">Filter:</span>
-  <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
-  <button class="filter-btn" data-filter="new" aria-pressed="false">New</button>
-  <button class="filter-btn" data-filter="fix" aria-pressed="false">Fix</button>
-  <button class="filter-btn" data-filter="balance" aria-pressed="false">Balance</button>
-  <button class="filter-btn" data-filter="change" aria-pressed="false">Change</button>
-  <button class="filter-btn" data-filter="polish" aria-pressed="false">Polish</button>
+  <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true" aria-controls="timeline">All<span class="filter-count" aria-hidden="true"></span></button>
+  <button type="button" class="filter-btn" data-filter="new" aria-pressed="false" aria-controls="timeline">New<span class="filter-count" aria-hidden="true"></span></button>
+  <button type="button" class="filter-btn" data-filter="fix" aria-pressed="false" aria-controls="timeline">Fix<span class="filter-count" aria-hidden="true"></span></button>
+  <button type="button" class="filter-btn" data-filter="balance" aria-pressed="false" aria-controls="timeline">Balance<span class="filter-count" aria-hidden="true"></span></button>
+  <button type="button" class="filter-btn" data-filter="change" aria-pressed="false" aria-controls="timeline">Change<span class="filter-count" aria-hidden="true"></span></button>
+  <button type="button" class="filter-btn" data-filter="polish" aria-pressed="false" aria-controls="timeline">Polish<span class="filter-count" aria-hidden="true"></span></button>
 </div>
-<p id="updateCount" class="update-count" aria-live="polite"></p>
+<p id="updateCount" class="update-count" role="status" aria-live="polite"></p>
 
 <div class="timeline-wrap">
   <div class="timeline" id="timeline">
     {% for r in site.data.changelog %}
     {% assign tags = r.items | map: "tag" | uniq %}
     {% if tags contains "new" %}{% assign icon_tag = "new" %}{% else %}{% assign icon_tag = tags.first | default: "polish" %}{% endif %}
-    <article class="tl-entry{% if r.major %} major{% endif %}" data-tags="{{ tags | join: ' ' }}">
+    <article class="tl-entry{% if r.major %} major{% endif %}" id="release-{{ r.version | replace: '.', '-' }}">
       <div class="tl-card">
         <div class="tl-header">
           <span class="version-badge">{% include tag-icon.html tag=icon_tag %}{{ r.version }}</span>
-          {% if forloop.first %}<span class="latest-pill">Latest</span>{% endif %}
-          <span class="version-date">{{ r.date }}</span>
-          <span class="version-name">{{ r.name | escape }}</span>
+          {% if r.latest %}<span class="latest-pill">Latest</span>{% endif %}
+          <time class="version-date">{{ r.date | escape }}</time>
+          <h2 class="version-name">{{ r.name | escape }}</h2>
         </div>
         {% if r.builds.size > 0 %}<div class="build-badges">{% for b in r.builds %}<span class="build-pill">{{ b | escape }}</span>{% endfor %}</div>{% endif %}
         <div class="tl-items">
@@ -51,6 +71,6 @@ body_class: page-changelog
     </article>
     {% endfor %}
   </div>
-  <div id="noResults">No updates found for this search or category.</div>
-  <div class="more-wrap"><button id="loadMoreBtn" type="button">Show more updates ↓</button></div>
+  <div id="noResults">No releases or notes match your search or category.</div>
+  <div class="more-wrap"><button id="loadMoreBtn" type="button">Show more releases ↓</button></div>
 </div>

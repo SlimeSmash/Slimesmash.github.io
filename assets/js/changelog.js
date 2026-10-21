@@ -11,26 +11,47 @@
   const $ = (id) => document.getElementById(id);
   const moreBtn = $('loadMoreBtn'), noResults = $('noResults'), count = $('updateCount');
   const filterBtns = document.querySelectorAll('.filter-btn');
+  const releases = entries.map((entry) => {
+    const items = [...entry.querySelectorAll('.cl-item')];
+    const header = `${entry.querySelector('.tl-header').textContent} ${entry.querySelector('.build-badges')?.textContent || ''}`.toLowerCase();
+    return { entry, items, header, tags: new Set(items.map((item) => item.dataset.tag)) };
+  });
+
+  const tagCounts = new Map([['all', 0]]);
+  releases.forEach(({ items }) => items.forEach((item) => {
+    tagCounts.set('all', tagCounts.get('all') + 1);
+    tagCounts.set(item.dataset.tag, (tagCounts.get(item.dataset.tag) || 0) + 1);
+  }));
+  filterBtns.forEach((btn) => {
+    const countEl = btn.querySelector('.filter-count');
+    if (countEl) countEl.textContent = ` ${tagCounts.get(btn.dataset.filter) || 0}`;
+  });
 
   function apply() {
-    let matched = 0;
-    entries.forEach((entry) => {
-      const tagOk = filter === 'all' || entry.dataset.tags.split(' ').includes(filter);
-      const textOk = !query || entry.textContent.toLowerCase().includes(query);
-      const match = tagOk && textOk;
-      if (match) matched++;
-      entry.hidden = !(match && matched <= limit);
-      entry.querySelectorAll('.cl-item').forEach((item) => {
-        const on = filter !== 'all';
-        item.classList.toggle('highlight', on && item.dataset.tag === filter);
-        item.classList.toggle('faded', on && item.dataset.tag !== filter);
+    let matchedReleases = 0, matchedNotes = 0;
+    releases.forEach(({ entry, items, header, tags }) => {
+      const tagOk = filter === 'all' || tags.has(filter);
+      const headerMatches = Boolean(query && header.includes(query));
+      const visibleItems = items.filter((item) => {
+        const itemMatches = (filter === 'all' || item.dataset.tag === filter)
+          && (!query || headerMatches || item.textContent.toLowerCase().includes(query));
+        item.hidden = !itemMatches;
+        return itemMatches;
       });
+      const match = tagOk && (!query || headerMatches || visibleItems.length > 0);
+      if (match) {
+        matchedReleases++;
+        matchedNotes += visibleItems.length;
+      }
+      entry.hidden = !(match && matchedReleases <= limit);
     });
-    const shown = Math.min(limit, matched);
-    count.textContent = matched ? `Showing ${shown} of ${matched} updates` : '';
-    noResults.style.display = matched ? 'none' : 'block';
-    moreBtn.hidden = matched <= limit;
-    moreBtn.textContent = `Show more (${matched - limit} left) ↓`;
+    const shown = Math.min(limit, matchedReleases);
+    count.textContent = matchedReleases
+      ? `Showing ${shown} of ${matchedReleases} releases · ${matchedNotes} matching notes`
+      : '';
+    noResults.style.display = matchedReleases ? 'none' : 'block';
+    moreBtn.hidden = matchedReleases <= limit;
+    moreBtn.textContent = `Show ${Math.min(STEP, matchedReleases - limit)} more releases ↓`;
   }
 
   filterBtns.forEach((btn) => btn.addEventListener('click', () => {
