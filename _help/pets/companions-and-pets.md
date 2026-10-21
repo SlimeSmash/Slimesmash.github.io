@@ -1,11 +1,11 @@
 ---
-title: "Pets and companions"
+title: "Pets"
 category: "pets"
 summary: "How pets work, how to get them, and the full pet list with prices."
-updated: "2026-10-18"
+keywords: ["companions", "upgrades", "maximus", "beam"]
+updated: "2026-10-21"
 order: 0
 popular: true
-notice: "Companions and pet upgrades are being removed in the next update. See [Upcoming update](/help/updates/upcoming-update/)."
 ---
 Pets change how a level plays. You equip **one pet at a time**, and it works for the whole level.
 
@@ -14,7 +14,7 @@ Pets change how a level plays. You equip **one pet at a time**, and it works for
 - **Passive pets** work all the time with no button. Examples: [Rumble](/help/pets/rumble/), [Lure](/help/pets/lure/), [Bones](/help/pets/bones/), [Flash](/help/pets/flash/), [Zap](/help/pets/zap/).
 - **Ability pets** have a button (or <kbd>Space</kbd> on PC) with a **cooldown** and a **limited number of uses per game**. Examples: [Chubby](/help/pets/chubby/), [Frost](/help/pets/frost/), [Echo](/help/pets/echo/), [Guard](/help/pets/guard/), [Purify](/help/pets/purify/), [Vortex](/help/pets/vortex/).
 
-Cooldowns pause while the game is paused. Both cooldown and use count reset at the start of each game. A level can switch pets off, but in the current build every Adventure level allows them.
+Cooldowns pause while the game is paused. Both cooldown and use count reset at the start of each game. Every Adventure level allows pets. When an ability pet affects slimes, a **beam** is drawn from the pet to each slime it hits.
 
 ## Getting pets
 
@@ -42,10 +42,6 @@ Equip and unequip pets from the pet's details panel in your inventory.
 
 Buying every Store pet costs **6,800 coins**. See [Pet comparison](/help/pets/pet-comparison/) and [Which pet should I get?](/help/pets/choosing-a-pet/).
 
-## Companions
+## Companions and upgrades
 
-Companions such as [Maximus](/help/pets/maximus/) are a separate, older system. They are being retired.
-
-## Upgrades
-
-Pet upgrades are being removed in the next update. Pets will keep improving in small patches after the update. See [Upcoming update](/help/updates/upcoming-update/).
+The older **companion** system (such as [Maximus](/help/pets/maximus/)) and **pet upgrades** were removed in 2.0. Pets stay, and they will keep improving in small patches. See [What's new in 2.0](/help/updates/whats-new-in-2-0/).

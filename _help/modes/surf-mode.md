@@ -34,4 +34,4 @@ Levels 5, 10, 15, 20, 25, 30, 35, 40, 45 and 50. See [All levels](/help/levels/a
 
 ## History
 
-Surf Mode was sped up in the next update and now speeds up as the time left goes down. A mismatch between the Surf background and its button icon is also fixed. See [Upcoming update](/help/updates/upcoming-update/). Stability was improved in v1.1.5.
+Surf Mode was redesigned in 2.0. Slimes now move like a real wave, with rotation, and speed up as the time left goes down. A mismatch between the Surf background and its button icon is also fixed. See [What's new in 2.0](/help/updates/whats-new-in-2-0/). Stability was improved in v1.1.5.

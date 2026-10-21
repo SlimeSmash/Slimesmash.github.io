@@ -34,7 +34,7 @@ body_class: page-changelog
     {% for r in site.data.changelog %}
     {% assign tags = r.items | map: "tag" | uniq %}
     {% if tags contains "new" %}{% assign icon_tag = "new" %}{% else %}{% assign icon_tag = tags.first | default: "polish" %}{% endif %}
-    <article class="tl-entry" data-tags="{{ tags | join: ' ' }}">
+    <article class="tl-entry{% if r.major %} major{% endif %}" data-tags="{{ tags | join: ' ' }}">
       <div class="tl-card">
         <div class="tl-header">
           <span class="version-badge">{% include tag-icon.html tag=icon_tag %}{{ r.version }}</span>

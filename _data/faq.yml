@@ -84,14 +84,20 @@
   a: Every 5th wave in Defense Mode, with 1.5 times the slimes at double spawn speed. See [Defense Mode](/help/modes/defense-mode/).
 - q: What are Defense checkpoints?
   a: Every 5 waves your progress is saved, and your next run starts after it. See [Defense Mode](/help/modes/defense-mode/).
-- q: When does Defense Mode release?
-  a: It is in the next big update. Details can change. See [Upcoming update](/help/updates/upcoming-update/).
+- q: Is Defense Mode in the game?
+  a: Yes. 360° Base Defense arrived in 2.0 and is now the main way to play. See [Defense Mode](/help/modes/defense-mode/) and [What's new in 2.0](/help/updates/whats-new-in-2-0/).
 - q: Are companions still in the game?
-  a: They are being removed in the next update. Pets stay. See [Upcoming update](/help/updates/upcoming-update/).
+  a: No. Companions were removed in 2.0. Pets stay. See [What's new in 2.0](/help/updates/whats-new-in-2-0/).
 - q: What happened to pet upgrades?
-  a: They are being removed for now in the next update. See [Upcoming update](/help/updates/upcoming-update/).
+  a: Pet upgrades were removed in 2.0, and pets will keep improving in small patches. See [What's new in 2.0](/help/updates/whats-new-in-2-0/).
 - q: Is there music?
-  a: Music is removed in the next update. The game has sound effects only. See [Settings](/help/guides/settings/).
+  a: No. Music was removed in 2.0, and the game has sound effects only. See [Settings](/help/guides/settings/).
+- q: What is new in SlimeSmash 2.0?
+  a: A new 360° Defense Mode, five languages, new backgrounds, a rebuilt tutorial and save system, and a redesigned Surf Mode. Companions, pet upgrades, music and the Devourer were removed. See [What's new in 2.0](/help/updates/whats-new-in-2-0/).
+- q: Will my progress carry over to 2.0?
+  a: Yes. Existing 1.x saves and your Waves and Defense records are migrated automatically when you update. See [Progress and saving](/help/guides/progress-and-saving/).
+- q: Why does the game run at 60 FPS now?
+  a: 60 FPS is the new default for better battery life. You can turn on High FPS in [Settings](/help/guides/settings/).
 - q: Which languages are supported?
   a: English, Spanish, French, German and Brazilian Portuguese. See [Languages](/help/guides/languages/).
 - q: How do I change my name?
@@ -143,6 +149,6 @@
 - q: Can level values change?
   a: Yes. Some values can be tuned remotely between updates, so your game may differ slightly from the wiki.
 - q: What is Maximus?
-  a: A companion with the Pinball ability, being retired. See [Maximus](/help/pets/maximus/).
+  a: A former companion with the Pinball ability, removed in 2.0. See [Maximus](/help/pets/maximus/).
 - q: Where is the full list of changes?
   a: See [Version history](/help/updates/version-history/) or the [changelog](/changelog.html).

@@ -3,7 +3,7 @@ title: "Version history"
 category: "updates"
 summary: "Every release from v1.0.0 to the latest, grouped by new features, changes, balance, polish and fixes."
 keywords: ["release notes", "patch notes", "changelog", "versions"]
-updated: "2026-10-18"
+updated: "2026-10-21"
 order: 2
 ---
 Every SlimeSmash release in one place, newest first. The full list with build numbers is on the [changelog](/changelog.html).
@@ -12,6 +12,7 @@ Every SlimeSmash release in one place, newest first. The full list with build nu
 
 | Version | Date | Name |
 |---|---|---|
+| v2.0.0 | October 2026 | The 360° Defense Update |
 | v1.2.0 | 16 May 2026 | Chain Reaction Update |
 | v1.1.10 | 11 May 2026 | PC Support Update |
 | v1.1.8 | 4 Apr 2026 | Stability Update |
@@ -24,6 +25,33 @@ Every SlimeSmash release in one place, newest first. The full list with build nu
 | v1.0.2 | 4 Feb 2026 | Balance Patch |
 | v1.0.1 | 28 Jan 2026 | Foundation Patch |
 | v1.0.0 | 23 Jan 2026 | Launch Day |
+
+## v2.0.0: The 360° Defense Update
+
+*Released October 2026.*
+
+**New**
+
+- 360° Central Base Defense is now the main way to play
+- Five languages: English, Español, Français, Deutsch and Português (Brasil)
+- A new animated main menu, loading screen and Adventure backgrounds, a redesigned level select and a rebuilt tutorial
+- Surf Mode redesigned, pet beams, vibration feedback and redesigned Daily Missions
+- Remove Ads is one tap from the main menu
+
+**Changed**
+
+- Pets in Casual and Defense have no max uses per game, and cooldowns scale instead
+- Wave and Defense records and the Defense checkpoint now sync with your cloud save
+- Frame rate defaults to 60 FPS, with a High FPS option in Settings
+- Removed: companions, pet upgrades, the Devourer, stars, borders, music and the missions streak
+
+**Fixed**
+
+- A rebuilt save system with cloud-sync protection, and automatic migration of 1.x saves
+- Defense records only ever go up, and the game pauses when you switch apps
+- Many pet, slime, ad, mission and account bugs
+
+See the full [What's new in 2.0](/help/updates/whats-new-in-2-0/) notes.
 
 ## v1.2.0: Chain Reaction Update
 
@@ -280,6 +308,6 @@ Every SlimeSmash release in one place, newest first. The full list with build nu
 - Casual Mode — endless waves, play at your own pace
 - Starter slime roster to discover and collect
 
-## Coming next
+## Latest
 
-See the [Upcoming update](/help/updates/upcoming-update/).
+The newest release is v2.0.0. See [What's new in 2.0](/help/updates/whats-new-in-2-0/).

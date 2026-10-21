@@ -1,7 +1,214 @@
 [
   {
-    "version": "v1.2.0",
+    "version": "v2.0.0",
+    "date": "October 2026",
+    "name": "The 360° Defense Update",
+    "major": true,
     "latest": true,
+    "builds": [
+      "Production"
+    ],
+    "items": [
+      {
+        "tag": "new",
+        "text": "360° Central Base Defense is now the main way to play: slimes attack from every side, your base has a 2-hit shield, and the background changes every 5 waves"
+      },
+      {
+        "tag": "new",
+        "text": "SlimeSmash speaks 5 languages: English, Español, Français, Deutsch and Português (Brasil), with a new pixel font that draws accented letters"
+      },
+      {
+        "tag": "new",
+        "text": "Brand-new animated main menu, a loading screen with live status, fresh Adventure backgrounds and a redesigned level-select screen"
+      },
+      {
+        "tag": "new",
+        "text": "Rebuilt tutorial for a smoother first few minutes"
+      },
+      {
+        "tag": "new",
+        "text": "Surf Mode redesigned: slimes move like a real wave and speed up as time runs out"
+      },
+      {
+        "tag": "new",
+        "text": "Beam effect: a line is drawn from your pet to every slime its ability affects"
+      },
+      {
+        "tag": "new",
+        "text": "Vibration (haptic) feedback, with a Vibration toggle in Settings"
+      },
+      {
+        "tag": "new",
+        "text": "Daily Missions redesigned, with a 2x Coins rewarded-ad button and a +500 coin chest for completing all missions"
+      },
+      {
+        "tag": "new",
+        "text": "Remove Ads is now one tap away from the main menu. Ads appear only at natural breaks in Adventure, Casual and Defense"
+      },
+      {
+        "tag": "new",
+        "text": "Daily Reward button moved to the main menu"
+      },
+      {
+        "tag": "new",
+        "text": "Player ID shown in Settings, a cleaner Google Play sign-in panel and a progress bar on the Casual Mode lock screen"
+      },
+      {
+        "tag": "new",
+        "text": "Player names can now include accented letters (José, François, Müller)"
+      },
+      {
+        "tag": "new",
+        "text": "Firebase App Check with Play Integrity for stronger protection of progress and leaderboards"
+      },
+      {
+        "tag": "change",
+        "text": "Slimes now enter from the far right and travel left with a wave motion, random speed (±20%) and rotation. Good slimes that escape reset your combo and cost 1.5 s"
+      },
+      {
+        "tag": "change",
+        "text": "Pets in Casual and Defense are no longer limited by max uses per game. Cooldowns scale instead"
+      },
+      {
+        "tag": "change",
+        "text": "Wave and Defense records and the Defense checkpoint now sync with your cloud save"
+      },
+      {
+        "tag": "change",
+        "text": "Frame rate defaults to 60 fps for better battery life. A High-FPS option is available in Settings"
+      },
+      {
+        "tag": "change",
+        "text": "Consent now also controls Firebase Analytics and Crashlytics, and Privacy options are available in Settings"
+      },
+      {
+        "tag": "change",
+        "text": "Removed: the Companion system and pet upgrades. Pets stay"
+      },
+      {
+        "tag": "change",
+        "text": "Removed: the Devourer, the stars system, the border system and the main-menu splash text"
+      },
+      {
+        "tag": "change",
+        "text": "Removed: in-game music and the Music toggle. SlimeSmash is now sound effects only"
+      },
+      {
+        "tag": "change",
+        "text": "Removed: the daily missions streak (the daily reward streak stays) and slimes that only did something trivial or negative"
+      },
+      {
+        "tag": "balance",
+        "text": "Slimes no longer decay in Defense Mode"
+      },
+      {
+        "tag": "balance",
+        "text": "Mission rewards rebalanced with more depth"
+      },
+      {
+        "tag": "fix",
+        "text": "Zap and Bones pets now work correctly, pet abilities count kills toward wave completion, and the Shield ability now protects the base"
+      },
+      {
+        "tag": "fix",
+        "text": "Vacuum no longer softlocks Defense waves"
+      },
+      {
+        "tag": "fix",
+        "text": "Mirror Pop could be cancelled by an old timer, Swap used twice could convert slimes permanently, and Money slimes no longer pay double"
+      },
+      {
+        "tag": "fix",
+        "text": "The tutorial can no longer freeze, and the Level 1 welcome panel no longer reappears when replaying"
+      },
+      {
+        "tag": "fix",
+        "text": "Defense records: NEW RECORD! and the record bonus were paid on almost every run. Records now only ever go up"
+      },
+      {
+        "tag": "fix",
+        "text": "The game now pauses automatically when you switch apps or get a call"
+      },
+      {
+        "tag": "fix",
+        "text": "The Mission 2x Coins rewarded ad never loaded. Fixed"
+      },
+      {
+        "tag": "fix",
+        "text": "If remote config could not be fetched, the game could serve test ads. It now falls back to production ads"
+      },
+      {
+        "tag": "fix",
+        "text": "Daily missions now refresh if the app stayed open past UTC midnight, and the reset countdown is correct in every time zone"
+      },
+      {
+        "tag": "fix",
+        "text": "The daily reward no longer locks for days if the phone clock was changed forward and back"
+      },
+      {
+        "tag": "fix",
+        "text": "Your best offline leaderboard score is kept (a worse run no longer replaces it)"
+      },
+      {
+        "tag": "fix",
+        "text": "The update popup opens the Play Store reliably, the review prompt no longer stops after one failed request, and the Store Skins tab no longer does nothing when tapped"
+      },
+      {
+        "tag": "fix",
+        "text": "Sound OFF now silences pop sounds, which used to ignore the setting"
+      },
+      {
+        "tag": "fix",
+        "text": "Smoother on low-end phones: no disk write on every slime kill and a pooled pop sound"
+      },
+      {
+        "tag": "fix",
+        "text": "Saved slimes no longer stay red, ghost slimes no longer jump back to full opacity, VFX appear in the right place, and Split, Explosion and Chain Reaction no longer error"
+      },
+      {
+        "tag": "fix",
+        "text": "Existing 1.x saves and Waves/Defense records are migrated automatically"
+      },
+      {
+        "tag": "fix",
+        "text": "Switching your Google Play Games profile no longer creates duplicate identities or reuses another profile's data"
+      },
+      {
+        "tag": "fix",
+        "text": "Signing in with Google after launching offline now works"
+      },
+      {
+        "tag": "fix",
+        "text": "A failed cloud download is no longer treated as no cloud save, and nothing is uploaded over your cloud save until it has been read successfully"
+      },
+      {
+        "tag": "fix",
+        "text": "Save validation reworked: more robust signatures, and unverifiable saves are kept for recovery instead of deleted"
+      },
+      {
+        "tag": "fix",
+        "text": "Delete account now removes the cloud save and account first. If that fails or you are offline, nothing is lost and you can retry"
+      },
+      {
+        "tag": "polish",
+        "text": "Improved HUD, and toast notifications that stay out of the way of gameplay"
+      },
+      {
+        "tag": "polish",
+        "text": "A \"Coming Soon!\" message on the Skins tab"
+      },
+      {
+        "tag": "polish",
+        "text": "Smoother first-time experience: a short wait on first open and no slimes spawning during the tutorial"
+      },
+      {
+        "tag": "polish",
+        "text": "More colorful Defense backgrounds and a new level-select design"
+      }
+    ]
+  },
+  {
+    "version": "v1.2.0",
     "date": "16 May 2026",
     "name": "Chain Reaction Update",
     "builds": [

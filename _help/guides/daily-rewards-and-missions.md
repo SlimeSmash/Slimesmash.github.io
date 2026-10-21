@@ -2,7 +2,7 @@
 title: "Daily rewards and missions"
 category: "guides"
 summary: "The 5-day reward cycle, daily missions, rarities and rerolls."
-updated: "2026-10-18"
+updated: "2026-10-21"
 order: 4
 keywords: ["streak", "daily", "missions", "quests", "chest"]
 ---
@@ -29,10 +29,11 @@ Open the **Daily Reward** button on the main menu once a day and claim.
 - Mission types: play Adventure levels, win Adventure levels, earn coins, pop slimes, and play for a number of minutes.
 - Missions have a rarity: **Common** (base reward), **Rare** (1.8× reward) and **Epic** (3× reward).
 - Finish all three to open the **Grand Chest** and earn a 500-coin bonus.
-- You can watch a rewarded ad to **reroll** a mission you dislike (limited per day) or to boost a reward. Ads for missions are always optional.
+- You can watch a rewarded ad to **reroll** a mission you dislike (limited per day). The **2x Coins** button on the missions panel doubles your reward for a rewarded ad. Ads for missions are always optional.
+- If the app stays open past midnight UTC, your missions refresh automatically, and the reset countdown is correct in every time zone.
 - After every run the game shows your mission progress.
 
-The daily mission streak is removed in the next update, and a mission rework is planned. See [Upcoming update](/help/updates/upcoming-update/).
+The daily **mission** streak was removed in 2.0. The daily **reward** streak stays. Mission rewards were also rebalanced. See [What's new in 2.0](/help/updates/whats-new-in-2-0/).
 
 ## Notifications
 

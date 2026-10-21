@@ -1,0 +1,13 @@
+# The "What's new in 2.0" list on the home page. Plain text only.
+- title: "A whole new look"
+  text: "An animated main menu, new Adventure backgrounds, a redesigned level select, and Defense backgrounds that change every 5 waves."
+- title: "Surf Mode, rebuilt"
+  text: "Slimes now ride a real wave, rotating as they go, and they speed up as the clock runs down."
+- title: "Pets, unleashed"
+  text: "In Casual and Defense your pet's ability has no use limit, only a cooldown. Beams show exactly which slimes it hits."
+- title: "Missions that pay"
+  text: "A fresh missions panel, a 2x Coins button, and a 500-coin chest when you finish all three."
+- title: "Progress you can trust"
+  text: "A rebuilt save system with cloud-sync protection. Your 1.x saves and records move over automatically."
+- title: "Smoother from the first tap"
+  text: "A rebuilt tutorial, a loading screen with live status, vibration feedback, and auto-pause when you switch apps."

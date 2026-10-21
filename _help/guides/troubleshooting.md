@@ -25,7 +25,7 @@ Check that notifications are allowed for SlimeSmash in your phone settings. See 
 
 ## Crashes or slowdowns
 
-Update first. The game targets 120 FPS since v1.2.0. If it still crashes or runs badly, [contact support](/help/guides/contact-support/) with your device model and Android version.
+Update first. Since 2.0 the game runs at 60 FPS by default, and High FPS is an option in [Settings](/help/guides/settings/). If it still crashes or runs badly, [contact support](/help/guides/contact-support/) with your device model and Android version.
 
 ## A slime or pet behaves strangely
 

@@ -1,19 +1,22 @@
-# Files live in assets/img/screenshots/. Add a line to add a screenshot.
+# Files live in assets/img/screenshots/. Add an entry to add a screenshot.
+# Set `hide: true` to keep a file in the repo but leave it out of the gallery.
 - file: Screenshot00.webp
-  alt: "SlimeSmash gameplay screenshot 1"
+  alt: "Casual Mode wave 7 with three hearts and a combo counter"
 - file: Screenshot01.webp
-  alt: "SlimeSmash gameplay screenshot 2"
+  alt: "Slimes bouncing over ocean waves in Surf Mode"
 - file: Screenshot02.webp
-  alt: "SlimeSmash gameplay screenshot 3"
+  alt: "Slimes drifting across a sunset sky in an endless wave"
 - file: Screenshot03.webp
-  alt: "SlimeSmash gameplay screenshot 4"
+  alt: "A ring of colorful slimes in Adventure Mode"
 - file: Screenshot04.webp
-  alt: "SlimeSmash gameplay screenshot 5"
+  alt: "Rare slimes in a desert Adventure level"
 - file: Screenshot05.webp
-  alt: "SlimeSmash gameplay screenshot 6"
+  alt: "The Store with pets and icons"
+  hide: true   # shows the removed Companions tab, replace with a 2.0 capture
 - file: Screenshot06.webp
-  alt: "SlimeSmash gameplay screenshot 7"
+  alt: "The global leaderboard ranked by wave"
 - file: Screenshot07.webp
-  alt: "SlimeSmash gameplay screenshot 8"
+  alt: "The Daily Missions panel"
+  hide: true   # shows the removed mission streak, replace with a 2.0 capture
 - file: Screenshot08.webp
-  alt: "SlimeSmash gameplay screenshot 9"
+  alt: "The Daily Rewards panel with a five-day cycle"

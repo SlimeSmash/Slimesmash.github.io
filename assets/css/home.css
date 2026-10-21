@@ -163,3 +163,76 @@ h1.hero-title-container {
 
 .narrow-section { max-width: 800px; margin: 2rem auto 4rem; padding: 0 2rem; text-align: center; }
 .lead { color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; max-width: 720px; margin: 0 auto 2rem; }
+
+/* ── SlimeSmash 2.0 launch ── */
+.hero-badges {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 1.2rem; animation: fadeUp 0.6s 0.1s ease both;
+}
+.hero-badges .hero-badge { margin-bottom: 0; animation: none; }
+.hero-badge-new {
+  background: var(--green); color: var(--btn-text); text-decoration: none;
+  box-shadow: 0 0 0 0 var(--line);
+}
+.hero-badges .hero-badge-new { animation: badgePulse 2.4s 1.2s ease-out 3; }
+.hero-badge-new:hover { filter: brightness(1.1); }
+@keyframes badgePulse { 0% { box-shadow: 0 0 0 0 var(--line); } 70% { box-shadow: 0 0 0 14px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+
+.v2 { max-width: 1000px; margin: 5rem auto 4rem; padding: 0 2rem; }
+.v2 .lead { text-align: center; }
+
+.defense-demo {
+  position: relative; overflow: hidden; touch-action: manipulation;
+  aspect-ratio: 16 / 9; max-height: 560px; width: 100%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(62,207,110,0.10), transparent 62%),
+    var(--card);
+  border: 1px solid var(--green); border-radius: 16px; box-shadow: var(--shadow), 0 0 40px var(--green-bg);
+}
+.defense-demo canvas { display: block; cursor: crosshair; touch-action: none; -webkit-tap-highlight-color: transparent; }
+.demo-hud {
+  position: absolute; top: 12px; left: 14px; right: 14px; z-index: 2; pointer-events: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-family: var(--font-display); font-size: 1.05rem; color: var(--text);
+}
+.demo-hud .surge { color: #ff5d5d; }
+.demo-shield { display: inline-flex; gap: 6px; }
+.demo-shield i { width: 22px; height: 12px; border-radius: 3px; border: 2px solid var(--border); background: transparent; transition: background 0.2s, border-color 0.2s; }
+.demo-shield i.on { background: var(--green); border-color: var(--green); }
+.demo-overlay {
+  position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.6rem; text-align: center; padding: 1.5rem;
+  background: rgba(15,17,23,0.6);
+  background: color-mix(in srgb, var(--bg-base) 62%, transparent);
+  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+}
+.demo-overlay[hidden] { display: none; }
+.demo-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); color: var(--text); }
+.demo-sub { color: var(--text-dim); font-weight: 500; max-width: 420px; line-height: 1.5; margin-bottom: 0.6rem; }
+.demo-caption { text-align: center; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; max-width: 620px; margin: 1rem auto 0; line-height: 1.6; }
+
+.v2-list {
+  list-style: none; margin: 3.5rem 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 3rem;
+}
+.v2-list li { padding-left: 1.1rem; border-left: 3px solid var(--green); }
+.v2-list h3 { font-family: var(--font-display); font-weight: normal; font-size: 1.25rem; color: var(--text); margin-bottom: 0.35rem; }
+.v2-list p { color: var(--text-dim); line-height: 1.65; font-size: 0.97rem; font-weight: 500; }
+
+.v2-langs { margin-top: 3.5rem; text-align: center; }
+.v2-langs h3 { font-family: var(--font-display); font-weight: normal; font-size: 1.4rem; color: var(--text); margin-bottom: 1rem; }
+.v2-langs ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.v2-langs li {
+  padding: 8px 18px; border-radius: 999px; font-weight: 700; font-size: 0.98rem;
+  background: var(--green-bg); border: 1px solid var(--green); color: var(--text);
+}
+.v2-langs p { margin-top: 1rem; color: var(--text-muted); font-size: 0.92rem; font-weight: 500; }
+
+.v2-cta { margin-top: 3rem; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+.latest-card { box-shadow: var(--shadow), 0 0 30px var(--green-bg); }
+
+@media (max-width: 768px) {
+  .v2 { padding: 0 1rem; margin-top: 3rem; }
+  .defense-demo { aspect-ratio: 4 / 5; max-height: none; }
+  .v2-list { grid-template-columns: 1fr; gap: 1.6rem; }
+}

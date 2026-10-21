@@ -206,3 +206,7 @@ html:not(.js) .search-wrap, html:not(.js) .filter-bar, html:not(.js) #loadMoreBt
 
 .more-wrap { text-align: center; margin-top: 2rem; }
 #loadMoreBtn[hidden] { display: none; }
+
+/* Major releases (set "major": true in _data/changelog.json) */
+.tl-entry.major .tl-card { border-color: var(--green); box-shadow: var(--shadow), 0 0 32px var(--green-bg); }
+.tl-entry.major .version-name { color: var(--text); }

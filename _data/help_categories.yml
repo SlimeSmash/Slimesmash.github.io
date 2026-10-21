@@ -15,10 +15,10 @@
   display: cards
   blurb: Every slime type, how it behaves, and what has changed.
 - id: pets
-  name: Pets & companions
+  name: Pets
   url: /help/pets/
   display: cards
-  blurb: Companions, their abilities, and how to get them.
+  blurb: Every pet, its ability, and how to get it.
 - id: levels
   name: Adventure levels
   url: /help/levels/
@@ -33,4 +33,4 @@
   name: Updates
   url: /help/updates/
   display: rows
-  blurb: Version history and what is coming in the next update.
+  blurb: What's new in 2.0 and the version history of every release.

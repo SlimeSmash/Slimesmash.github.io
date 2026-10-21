@@ -18,7 +18,7 @@ Signing in to Google Play Games lets you:
 - Earn [achievements](/help/reference/achievements/).
 - Move to a new device and keep your progress.
 
-Switching your Google Play Games profile no longer creates a duplicate identity (fixed in the next update).
+Switching your Google Play Games profile no longer creates a duplicate identity (fixed in 2.0). Signing in with Google after launching offline also works now.
 
 ## When two saves disagree
 

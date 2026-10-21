@@ -2,7 +2,7 @@
 title: "Delete your account"
 category: "guides"
 summary: "How to delete your account and data."
-updated: "2026-10-03"
+updated: "2026-10-21"
 order: 8
 ---
 You can delete your account and data in the game or by email.
@@ -10,6 +10,8 @@ You can delete your account and data in the game or by email.
 ## In the game
 
 Go to **Settings, then Delete Account**.
+
+Since 2.0 the game deletes your cloud save and account **first**, and wipes local data only after that succeeds. If it fails, or you are offline, nothing is lost and you can try again. Your leaderboard name and score are not removed when you delete your account.
 
 ## By email
 

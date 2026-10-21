@@ -18,7 +18,7 @@ New players get a short guided intro.
 - Tap the green slimes to pop them.
 - Use the pet button to try your pet's ability.
 - The level starts without the usual 3-2-1 countdown.
-- Level 1 no longer shows the welcome panel when replayed (fixed in the next update).
+- Level 1 no longer shows the welcome panel when replayed (fixed in 2.0).
 
 ## Slime Discovery
 

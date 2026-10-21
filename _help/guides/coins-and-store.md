@@ -2,7 +2,7 @@
 title: "Coins and the Store"
 category: "guides"
 summary: "What coins do, what the Store sells and what everything costs."
-updated: "2026-10-18"
+updated: "2026-10-21"
 order: 3
 keywords: ["shop", "store", "prices", "buy"]
 ---
@@ -40,4 +40,5 @@ The Store has an Icons tab (added in v1.1.7). Your icon is shown next to your na
 
 - Coins are earned entirely in-game. They have no real-world value and cannot be exchanged or transferred.
 - There are no real-money coin packs.
-- Pet upgrades are being removed in the next update. See [Upcoming update](/help/updates/upcoming-update/).
+- Pet upgrades were removed in 2.0. See [What's new in 2.0](/help/updates/whats-new-in-2-0/).
+- The Store has a **Skins** tab that says "Coming Soon!". It is not active yet.

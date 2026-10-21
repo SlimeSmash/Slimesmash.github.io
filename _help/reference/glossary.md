@@ -18,7 +18,7 @@ Terms used across this wiki.
 | **Casual Mode** | Endless wave mode with no timer. Older strings call it Waves Mode. | [Open](/help/modes/casual-mode/) |
 | **Checkpoint** | A saved wave every 5 waves in Defense Mode. | [Open](/help/modes/defense-mode/) |
 | **Combo** | A counter of consecutive good pops. Visual only. | [Open](/help/reference/score-and-multipliers/) |
-| **Companion** | An older helper system, being retired. Maximus was one. | [Open](/help/pets/maximus/) |
+| **Companion** | An older helper system, removed in 2.0. Maximus was one. | [Open](/help/pets/maximus/) |
 | **Cooldown** | The wait before an ability pet can be used again. | [Open](/help/reference/pets-in-endless-modes/) |
 | **Defense Mode** | 360-degree base defense mode. | [Open](/help/modes/defense-mode/) |
 | **Endless mode** | Casual or Defense Mode, which have no end. | [Open](/help/modes/mode-comparison/) |

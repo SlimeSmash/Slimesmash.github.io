@@ -1,15 +1,19 @@
 ---
 layout: default
-title: "SlimeSmash - Pop Slimes, Unlock Pets & Climb Leaderboards"
+title: "SlimeSmash 2.0 - 360° Base Defense, Pets & Global Leaderboards"
 raw_title: true
-og_title: "SlimeSmash - Retro Arcade Wave Survival Game"
-description: "Pop slimes, unlock pet companion synergies, and climb global leaderboards in SlimeSmash! Fast-paced retro arcade wave-survival game. Download free on Google Play."
+og_title: "SlimeSmash 2.0 is live - Retro Arcade Wave Survival"
+description: "SlimeSmash 2.0 is live! Defend your base from slimes in 360° Defense Mode, equip pets, play in 5 languages and climb global leaderboards. Free on Google Play."
 styles: [home]
+scripts: [defense-demo]
 body_class: page-home
 ---
 <section id="home">
   <img src="/Icon.png" alt="" class="hero-app-icon" width="90" height="90">
-  <div class="hero-badge">Free on Google Play</div>
+  <div class="hero-badges">
+    <a class="hero-badge hero-badge-new" href="#v2">SlimeSmash 2.0 is live</a>
+    <span class="hero-badge">Free on Google Play</span>
+  </div>
 
   <h1 class="hero-title-container" aria-label="SlimeSmash">
     <div class="letter-s" aria-hidden="true">S</div>
@@ -19,13 +23,56 @@ body_class: page-home
     </div>
   </h1>
 
-  <p class="hero-sub">Pop slimes, unlock companion pets, and compete globally.<br><strong>Can you reach #1 on the leaderboards?</strong></p>
+  <p class="hero-sub">The biggest update yet. Slimes now attack from every side, so hold the middle.<br><strong>Can you reach #1 on the leaderboards?</strong></p>
 
   <div class="hero-btns">
     <a class="play-badge" href="{{ site.data.site.play_url | escape }}&amp;hl=en" target="_blank" rel="noopener noreferrer">
       <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get SlimeSmash on Google Play">
     </a>
-    <a href="/changelog.html" class="btn btn-ghost">What's New →</a>
+    <a href="#v2" class="btn btn-ghost">See what's new in 2.0 →</a>
+  </div>
+</section>
+
+<section id="v2" class="v2" aria-labelledby="v2-title">
+  <p class="section-label">Out now on Google Play</p>
+  <h2 class="section-title" id="v2-title">SlimeSmash 2.0: hold the middle</h2>
+  <p class="lead">The new <strong>360° Base Defense</strong> is now the main way to play. Slimes spawn on every side and march at your base. Pop them before they land, survive the Surge on every 5th wave, and see how far you can push your record.</p>
+
+  <div class="defense-demo" id="defenseDemo">
+    <canvas id="defenseCanvas" aria-hidden="true"></canvas>
+    <div class="demo-hud" aria-hidden="true">
+      <span id="demoWave">Wave 1</span>
+      <span class="demo-shield" id="demoShield"><i></i><i></i></span>
+      <span id="demoScore">0 popped</span>
+    </div>
+    <div class="demo-overlay" id="demoOverlay">
+      <p class="demo-title" id="demoTitle">Defend the base</p>
+      <p class="demo-sub" id="demoSub">Tap or click slimes before they reach the middle.</p>
+      <button type="button" class="btn btn-primary btn-sm" id="demoBtn">Play the demo</button>
+    </div>
+  </div>
+  <p class="demo-caption">This is a small taste of the new mode, running right here in your browser. The real thing has pets, coins, checkpoints and a global leaderboard.</p>
+
+  <ul class="v2-list">
+    {% for h in site.data.highlights %}
+    <li><h3>{{ h.title | escape }}</h3><p>{{ h.text | escape }}</p></li>
+    {% endfor %}
+  </ul>
+
+  <div class="v2-langs">
+    <h3>Now in 5 languages</h3>
+    <ul>
+      {% for l in site.data.site.languages %}<li lang="{{ l.code }}">{{ l.name | escape }}</li>
+      {% endfor %}
+    </ul>
+    <p>Menus, tutorial, messages and sign-in, with a pixel font that finally draws every accent.</p>
+  </div>
+
+  <div class="v2-cta">
+    <a class="play-badge" href="{{ site.data.site.play_url | escape }}&amp;hl=en" target="_blank" rel="noopener noreferrer">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get SlimeSmash on Google Play" loading="lazy">
+    </a>
+    <a href="/help/updates/whats-new-in-2-0/" class="btn btn-ghost">Read the full 2.0 notes →</a>
   </div>
 </section>
 
@@ -33,7 +80,7 @@ body_class: page-home
   <p class="section-label">About SlimeSmash</p>
   <h2 class="section-title">Retro Pixel Reflex Survival</h2>
   <p class="lead">
-    <strong>SlimeSmash</strong> is an independent, fast-paced retro pixel arcade wave-survival game built for reflex-driven players. Test your reaction speed across 50+ hand-crafted Adventure levels with unique difficulty modes. Unlock companion pets with synergistic abilities, survive endless waves, and dominate the global leaderboards!
+    <strong>SlimeSmash</strong> is an independent, fast-paced retro pixel arcade wave-survival game built for reflex-driven players. Test your reaction speed across 50 hand-crafted Adventure levels, defend your base from every direction in Defense Mode, equip pets with game-changing abilities, and dominate the global leaderboards.
   </p>
 </section>
 
@@ -55,9 +102,9 @@ body_class: page-home
   <p class="section-label">Gallery</p>
   <h2 class="section-title">In-Game Screenshots</h2>
   <div class="gallery-horizontal-container" role="region" aria-label="Screenshot gallery" tabindex="0">
-    {% for s in site.data.screenshots %}
+    {% for s in site.data.screenshots %}{% unless s.hide %}
     <div class="gallery-card"><img src="/assets/img/screenshots/{{ s.file }}" alt="{{ s.alt | escape }}" loading="lazy" decoding="async"></div>
-    {% endfor %}
+    {% endunless %}{% endfor %}
   </div>
 </section>
 
@@ -78,7 +125,7 @@ body_class: page-home
 {% assign latest = site.data.changelog.first %}
 {% if latest %}
 <section class="latest" aria-labelledby="latest-title">
-  <p class="section-label">What's new</p>
+  <p class="section-label">Latest release</p>
   <h2 class="section-title" id="latest-title">Latest Update</h2>
   <div class="latest-card">
     <div>
@@ -92,7 +139,7 @@ body_class: page-home
         {% endfor %}
       </ul>
     </div>
-    <a href="/changelog.html" class="btn btn-primary btn-sm">Full Changelog →</a>
+    <a href="/changelog.html" class="btn btn-primary btn-sm">Full changelog →</a>
   </div>
 </section>
 {% endif %}

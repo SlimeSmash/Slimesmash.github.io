@@ -6,8 +6,16 @@ play_url: https://play.google.com/store/apps/details?id=com.SlimeSmashStudio.Sli
 youtube_url: https://www.youtube.com/@SlimeSmashStudio
 youtube_playlist: PL0SLUT5_Gp64F2ZQmiQc8WGLX_JUbrNTq
 ga_id: G-WV2NR7Y33N
+version: "2.0"
+languages:
+  - { name: English,           code: en }
+  - { name: Español,           code: es }
+  - { name: Français,          code: fr }
+  - { name: Deutsch,           code: de }
+  - { name: "Português (Brasil)", code: pt-BR }
 nav:
   - { label: Home,        url: "/#home" }
+  - { label: "2.0",        url: "/#v2" }
   - { label: About,       url: "/#about" }
   - { label: Features,    url: "/#features" }
   - { label: Screenshots, url: "/#screenshots" }

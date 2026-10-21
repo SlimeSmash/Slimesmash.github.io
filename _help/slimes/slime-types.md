@@ -2,7 +2,7 @@
 title: "Slime types overview"
 category: "slimes"
 summary: "All 15 slime types at a glance, with where they appear and what they do."
-updated: "2026-10-18"
+updated: "2026-10-21"
 order: 0
 popular: true
 facts:
@@ -54,7 +54,7 @@ A **bad slime** is one that punishes you for tapping it. Only [Poison](/help/sli
 
 ## Retired slimes
 
-[Freeze Slime](/help/slimes/freeze-slime/) (retired in v1.2.0) and [Devourer](/help/slimes/devourer/) (removed) no longer appear.
+[Freeze Slime](/help/slimes/freeze-slime/) (retired in v1.2.0) and [Devourer](/help/slimes/devourer/) (removed in 2.0) no longer appear.
 
 ## Compare them all
 
