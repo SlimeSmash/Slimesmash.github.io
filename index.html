@@ -5,7 +5,6 @@ raw_title: true
 og_title: "SlimeSmash 2.0 is live - Retro Arcade Wave Survival"
 description: "SlimeSmash 2.0 is live! Defend your base from slimes in 360° Defense Mode, equip pets, play in 5 languages and climb global leaderboards. Free on Google Play."
 styles: [home]
-scripts: [defense-demo]
 body_class: page-home
 ---
 <section id="home">
@@ -37,21 +36,6 @@ body_class: page-home
   <p class="section-label">Out now on Google Play</p>
   <h2 class="section-title" id="v2-title">SlimeSmash 2.0: hold the middle</h2>
   <p class="lead">The new <strong>360° Base Defense</strong> is now the main way to play. Slimes spawn on every side and march at your base. Pop them before they land, survive the Surge on every 5th wave, and see how far you can push your record.</p>
-
-  <div class="defense-demo" id="defenseDemo">
-    <canvas id="defenseCanvas" aria-hidden="true"></canvas>
-    <div class="demo-hud" aria-hidden="true">
-      <span id="demoWave">Wave 1</span>
-      <span class="demo-shield" id="demoShield"><i></i><i></i></span>
-      <span id="demoScore">0 popped</span>
-    </div>
-    <div class="demo-overlay" id="demoOverlay">
-      <p class="demo-title" id="demoTitle">Defend the base</p>
-      <p class="demo-sub" id="demoSub">Tap or click slimes before they reach the middle.</p>
-      <button type="button" class="btn btn-primary btn-sm" id="demoBtn">Play the demo</button>
-    </div>
-  </div>
-  <p class="demo-caption">This is a small taste of the new mode, running right here in your browser. The real thing has pets, coins, checkpoints and a global leaderboard.</p>
 
   <ul class="v2-list">
     {% for h in site.data.highlights %}

@@ -1,22 +1,17 @@
 # Files live in assets/img/screenshots/. Add an entry to add a screenshot.
-# Set `hide: true` to keep a file in the repo but leave it out of the gallery.
-- file: Screenshot00.webp
-  alt: "Casual Mode wave 7 with three hearts and a combo counter"
-- file: Screenshot01.webp
-  alt: "Slimes bouncing over ocean waves in Surf Mode"
-- file: Screenshot02.webp
-  alt: "Slimes drifting across a sunset sky in an endless wave"
-- file: Screenshot03.webp
-  alt: "A ring of colorful slimes in Adventure Mode"
-- file: Screenshot04.webp
-  alt: "Rare slimes in a desert Adventure level"
-- file: Screenshot05.webp
-  alt: "The Store with pets and icons"
-  hide: true   # shows the removed Companions tab, replace with a 2.0 capture
-- file: Screenshot06.webp
-  alt: "The global leaderboard ranked by wave"
-- file: Screenshot07.webp
-  alt: "The Daily Missions panel"
-  hide: true   # shows the removed mission streak, replace with a 2.0 capture
-- file: Screenshot08.webp
-  alt: "The Daily Rewards panel with a five-day cycle"
+- file: Screenshot-v2-01.png
+  alt: "360-degree Defense Mode with the core, slimes, and wave progress"
+- file: Screenshot-v2-02.png
+  alt: "Surf Mode gameplay above the ocean"
+- file: Screenshot-v2-03.png
+  alt: "Endless wave gameplay with three hearts"
+- file: Screenshot-v2-04.png
+  alt: "Global leaderboard ranked by wave"
+- file: Screenshot-v2-05.png
+  alt: "Daily rewards and the login streak"
+- file: Screenshot-v2-06.png
+  alt: "Daily missions and the grand chest reward"
+- file: Screenshot-v2-07.png
+  alt: "Store with collectible pets and icons"
+- file: Screenshot-v2-08.png
+  alt: "Adventure, Defense, and Casual game modes"

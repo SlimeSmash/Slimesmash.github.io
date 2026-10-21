@@ -181,36 +181,6 @@ h1.hero-title-container {
 .v2 { max-width: 1000px; margin: 5rem auto 4rem; padding: 0 2rem; }
 .v2 .lead { text-align: center; }
 
-.defense-demo {
-  position: relative; overflow: hidden; touch-action: manipulation;
-  aspect-ratio: 16 / 9; max-height: 560px; width: 100%;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(62,207,110,0.10), transparent 62%),
-    var(--card);
-  border: 1px solid var(--green); border-radius: 16px; box-shadow: var(--shadow), 0 0 40px var(--green-bg);
-}
-.defense-demo canvas { display: block; cursor: crosshair; touch-action: none; -webkit-tap-highlight-color: transparent; }
-.demo-hud {
-  position: absolute; top: 12px; left: 14px; right: 14px; z-index: 2; pointer-events: none;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  font-family: var(--font-display); font-size: 1.05rem; color: var(--text);
-}
-.demo-hud .surge { color: #ff5d5d; }
-.demo-shield { display: inline-flex; gap: 6px; }
-.demo-shield i { width: 22px; height: 12px; border-radius: 3px; border: 2px solid var(--border); background: transparent; transition: background 0.2s, border-color 0.2s; }
-.demo-shield i.on { background: var(--green); border-color: var(--green); }
-.demo-overlay {
-  position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 0.6rem; text-align: center; padding: 1.5rem;
-  background: rgba(15,17,23,0.6);
-  background: color-mix(in srgb, var(--bg-base) 62%, transparent);
-  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
-}
-.demo-overlay[hidden] { display: none; }
-.demo-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); color: var(--text); }
-.demo-sub { color: var(--text-dim); font-weight: 500; max-width: 420px; line-height: 1.5; margin-bottom: 0.6rem; }
-.demo-caption { text-align: center; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; max-width: 620px; margin: 1rem auto 0; line-height: 1.6; }
-
 .v2-list {
   list-style: none; margin: 3.5rem 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 3rem;
 }
@@ -233,6 +203,5 @@ h1.hero-title-container {
 
 @media (max-width: 768px) {
   .v2 { padding: 0 1rem; margin-top: 3rem; }
-  .defense-demo { aspect-ratio: 4 / 5; max-height: none; }
   .v2-list { grid-template-columns: 1fr; gap: 1.6rem; }
 }
