@@ -119,14 +119,6 @@ SlimeSmash 2.0 is the biggest update so far: a new main game mode, new backgroun
 - Save validation was reworked. Saves that cannot be verified are kept for recovery instead of deleted.
 - **Delete account:** the cloud save and account are deleted first, and local data is wiped only after that succeeds. If it fails, or you are offline, nothing is lost and you can retry. See [Delete your account](/help/guides/delete-account/).
 - A push-notification token is no longer written to device logs.
-
-## Known limitations in 2.0
-
-- The visual refresh (an original SlimeSmash slime, new idle and die animations, a new icon and store graphics) is **not** part of 2.0.
-- Arabic is not available. It needs right-to-left text and an Arabic font.
-- The Skins tab is a placeholder.
-- The leaderboard name and score are not removed when an account is deleted.
-
 ## Related pages
 
 - [Defense Mode](/help/modes/defense-mode/) and its [wave table](/help/reference/defense-wave-table/)
